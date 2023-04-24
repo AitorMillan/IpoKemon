@@ -1,0 +1,15 @@
+﻿<Page
+    x:Class="IpoKemon_viewbox.Combate"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:IpoKemon_viewbox"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Height="160" Margin="97,101,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Pestaña combate" VerticalAlignment="Top" Width="486" Foreground="Black" FontSize="36"/>
+        <local:ratingUC HorizontalAlignment="Left" Height="146" Margin="10,353,0,0" VerticalAlignment="Top" Width="265"/>
+    </Grid>
+</Page>
