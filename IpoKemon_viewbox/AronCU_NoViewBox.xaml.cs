@@ -107,13 +107,6 @@ namespace IpoKemon_viewbox
             else
                 this.imgPocionEnergia.Source = new BitmapImage(new Uri("ms-appx:///Assets/PocionEnergia.png", UriKind.RelativeOrAbsolute));
         }
-        public void verFondo(bool verFondo)
-        {
-            if (!verFondo)
-                this.imgFondo.Source = null;
-            else
-                this.imgFondo.Source = new BitmapImage(new Uri("ms-appx:///Assets/Imagen fondo.jpg", UriKind.RelativeOrAbsolute));
-        }
         public void verBotonAtqueCabeza(bool verBotonAtqueCabeza)
         {
             if (!verBotonAtqueCabeza)

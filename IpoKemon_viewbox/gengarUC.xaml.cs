@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // La plantilla de elemento Control de usuario está documentada en https://go.microsoft.com/fwlink/?LinkId=234236
@@ -29,26 +30,53 @@ namespace PokemonPruebas
         {
             this.InitializeComponent();
         }
+        public double Vida
+        {
+            get { return pbVida.Value; }
+            set { pbVida.Value = value; }
+        }
 
+        public double Energia
+        {
+            get { return pbEnergia.Value; }
+            set { pbEnergia.Value = value; }
+        }
+
+        public void verBarraVida(bool verBarraVida)
+        {
+            if (!verBarraVida)
+                this.pbVida.Visibility = Visibility.Collapsed;
+            else
+                this.pbVida.Visibility = Visibility.Visible;
+        }
+        public void recibirAtaque()
+        {
+            ataqueRecibido();
+        }
         private void Potion1_img_PointerReleased(object sender, PointerRoutedEventArgs e)
         {
             HealingDT = new DispatcherTimer();
             HealingDT.Interval = TimeSpan.FromMilliseconds(50);
             HealingDT.Tick += subirVida;
             HealingDT.Start();
-            this.Potion1_img.Opacity = 0.5;
+            this.imgPocionVida.Opacity = 0.5;
         }
-
+        public void verBarraEnergia(bool verBarraEnergia)
+        {
+            if (!verBarraEnergia)
+                this.pbEnergia.Visibility = Visibility.Collapsed;
+            else
+                this.pbEnergia.Visibility = Visibility.Visible;
+        }
         private void subirVida(object sender, object e)
         {
-            this.Life_Pb.Value += 0.5;
+            this.pbVida.Value += 0.5;
             controlL += 0.5;
             colorVida();
 
-            if (Life_Pb.Value >= 20)
+            if (pbVida.Value >= 20)
             {
-                this.Potion1_img.Opacity = 1;
-                this.Atack_img.Opacity = 1;
+                this.imgPocionVida.Opacity = 1;
 
                 this.Ojo_drch_down.Visibility = Visibility.Collapsed;
                 this.Ojo_izq_down.Visibility = Visibility.Collapsed;
@@ -64,24 +92,69 @@ namespace PokemonPruebas
                 //this.Atack_img.Opacity = 1;
             }
 
-            if (Life_Pb.Value >= 100)
+            if (pbVida.Value >= 100)
             {
                 this.HealingDT.Stop();
-                this.Potion1_img.Opacity = 0.0;
+                this.imgPocionVida.Opacity = 0.0;
             }
+        }
+        public void verImagenVida(bool verImagenVida)
+        {
+            if (!verImagenVida)
+                this.imgVida.Source = null;
+            else
+                this.imgVida.Source = new BitmapImage(new Uri("ms-appx:///Assets/Vida.png", UriKind.RelativeOrAbsolute));
+        }
+        public void verImagenEnergia(bool verImagenEnergia)
+        {
+            if (!verImagenEnergia)
+                this.imgEnergia.Source = null;
+            else
+                this.imgEnergia.Source = new BitmapImage(new Uri("ms-appx:///Assets/Energia.png", UriKind.RelativeOrAbsolute));
+        }
+
+        public void verImagenFondo(bool verImagenFondo)
+        {
+            if (!verImagenFondo)
+                this.imgFondo.Source = null;
+            else
+                this.imgFondo.Source = new BitmapImage(new Uri("ms-appx:///Assests/Imagen fondo.png", UriKind.RelativeOrAbsolute));
+        }
+
+
+        public void verPocionVida(bool verPocionVida)
+        {
+            if (!verPocionVida)
+                this.imgPocionVida.Source = null;
+            else
+                this.imgPocionVida.Source = new BitmapImage(new Uri("ms-appx:///Assets/PocionVida.png", UriKind.RelativeOrAbsolute));
+        }
+        public void verPocionEnergia(bool verPocionEnergia)
+        {
+            if (!verPocionEnergia)
+                this.imgPocionEnergia.Source = null;
+            else
+                this.imgPocionEnergia.Source = new BitmapImage(new Uri("ms-appx:///Assets/PocionEnergia.png", UriKind.RelativeOrAbsolute));
+        }
+        public void verNombre(bool verNombre)
+        {
+            if (!verNombre)
+                this.txtBNombre.Visibility = Visibility.Collapsed;
+            else
+                this.txtBNombre.Visibility = Visibility.Visible;
         }
         private void colorVida()
         {
-            if (Life_Pb.Value <= 20)
+            if (pbVida.Value <= 20)
             {
-                Life_Pb.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
+                pbVida.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
             }
-            else if (Life_Pb.Value <= 50)
+            else if (pbVida.Value <= 50)
             {
-                Life_Pb.Foreground = new SolidColorBrush(Windows.UI.Colors.Yellow);
+                pbVida.Foreground = new SolidColorBrush(Windows.UI.Colors.Yellow);
             }
             else
-                Life_Pb.Foreground = new SolidColorBrush(Windows.UI.Colors.Green);
+                pbVida.Foreground = new SolidColorBrush(Windows.UI.Colors.Green);
         }
 
         private void Pokeball_img_PointerReleased(object sender, PointerRoutedEventArgs e)
@@ -114,11 +187,11 @@ namespace PokemonPruebas
         private int capturaAleatoria()
         {
             int num = 0;
-            if (Life_Pb.Value <= 20)
+            if (pbVida.Value <= 20)
             {
                 num = conversorProbabilidadRojo();
             }
-            else if (Life_Pb.Value <= 50)
+            else if (pbVida.Value <= 50)
             {
                 num = conversorProbabilidadAmarillo();
             }
@@ -183,7 +256,7 @@ namespace PokemonPruebas
             return tipoCaptura;
         }
 
-        private void Atack_img_PointerReleased(object sender, PointerRoutedEventArgs e)
+        private void ataqueRecibido()
         {
             this.Animation_Zarpa_gr.Visibility = Visibility.Visible;
             this.Zarpa_img.Visibility = Visibility.Visible;
@@ -195,24 +268,22 @@ namespace PokemonPruebas
             HealingDT.Interval = TimeSpan.FromMilliseconds(50);
             HealingDT.Tick += bajarVida;
             HealingDT.Start();
-            this.Atack_img.Opacity = 0.5;
         }
 
         private void bajarVida(object sender, object e)
         {
-            this.Life_Pb.Value -= 0.5;
+            this.pbVida.Value -= 0.5;
             controlA += 0.5;
             colorVida();
-            if (Life_Pb.Value == 0)
+            if (pbVida.Value == 0)
             {
                 this.HealingDT.Stop();
-                this.Atack_img.Opacity = 0.0;
                 this.Ojo_drch_down.Visibility = Visibility.Visible;
                 this.Ojo_izq_down.Visibility = Visibility.Visible;
                 this.Ojo_drch.Visibility = Visibility.Collapsed;
                 this.Ojo_izq.Visibility = Visibility.Collapsed;
             }
-            if (controlA == 20 || Life_Pb.Value >= 100)
+            if (controlA == 20 || pbVida.Value >= 100)
             {
                 controlA = 0;
                 this.HealingDT.Stop();
