@@ -289,5 +289,11 @@ namespace PokemonPruebas
                 this.HealingDT.Stop();
             }
         }
+
+        private void BolaSombra_btn_Click(object sender, RoutedEventArgs e)
+        {
+            Storyboard BolaSombra = (Storyboard)this.Resources["BolaSombra"];
+            BolaSombra.Begin();
+        }
     }
 }

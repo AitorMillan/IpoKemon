@@ -154,6 +154,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Bola_sombra.png" />
     <Content Include="Assets\Energia.png" />
     <Content Include="Assets\Imagen fondo.jpg" />
     <Content Include="Assets\PocionEnergia.png" />
