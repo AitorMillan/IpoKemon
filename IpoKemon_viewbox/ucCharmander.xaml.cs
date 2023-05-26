@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // La plantilla de elemento Control de usuario está documentada en https://go.microsoft.com/fwlink/?LinkId=234236
@@ -58,11 +59,83 @@ namespace Charmander_UWP_ControlUsuario
             }
         }
 
+        public void verBarraVida(bool verBarraVida)
+        {
+            if (!verBarraVida)
+                this.pbVida.Visibility = Visibility.Collapsed;
+            else
+                this.pbVida.Visibility = Visibility.Visible;
+        }
+
+        public void verBarraEnergia(bool verBarraEnergia)
+        {
+            if (!verBarraEnergia)
+                this.pbEnergia.Visibility = Visibility.Collapsed;
+            else
+                this.pbEnergia.Visibility = Visibility.Visible;
+        }
+        public void verImagenVida(bool verImagenVida)
+        {
+            if (!verImagenVida)
+                this.imgVida.Source = null;
+            else
+                this.imgVida.Source = new BitmapImage(new Uri("ms-appx:///Assets/Vida.png", UriKind.RelativeOrAbsolute));
+        }
+        public void verImagenEnergia(bool verImagenEnergia)
+        {
+            if (!verImagenEnergia)
+                this.imgEnergia.Source = null;
+            else
+                this.imgEnergia.Source = new BitmapImage(new Uri("ms-appx:///Assets/Energia.png", UriKind.RelativeOrAbsolute));
+        }
+        public void verPocionVida(bool verPocionVida)
+        {
+            if (!verPocionVida)
+                this.imgPocionVida.Source = null;
+            else
+                this.imgPocionVida.Source = new BitmapImage(new Uri("ms-appx:///Assets/PocionVida.png", UriKind.RelativeOrAbsolute));
+        }
+        public void verPocionEnergia(bool verPocionEnergia)
+        {
+            if (!verPocionEnergia)
+                this.imgPocionEnergia.Source = null;
+            else
+                this.imgPocionEnergia.Source = new BitmapImage(new Uri("ms-appx:///Assets/PocionEnergia.png", UriKind.RelativeOrAbsolute));
+        }
+        public void verBotonLanzarBolaFuego(bool verBotonLanzarBolaFuego)
+        {
+            if (!verBotonLanzarBolaFuego)
+                this.btnLanzarBolaFuego.Visibility = Visibility.Collapsed;
+            else
+                this.btnLanzarBolaFuego.Visibility = Visibility.Visible;
+        }
+        public void verBotonActivarEscudo(bool verBotonActivarEscudo)
+        {
+            if (!verBotonActivarEscudo)
+                this.btnActivarEscudo.Visibility = Visibility.Collapsed;
+            else
+                this.btnActivarEscudo.Visibility = Visibility.Visible;
+        }
+        public void verBotonEstadoEnfadado(bool verBotonEstadoEnfadado)
+        {
+            if (!verBotonEstadoEnfadado)
+                this.btnEstadoEnfadado.Visibility = Visibility.Collapsed;
+            else
+                this.btnEstadoEnfadado.Visibility = Visibility.Visible;
+        }
         public void verImagenFondo(bool verImagenFondo) {
             if (verImagenFondo)
                 imgFondo.Visibility = Visibility.Visible;
             else
                 imgFondo.Visibility = Visibility.Collapsed;
+        }
+
+        public void verNombre(bool verNombre)
+        {
+            if (!verNombre)
+                this.txtBNombre.Visibility = Visibility.Collapsed;
+            else
+                this.txtBNombre.Visibility = Visibility.Visible;
         }
 
         private void movimientoCola()
@@ -73,7 +146,7 @@ namespace Charmander_UWP_ControlUsuario
             sb.Begin();
         }
 
-        private void imgPocionRoja_PointerReleased(object sender, PointerRoutedEventArgs e)
+        private void imgPocionVida_PointerReleased(object sender, PointerRoutedEventArgs e)
         {
             dtTimeVida = new DispatcherTimer();
             dtTimeVida.Interval = TimeSpan.FromMilliseconds(100);
@@ -135,7 +208,7 @@ namespace Charmander_UWP_ControlUsuario
 
         }
 
-        private void btnQuitarVida_Click(object sender, RoutedEventArgs e)
+        private void quitarVida(object sender, RoutedEventArgs e)
         {
             pbVida.Value -= 15;
 
@@ -158,7 +231,7 @@ namespace Charmander_UWP_ControlUsuario
 
         }
 
-        private void imgPocionAmarilla_PointerReleased(object sender, PointerRoutedEventArgs e)
+        private void imgPocionEnergia_PointerReleased(object sender, PointerRoutedEventArgs e)
         {
             dtTimeEnergia = new DispatcherTimer();
             dtTimeEnergia.Interval = TimeSpan.FromMilliseconds(100);
@@ -177,7 +250,6 @@ namespace Charmander_UWP_ControlUsuario
                 imgPocionEnergia.Opacity = 1;
             }
         }
-
     }
 
 }

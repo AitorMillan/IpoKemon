@@ -121,6 +121,7 @@ namespace IpoKemon_viewbox
             else
                 this.btnAtaqueCabezaEnfadado.Visibility = Visibility.Visible;
         }
+
         public void verBotonAtqueCuerpo(bool verBotonAtqueCuerpo)
         {
             if (!verBotonAtqueCuerpo)
