@@ -290,7 +290,7 @@ namespace PokemonPruebas
             }
         }
 
-        private void BolaSombra_btm_PointerReleased(object sender, PointerRoutedEventArgs e)
+        private void BolaSombra_btn_Click(object sender, RoutedEventArgs e)
         {
             Storyboard BolaSombra = (Storyboard)this.Resources["BolaSombra"];
             BolaSombra.Begin();

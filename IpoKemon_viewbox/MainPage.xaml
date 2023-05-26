@@ -64,7 +64,7 @@
         <StackPanel Grid.Row="1"/>
         <Frame x:Name="fmMain" Grid.Column="1" Grid.Row="1"/>
         <Grid Grid.ColumnSpan="2" Grid.Row="1">
-            <Custom:gengarUC HorizontalAlignment="Left" Height="566" Margin="487,238,0,0" VerticalAlignment="Top" Width="654"/>
+            <Custom:gengarUC HorizontalAlignment="Left" Height="566" Margin="487,119,0,0" VerticalAlignment="Top" Width="654"/>
         </Grid>
 
 
