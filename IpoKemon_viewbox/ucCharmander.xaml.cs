@@ -79,7 +79,7 @@ namespace Charmander_UWP_ControlUsuario
             dtTimeVida.Interval = TimeSpan.FromMilliseconds(100);
             dtTimeVida.Tick += increaseHealth;
             dtTimeVida.Start();
-            imgPocionRoja.Opacity = 0.5;
+            imgPocionVida.Opacity = 0.5;
 
         }
 
@@ -89,7 +89,7 @@ namespace Charmander_UWP_ControlUsuario
             if (pbVida.Value >= 100)
             {
                 dtTimeVida.Stop();
-                imgPocionRoja.Opacity = 1;
+                imgPocionVida.Opacity = 1;
             }
         }
 
@@ -164,7 +164,7 @@ namespace Charmander_UWP_ControlUsuario
             dtTimeEnergia.Interval = TimeSpan.FromMilliseconds(100);
             dtTimeEnergia.Tick += incrementarEnergia;
             dtTimeEnergia.Start();
-            imgPocionAmarilla.Opacity = 0.5;
+            imgPocionEnergia.Opacity = 0.5;
 
         }
 
@@ -174,7 +174,7 @@ namespace Charmander_UWP_ControlUsuario
             if (pbEnergia.Value >= 100)
             {
                 dtTimeEnergia.Stop();
-                imgPocionAmarilla.Opacity = 1;
+                imgPocionEnergia.Opacity = 1;
             }
         }
 

@@ -55,15 +55,15 @@
         </Grid.ColumnDefinitions>
 
 
-        <Image x:Name="imgFondo" Grid.RowSpan="4" Grid.ColumnSpan="3" Source="/Imagenes/PlayaFuego-transformed.jpg" Stretch="UniformToFill"/>
+        <Image x:Name="imgFondo" Grid.RowSpan="4" Grid.ColumnSpan="3" Source="/Assets/PlayaFuego-transformed.jpg" Stretch="UniformToFill"/>
 
 
         <ProgressBar x:Name="pbVida" Grid.Column="1" VerticalAlignment="Stretch" Margin="10,5,10,5" Background="#33EB0A0A" Value="50" Foreground="#FFEB0A0A" ValueChanged="pbVida_ValueChanged"/>
-        <Image x:Name="imgVida" Source="/Imagenes/img_corazon.png" Margin="15,15,15,15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Image x:Name="imgEnergia" Source="/Imagenes/img_energia.png" Grid.Row="1" Margin="15,15,15,15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Image x:Name="imgVida" Source="/Assets/Vida.png" Margin="15,15,15,15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Image x:Name="imgEnergia" Source="/Assets/Energia.png" Grid.Row="1" Margin="15,15,15,15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <ProgressBar x:Name="pbEnergia" Grid.Column="1" VerticalAlignment="Stretch" Margin="10,5,10,5" Background="#33E0AE0E" Value="50" Foreground="#FFE0AE0E" Grid.Row="1"/>
-        <Image x:Name="imgPocionRoja" Source="/Imagenes/pocionRoja.png" Grid.Column="2" Margin="5,5,5,5" PointerReleased="imgPocionRoja_PointerReleased" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Image x:Name="imgPocionAmarilla" Source="/Imagenes/pocionAmarilla.png" Grid.Column="2" Grid.Row="1" Margin="15,15,15,15" VerticalAlignment="Center" HorizontalAlignment="Center" PointerReleased="imgPocionAmarilla_PointerReleased"/>
+        <Image x:Name="imgPocionVida" Source="/Assets/PocionVida.png" Grid.Column="2" Margin="5,5,5,5" PointerReleased="imgPocionRoja_PointerReleased" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Image x:Name="imgPocionEnergia" Source="/Assets/PocionEnergia.png" Grid.Column="2" Grid.Row="1" Margin="15,15,15,15" VerticalAlignment="Center" HorizontalAlignment="Center" PointerReleased="imgPocionAmarilla_PointerReleased"/>
         <TextBlock x:Name="txtNombrePokemon" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="3" TextWrapping="Wrap" Text="CHARMANDER" VerticalAlignment="Center" FontSize="36" FontWeight="Bold" FocusVisualPrimaryBrush="#FFDFD5D5" Foreground="White"/>
         <Button x:Name="btnEstadoEnfadado" Grid.Column="2" Content="Estado Enfadado" Grid.Row="2" VerticalAlignment="Bottom" Background="#F8585454" FontSize="14" Click="btnEstadoEnfadado_Click" HorizontalAlignment="Stretch" Foreground="#FFFFF6F6" Margin="0,0,0,100"/>
         <Button x:Name="btnQuitarVida" Grid.Column="2" Content="Quitar Vida&#xA;" Grid.Row="2" VerticalAlignment="Bottom" Background="#F8585454" FontSize="14" HorizontalAlignment="Stretch" Foreground="#FFFFF6F6" Click="btnQuitarVida_Click"/>
@@ -105,7 +105,7 @@
                             <CompositeTransform Rotation="-23.496" TranslateX="2.867" TranslateY="6.031"/>
                         </Path.RenderTransform>
                     </Path>
-                    <Image x:Name="imgFuegoCola" Height="75" Width="57" Source="/Imagenes/fuego.gif" FocusVisualPrimaryBrush="{x:Null}" Canvas.Top="-13" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="21"/>
+                    <Image x:Name="imgFuegoCola" Height="75" Width="57" Source="/Assets/fuego.gif" FocusVisualPrimaryBrush="{x:Null}" Canvas.Top="-13" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="21"/>
                 </Canvas>
                 <Canvas x:Name="cvBrazoIzq" Height="35" Canvas.Left="9.054" Canvas.Top="76.566" Width="46" RenderTransformOrigin="0.036,0.621" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Canvas.RenderTransform>
@@ -431,13 +431,13 @@
                     </Path.Fill>
                 </Path>
                 <Path x:Name="lineaCuerpo" Data="M106.9,106.445 L119.6,127.345" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Canvas.Left="105.5" Stroke="Black" Stretch="Fill" Canvas.Top="104.861" VerticalAlignment="Top" Width="16"/>
-                <Image x:Name="imgEscudo" Height="403" Width="714" HorizontalAlignment="Left" Canvas.Left="-267.883" Canvas.Top="-121.068" VerticalAlignment="Top" Source="/Imagenes/escudoFuego.png" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Visibility="Collapsed">
+                <Image x:Name="imgEscudo" Height="403" Width="714" HorizontalAlignment="Left" Canvas.Left="-267.883" Canvas.Top="-121.068" VerticalAlignment="Top" Source="/Assets/escudoFuego.png" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Visibility="Collapsed">
                     <Image.RenderTransform>
                         <CompositeTransform Rotation="-1.548"/>
                     </Image.RenderTransform>
                 </Image>
             </Canvas>
-            <Image x:Name="imgBolaFuego" Height="130" Width="155" Source="/Imagenes/bolaFuego.gif" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Canvas.Left="300" Canvas.Top="131" VerticalAlignment="Bottom" Visibility="Collapsed">
+            <Image x:Name="imgBolaFuego" Height="130" Width="155" Source="/Assets/bolaFuego.gif" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Canvas.Left="300" Canvas.Top="131" VerticalAlignment="Bottom" Visibility="Collapsed">
                 <Image.RenderTransform>
                     <CompositeTransform/>
                 </Image.RenderTransform>
