@@ -13,7 +13,7 @@
         <Image HorizontalAlignment="Center" Height="68" Margin="0,71,0,0" VerticalAlignment="Top" Width="395" Source="/Assets/ElegirPokemonStyle.png"/>
         <local:AronCU x:Name="Aron" HorizontalAlignment="Left" Height="274" Margin="96,182,0,0" VerticalAlignment="Top" Width="287" ManipulationMode="System"/>
 
-        <Custom:ucCharmander HorizontalAlignment="Left" Height="312" Margin="713,224,0,0" VerticalAlignment="Top" Width="501"/>
+        <Custom:ucCharmander HorizontalAlignment="Left" Height="275" Margin="553,181,0,0" VerticalAlignment="Top" Width="762"/>
 
     </Grid>
 </Page>
