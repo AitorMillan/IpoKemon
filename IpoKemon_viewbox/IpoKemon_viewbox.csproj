@@ -155,10 +155,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Bola_sombra.png" />
+    <Content Include="Assets\CombatePokemonStyle.png" />
+    <Content Include="Assets\DosJugadores.png" />
     <Content Include="Assets\Energia.png" />
+    <Content Include="Assets\fondo_combate.png" />
     <Content Include="Assets\Imagen fondo.jpg" />
     <Content Include="Assets\PocionEnergia.png" />
     <Content Include="Assets\PocionVida.png" />
+    <Content Include="Assets\UnJugador.png" />
     <Content Include="Assets\Vida.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -218,6 +222,12 @@
     <PackageReference Include="Microsoft.UI.Xaml">
       <Version>2.8.3</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\PokemonHollow.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\PokemonSolid.ttf" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

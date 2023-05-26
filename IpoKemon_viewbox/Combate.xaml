@@ -9,7 +9,32 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Height="160" Margin="97,101,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Pestaña combate" VerticalAlignment="Top" Width="486" Foreground="Black" FontSize="36"/>
-        <local:ratingUC HorizontalAlignment="Left" Height="146" Margin="10,353,0,0" VerticalAlignment="Top" Width="265"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="369*"/>
+            <ColumnDefinition Width="381*"/>
+            <ColumnDefinition Width="376*"/>
+            <ColumnDefinition Width="375*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="68*"/>
+            <RowDefinition Height="933*"/>
+        </Grid.RowDefinitions>
+        <!--<Grid.Resources>
+            <VisualBrush x:Key="MyVisualBrush" Visual="{Binding ElementName=txtBCombate}"/>
+        </Grid.Resources> -->
+
+
+        <Image Source="/Assets/fondo_combate.png" Stretch="Fill" Grid.RowSpan="2" HorizontalAlignment="Left" Grid.ColumnSpan="4"/>
+        <!--  <Rectangle Fill="#FF7583D1" Grid.ColumnSpan="2" MinWidth="175" MinHeight="50" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
+       <TextBlock x:Name="txtBCombate" TextWrapping="Wrap" Text="Combate" Foreground="White" FontSize="36" FontFamily="ms-appx:///Assets/PokemonHollow.ttf#Pokemon Hollow" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Column="1"/> -->
+        <Button x:Name="BtnUnJugador" Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Center" Margin="0,20,10,20">
+            <Image Source="Assets/UnJugador.png"/>
+        </Button>
+        <Button x:Name="BtnDosJugadores" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="10,20,0,20">
+            <Image Source="Assets/DosJugadores.png"/>
+        </Button>
+        <Image Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="48" VerticalAlignment="Center" Width="159" Source="/Assets/CombatePokemonStyle.png"/>
+
+
     </Grid>
 </Page>
