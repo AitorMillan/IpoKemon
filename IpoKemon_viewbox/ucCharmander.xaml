@@ -69,7 +69,7 @@
         <Button x:Name="btnQuitarVida" Grid.Column="2" Content="Quitar Vida&#xA;" Grid.Row="2" VerticalAlignment="Bottom" Background="#F8585454" FontSize="14" HorizontalAlignment="Stretch" Foreground="#FFFFF6F6" Click="btnQuitarVida_Click"/>
         <Button x:Name="btnActivarEscudo" Grid.Column="2" Content="Activar Escudo&#xA;" Grid.Row="2" VerticalAlignment="Bottom" Background="#F8585454" FontSize="14" HorizontalAlignment="Stretch" Foreground="#FFFFF6F6" Click="btnActivarEscudo_Click" Margin="0,0,0,200"/>
         <Button x:Name="btnLanzarBolaFuego" Grid.Column="2" Content="Bola de Fuego&#xA;" Grid.Row="2" VerticalAlignment="Bottom" Background="#F8585454" FontSize="14" Foreground="#FFFFF6F6" Click="btnLanzarBolaFuego_Click" UseLayoutRounding="True" HorizontalAlignment="Stretch" Margin="0,0,0,300"/>
-        <Canvas x:Name="cvPrincipal" Grid.Column="1" Height="341" Grid.Row="2" Width="755" Margin="0,200,0,0">
+        <Canvas x:Name="cvPrincipal" Grid.Column="1" Height="341" Grid.Row="2" Margin="228,234,187,34">
             <Canvas x:Name="cvCharmander" Height="199" Width="205" HorizontalAlignment="Left" Canvas.Left="513" Canvas.Top="96" VerticalAlignment="Bottom">
 
 

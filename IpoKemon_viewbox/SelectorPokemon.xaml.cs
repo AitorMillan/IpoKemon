@@ -20,19 +20,14 @@ namespace IpoKemon_viewbox
     /// <summary>
     /// Una página vacía que se puede usar de forma independiente o a la que se puede navegar dentro de un objeto Frame.
     /// </summary>
-    public sealed partial class Combate : Page
+    public sealed partial class SelectorPokemon : Page
     {
-        
-        public Combate()
+        public SelectorPokemon()
         {
             this.InitializeComponent();
-
+            Aron.verFondo(false);
+            Aron.verNombre(false);
         }
 
-        private void BtnUnJugador_Click(object sender, RoutedEventArgs e)
-        {
-            Frame aux = (Frame)this.Parent;
-            aux.Navigate(typeof(SelectorPokemon));
-        }
     }
 }

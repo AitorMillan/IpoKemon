@@ -19,15 +19,10 @@
             <RowDefinition Height="11*"/>
             <RowDefinition Height="89*"/>
         </Grid.RowDefinitions>
-        <!--<Grid.Resources>
-            <VisualBrush x:Key="MyVisualBrush" Visual="{Binding ElementName=txtBCombate}"/>
-        </Grid.Resources> -->
 
 
         <Image Source="/Assets/fondo_combate.png" Stretch="Fill" Grid.RowSpan="2" HorizontalAlignment="Left" Grid.ColumnSpan="4" Width="1500"/>
-        <!--  <Rectangle Fill="#FF7583D1" Grid.ColumnSpan="2" MinWidth="175" MinHeight="50" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
-       <TextBlock x:Name="txtBCombate" TextWrapping="Wrap" Text="Combate" Foreground="White" FontSize="36" FontFamily="ms-appx:///Assets/PokemonHollow.ttf#Pokemon Hollow" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Column="1"/> -->
-        <Button x:Name="BtnUnJugador" Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Center" Margin="0,20,10,20">
+        <Button x:Name="BtnUnJugador" Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Center" Margin="0,20,10,20" Click="BtnUnJugador_Click">
             <StackPanel>
                 <Image Source="Assets/UnJugador.png" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 <Viewbox MaxHeight="50">
