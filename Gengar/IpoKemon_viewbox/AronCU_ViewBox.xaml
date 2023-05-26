@@ -1,0 +1,443 @@
+﻿<UserControl
+    x:Class="IpoKemon_viewbox.AronCU"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:IpoKemon_viewbox"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+    <UserControl.Resources>
+        <Storyboard x:Name="sbMoverPatas">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.6000000" Value="19.579"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="1.39"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse2" To="-3.06" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"/>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="27.51"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.6000000" Value="51.34"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.1000000" Value="27.51"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0.517"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-28.415"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="sbOjo">
+            <DoubleAnimation Duration="00:00:01.5000000" Storyboard.TargetName="Pupila" To="0.588" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"/>
+            <DoubleAnimation Duration="00:00:01.5000000" Storyboard.TargetName="Pupila" To="-41.718" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"/>
+            <ColorAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetName="Pupila" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Color)">
+                <EasingColorKeyFrame KeyTime="00:00:01.5000000" Value="#FFE02929"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetName="Pupila" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Offset)">
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0.952"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetName="Pupila" Storyboard.TargetProperty="(FrameworkElement.Width)">
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="47"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Pupila" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="-4.328"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="-5.266"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="sbIdle">
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="canvas" To="13.5" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="path1" To="13.5" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse10" To="13.5" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="path2" To="13.5" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="path3" To="13.5" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse3" To="13.5" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"/>
+        </Storyboard>
+        <Storyboard x:Name="sbAtaqueCabeza">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="canvas" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-22.594">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuadraticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.6000000" Value="17.074">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="sbSonrojado">
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="Pupila" To="1.251" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="Pupila" To="1.161" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="Pupila" To="-17.936" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse4" To="2.778" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse4" To="1.459" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse5" To="4.041" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse5" To="2.23" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse6" To="1.633" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse6" To="1.881" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"/>
+            <ColorAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetName="path" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FFED7992"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse4" To="21.396" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse4" To="-6.5" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse6" To="-3.709" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse5" To="-6.833" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse5" To="21.103" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="Pupila" To="32.036" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"/>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse6" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="19.958"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="20.896"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="sbCansado">
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse7" To="0.615" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse7" To="0.604" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse7" To="-15.105" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse7" To="-23.085" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse8" To="0.446" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse8" To="0.562" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse8" To="-42.011" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse8" To="9.964" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="canvas" To="-12.615" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="Pupila" To="0.709" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="Pupila" To="0.707" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="Pupila" To="-3.483" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="Pupila" To="-12.506" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse4" To="7.058" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse4" To="13.108" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse6" To="6.054" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse6" To="13.011" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse5" To="6.244" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"/>
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="ellipse5" To="13.31" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"/>
+        </Storyboard>
+        <Storyboard x:Name="sbAtaqueCuerpo">
+            <DoubleAnimation Duration="00:00:01" Storyboard.TargetName="canvas" To="-22.126" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"/>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="canvas" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.6000000" Value="-117">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-0.1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.6000000" Value="-117">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse3" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-0.1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.6000000" Value="-117">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-3.07"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.6000000" Value="-120.06">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse10" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0.1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.6000000" Value="-118">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.6000000" Value="-116.81">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="6"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.6000000" Value="-112.113">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0.1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.6000000" Value="-117">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path3" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0.1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.6000000" Value="-117">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="sbRecuperaEnergia">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="canvas" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-12.615"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse8" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-42.011"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse8" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="9.964"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse8" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.446"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse8" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.562"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse7" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-15.105"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse7" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-23.085"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse7" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.615"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse7" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.604"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Pupila" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-3.483"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="14.045"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Pupila" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-12.506"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-20.819"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Pupila" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.709"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="1.043"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Pupila" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.707"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0.959"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse4" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="7.058"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse4" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="13.108"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse6" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="6.054"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse6" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="13.011"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse5" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="6.244"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse5" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="13.31"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="sbEnergico">
+            <ColorAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetName="Pupila" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Color)">
+                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FFEAFF0A"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="sbNoEnergico">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Pupila" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Color)" EnableDependentAnimation="True">
+                <EasingColorKeyFrame KeyTime="00:00:00" Value="#FFEAFF0A"/>
+                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FF3BA1C8"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="sbAtaqueCabezaCansado">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="canvas" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-22.594">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuadraticEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.6000000" Value="17.074">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="-12.615"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="86*"/>
+            <ColumnDefinition Width="1285*"/>
+            <ColumnDefinition Width="86*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="96*"/>
+            <RowDefinition Height="96*"/>
+            <RowDefinition Height="707*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <Image x:Name="imgFondo" Grid.RowSpan="4" Grid.ColumnSpan="3" Source="/Assets/Imagen fondo.jpg" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center" Width="1776"/>
+        <TextBlock x:Name="txtBNombre" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Text="Aron" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <Viewbox Grid.Column="1" Grid.Row="2">
+            <Canvas x:Name="cvAron" Height="216" Width="246">
+                <Ellipse x:Name="ellipse2" Height="144" Canvas.Left="90.472" Stroke="Black" Canvas.Top="100.795" Width="51" RenderTransformOrigin="0.713,0.556" HorizontalAlignment="Left" VerticalAlignment="Top" Fill="#FFAFAEAE" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                    <Ellipse.RenderTransform>
+                        <CompositeTransform Rotation="27.51" SkewY="4.509" ScaleX="1.021" ScaleY="0.979" TranslateX="-3.06" TranslateY="2.69"/>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+
+                <Ellipse x:Name="ellipse1" Height="138" Canvas.Left="201.734" Stroke="Black" Canvas.Top="103.218" Width="48" RenderTransformOrigin="0.499,0.626" HorizontalAlignment="Left" VerticalAlignment="Top" Fill="#FFAFAEAE" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                    <Ellipse.RenderTransform>
+                        <CompositeTransform Rotation="-28.415" SkewY="-4.594" ScaleX="1.023" ScaleY="0.978" TranslateX="4.887" TranslateY="-1.324"/>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+
+                <Ellipse x:Name="ellipse3" Height="121" Canvas.Left="98" Stroke="Black" Canvas.Top="97" Width="158" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.336,0.605">
+                    <Ellipse.RenderTransform>
+                        <CompositeTransform/>
+                    </Ellipse.RenderTransform>
+                    <Ellipse.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF506069" Offset="0.803"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+
+                <Path x:Name="path1" Data="M55.5,0.5 C59.201905,0.49999997 62.81839,0.78926124 66.315291,1.340765 68.256893,1.6469791 76.037977,-19.793201 77.9,-19.32992 80.410868,-18.705204 81.258806,-19.51997 83.6,-18.629401 86.101674,-17.677787 88.625922,-16.753739 90.9,-15.525361 92.449357,-14.688451 89.523119,9.7876667 90.953178,10.742249 102.90725,18.721745 111.77388,30.553228 111.77388,43.893647 111.77388,45.019792 111.63789,46.627362 111.53162,47.731977 L110.29436,47.75 62.277053,47.75 49.74621,32.587264 0.70563316,47.75 0.66037536,47.346905 C0.55410576,46.24229 0.49999952,45.126144 0.5,44 0.49999952,19.975612 25.124338,0.49999976 55.5,0.5 z" HorizontalAlignment="Left" Height="124" Stroke="Black" Stretch="Fill" VerticalAlignment="Top" Width="187" Canvas.Left="73.905" Canvas.Top="41.102" UseLayoutRounding="False" RenderTransformOrigin="0.076,0.438" PointerReleased="tocarEspalda" >
+                    <Path.RenderTransform>
+                        <CompositeTransform/>
+                    </Path.RenderTransform>
+                    <Path.Fill>
+                        <LinearGradientBrush EndPoint="1.1,1.1" StartPoint="0.3,-0.3">
+                            <GradientStop Color="Black" Offset="1"/>
+                            <GradientStop Color="#FFF4F4F4" Offset="0.246"/>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                </Path>
+                <Ellipse x:Name="ellipse10" Height="40" Canvas.Left="204.684" Stroke="Black" Canvas.Top="113.442" Width="25" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Fill="Black" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                    <Ellipse.RenderTransform>
+                        <CompositeTransform Rotation="-14.418" SkewY="-2.737" ScaleX="1.006" ScaleY="0.994"/>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+                <Path x:Name="path3" Data="M250.21249,212.05107 L254.45198,204.11548 256.88904,199.17777 258.81839,194.44161 260.36695,189.88178" HorizontalAlignment="Left" Height="41" Canvas.Left="216.646" Stroke="Black" Stretch="Fill" Canvas.Top="166.564" VerticalAlignment="Top" Width="19" UseLayoutRounding="False" RenderTransformOrigin="0.5,0.5">
+                    <Path.RenderTransform>
+                        <CompositeTransform/>
+                    </Path.RenderTransform>
+                </Path>
+                <Path x:Name="path2" Data="M445.38126,256.41887 L445.10495,258.3161 444.53907,260.09575 443.86532,262.25677 442.91172,264.89441 442.33137,266.7891 441.99035,267.85528 441.7507,268.8099 441.40682,269.68538 441.14769,270.24309 440.86562,270.8367 440.44843,271.53156 439.80389,272.59166 438.45506,273.13012" HorizontalAlignment="Left" Height="33" Stroke="Black" Stretch="Fill" VerticalAlignment="Top" Width="15" Canvas.Left="193.882" Canvas.Top="166.564" UseLayoutRounding="False" RenderTransformOrigin="0.5,0.5">
+                    <Path.RenderTransform>
+                        <CompositeTransform/>
+                    </Path.RenderTransform>
+                </Path>
+                <Ellipse x:Name="ellipse" Height="78" Canvas.Left="152.643" Stroke="Black" Canvas.Top="174.608" Width="44" RenderTransformOrigin="0.488,0.18" HorizontalAlignment="Left" VerticalAlignment="Top" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="1,0">
+                            <GradientStop Color="#FF575757" Offset="0.141"/>
+                            <GradientStop Color="#FFF9F9F9" Offset="1"/>
+                            <GradientStop Color="#FFF6F6F6" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                    <Ellipse.RenderTransform>
+                        <CompositeTransform Rotation="1.39" SkewY="0.279" TranslateX="0.19" TranslateY="-0.002"/>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+                <Canvas x:Name="canvas" Height="201" Canvas.Left="6" Canvas.Top="9" Width="166" RenderTransformOrigin="0.877,0.628">
+                    <Canvas.RenderTransform>
+                        <CompositeTransform/>
+                    </Canvas.RenderTransform>
+                    <Path x:Name="path" Data="M64.499996,0.5 C70.57513,0.5 76.452557,1.2737198 82.020779,2.7192345 L82.256435,2.7833099 83.009182,3.5862312 C92.962566,14.466738 98.898998,28.187311 98.898998,43.099001 98.898998,77.340654 67.59631,105.30161 28.232761,107.01572 L27.952747,107.02486 27.451199,106.70706 C22.388831,103.41641 18.009143,99.412663 14.187836,94.945071 13.14031,93.720382 13.5883,91.134662 12.64826,89.834532 12.128277,89.115366 11.598301,88.240996 10.707055,87.710672 10.010146,87.295986 8.9232192,87.240888 8.5650359,86.648742 6.5323423,83.288305 4.7386358,80.342329 3.4536277,76.618805 3.1461246,75.727764 3.8606755,74.821883 4.1402023,74.038323 4.5774772,72.81257 4.8186219,71.762394 5.0804762,70.58705 5.6957585,67.825331 5.0675207,64.97819 5.0675207,61.361533 5.0675207,59.664369 4.6700905,55.989176 3.5366334,53.66254 2.7103421,51.966421 1.3452783,51.300053 1.5376583,50.111712 3.3693077,38.797522 8.3998063,28.790403 16.25479,20.560246 17.098179,19.676575 19.391335,19.539087 20.813274,19.348926 22.934934,19.06519 24.324516,18.889478 25.783293,17.756031 26.735348,17.0163 27.743935,15.562644 28.066816,14.039276 28.391402,12.507859 31.047664,10.960785 32.096561,10.322521 42.239305,4.1505619 51.401546,0.5 64.499996,0.5 z" Height="196" Canvas.Left="0.015" Stroke="Black" Stretch="Fill" Canvas.Top="2.687" Width="164" RenderTransformOrigin="0.892,0.628" UseLayoutRounding="False" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Path.Fill>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#FF6C6C6C" Offset="0.712"/>
+                                <GradientStop Color="#FFD8D8D8"/>
+                            </LinearGradientBrush>
+                        </Path.Fill>
+                    </Path>
+                    <Path Data="M196.04659,104.70413 L194.27984,104.85429 192.20641,105.14861 188.48476,105.8341 185.32746,106.53248 180.8472,107.73107 178.70429,108.33863 176.91243,108.83893 175.28544,109.43502 172.88088,110.33329 170.95823,111.08791 168.96491,111.87026 167.27822,112.75354 165.13157,113.8777 161.21659,116.005 156.39515,119.00403 153.67093,120.83247 150.89025,123.35806 149.36744,124.82591 147.39305,126.82923 145.58072,128.93073 141.95,133.37" Height="54" Canvas.Left="32.423" Stroke="Black" Stretch="Fill" Canvas.Top="8.036" Width="103" RenderTransformOrigin="1.106,2.169" UseLayoutRounding="False" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Path Data="M138,142.15333 L136.30218,145.07503 134.76549,148.14239 133.92396,151.313 133.20271,156.15741 132.81982,159.63314 132.65584,164.587 132.79948,169.63311 132.89046,172.82894 133.26457,176.29109 133.58438,179.03444 134.11077,181.38083 135.30153,185.30421 136.82916,190.33756 138.64461,194.60819 140.73361,198.32212 143.62372,202.05207 147.81249,207.29185 150.1,210.15333" Height="129" Canvas.Left="15.998" Stroke="Black" Stretch="Fill" Canvas.Top="71.034" Width="30" RenderTransformOrigin="4.366,0.443" UseLayoutRounding="False" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Path.RenderTransform>
+                            <CompositeTransform Rotation="0.503" SkewY="0.101" TranslateX="-0.1910000000000025" TranslateY="0.0079999999999955662"/>
+                        </Path.RenderTransform>
+                    </Path>
+                    <Ellipse x:Name="ellipse8" Height="24" Canvas.Left="46" Stroke="Black" Canvas.Top="152" Width="23" RenderTransformOrigin="4.295,-0.949" Fill="Black" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Ellipse.RenderTransform>
+                            <CompositeTransform/>
+                        </Ellipse.RenderTransform>
+                    </Ellipse>
+                    <Ellipse x:Name="ellipse9" Height="77" Canvas.Left="57.253" Stroke="Black" Canvas.Top="76.013" Width="78" RenderTransformOrigin="1.128,0.68" Fill="Black" UseLayoutRounding="False" d:LayoutRounding="Auto" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Ellipse.RenderTransform>
+                            <CompositeTransform Rotation="0.894" SkewY="0.179"/>
+                        </Ellipse.RenderTransform>
+                    </Ellipse>
+                    <Ellipse x:Name="ellipse7" Height="36" Canvas.Left="105" Stroke="Black" Canvas.Top="33" Width="39" RenderTransformOrigin="1.007,2.62" Fill="Black" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Ellipse.RenderTransform>
+                            <CompositeTransform/>
+                        </Ellipse.RenderTransform>
+                    </Ellipse>
+                    <Ellipse x:Name="Pupila" Height="47" Canvas.Left="76.464" Stroke="Black" Canvas.Top="71.686" Width="47" RenderTransformOrigin="1.189,1.594" UseLayoutRounding="False" d:LayoutRounding="Auto" PointerReleased="Pupila_PointerReleased" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Ellipse.Resources>
+                            <Storyboard x:Name="ojoIzqRojo" x:Key="ojoIzqRojoKey">
+                                <ColorAnimation BeginTime="00:00:00" Storyboard.TargetName="ptPupilaI"
+                        Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                        From="Black" To="Red" Duration="0:0:1" AutoReverse="True" />
+                            </Storyboard>
+                        </Ellipse.Resources>
+                        <Ellipse.RenderTransform>
+                            <CompositeTransform Rotation="-41.319" TranslateX="14.045" TranslateY="-20.819" SkewY="-5.229" ScaleX="1.043" ScaleY="0.959"/>
+                        </Ellipse.RenderTransform>
+                        <Ellipse.Fill>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FF3CA2C9" Offset="1"/>
+                                <GradientStop Color="#FF3BA1C8" Offset="0.511"/>
+                            </LinearGradientBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <Ellipse x:Name="ellipse4" Height="24" Canvas.Left="75" Stroke="Black" Canvas.Top="100" Width="10" Fill="Black" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                        <Ellipse.RenderTransform>
+                            <CompositeTransform/>
+                        </Ellipse.RenderTransform>
+                    </Ellipse>
+                    <Ellipse x:Name="ellipse6" Height="7" Canvas.Left="78" Stroke="Black" Canvas.Top="114" Width="5" StrokeThickness="0.5" Fill="#FF515151" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                        <Ellipse.RenderTransform>
+                            <CompositeTransform/>
+                        </Ellipse.RenderTransform>
+                    </Ellipse>
+                    <Ellipse x:Name="ellipse5" Height="8" Canvas.Left="78" Stroke="Black" Canvas.Top="102" Width="5" StrokeThickness="0.5" Fill="White" RenderTransformOrigin="0.5,0.5">
+                        <Ellipse.RenderTransform>
+                            <CompositeTransform/>
+                        </Ellipse.RenderTransform>
+                    </Ellipse>
+                </Canvas>
+
+            </Canvas>
+        </Viewbox>
+    </Grid>
+</UserControl>
