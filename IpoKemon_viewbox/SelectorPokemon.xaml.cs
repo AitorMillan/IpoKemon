@@ -25,8 +25,8 @@ namespace IpoKemon_viewbox
         public SelectorPokemon()
         {
             this.InitializeComponent();
-            Aron.verFondo(false);
-            Aron.verNombre(false);
+            aron_j1.verFondo(false);
+            aron_j1.verNombre(false);
         }
 
     }
