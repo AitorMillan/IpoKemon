@@ -35,6 +35,7 @@
                 <local:ucCharmander_sinBarras x:Name="charmander_j1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Viewbox>
         </Button>
+       <!-- <local:cuadroBotonesCharmander Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Grid.Column="2"/> -->
 
 
 

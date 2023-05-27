@@ -14,6 +14,29 @@
                 <SplineDoubleKeyFrame KeyTime="00:00:00.8000000" Value="3.938"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Name="sbBolaFuego">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="imgBolaFuego" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.4000000">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="00:00:02.5000000">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimation Duration="00:00:00.7000000" Storyboard.TargetName="cvBrazoIzq" To="-18.145" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"/>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="imgBolaFuego" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="-228"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="imgBolaFuego" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="-0.8"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </UserControl.Resources>
 
     <Grid>
@@ -22,7 +45,15 @@
         </Grid.ColumnDefinitions>
 
         <Viewbox Stretch="Uniform">
-            <Canvas x:Name="cvPrincipal" Grid.Column="1" Grid.Row="2" Height="220" Width="184">
+            <Canvas x:Name="cvPrincipal" Grid.Column="1" Grid.Row="2" Height="220" Width="184" RenderTransformOrigin="0.5,0.5">
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
                 <Canvas x:Name="cvCharmander" Canvas.Left="12" Canvas.Top="35">
                     <Canvas x:Name="cvCola" Height="95" Width="67" HorizontalAlignment="Center" Canvas.Left="108.134" Canvas.Top="58.153" VerticalAlignment="Top" RenderTransformOrigin="0.285,0.847">
                         <Canvas.RenderTransform>

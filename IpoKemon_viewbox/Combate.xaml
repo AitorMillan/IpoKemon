@@ -31,7 +31,7 @@
             </StackPanel>
         </Button>
 
-        <Button x:Name="BtnDosJugadores" Grid.Row="1" Grid.Column="2" VerticalAlignment="Stretch" Margin="10,20,0,20" HorizontalAlignment="Center">
+        <Button x:Name="BtnDosJugadores" Grid.Row="1" Grid.Column="2" VerticalAlignment="Stretch" Margin="10,20,0,20" HorizontalAlignment="Center" Click="BtnDosJugadores_Click">
             <StackPanel>
                 <Image Source="Assets/DosJugadores.png" />
                 <Viewbox MaxHeight="50">

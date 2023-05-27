@@ -59,6 +59,10 @@ namespace IpoKemon_viewbox
                 this.pbVida.Visibility = Visibility.Visible;
         }
 
+        public void recibirAtaque2(int vida)
+        {
+            pbVida.Value = pbVida.Value - vida;
+        }
         public void recibirAtaque()
         {
             ataqueRecibido();
