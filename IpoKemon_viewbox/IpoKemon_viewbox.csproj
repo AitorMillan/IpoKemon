@@ -134,6 +134,9 @@
     <Compile Include="cuadroBotonesCharmander.xaml.cs">
       <DependentUpon>cuadroBotonesCharmander.xaml</DependentUpon>
     </Compile>
+    <Compile Include="cuadroBotonesGengar.xaml.cs">
+      <DependentUpon>cuadroBotonesGengar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="gengarUC.xaml.cs">
       <DependentUpon>gengarUC.xaml</DependentUpon>
     </Compile>
@@ -178,6 +181,7 @@
     <Content Include="Assets\Energia.png" />
     <Content Include="Assets\escudoFuego.png" />
     <Content Include="Assets\FondoBotonesCharmander.jpg" />
+    <Content Include="Assets\FondoBotonesGengar.png" />
     <Content Include="Assets\fondo_combate.png" />
     <Content Include="Assets\fuego.gif" />
     <Content Include="Assets\Imagen fondo.jpg" />
@@ -217,6 +221,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="cuadroBotonesCharmander.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="cuadroBotonesGengar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

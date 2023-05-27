@@ -40,7 +40,7 @@ namespace IpoKemon_viewbox
             Frame aux = (Frame)this.Parent;
             String[] pokemons = new String[2];
             pokemons[0] = "Charmander";
-            pokemons[1] = "Aron";
+            pokemons[1] = "Gengar";
             aux.Navigate(typeof(PaginaPrueba), pokemons);
         }
     }

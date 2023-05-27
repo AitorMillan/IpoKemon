@@ -66,10 +66,10 @@ namespace IpoKemon_viewbox
         {
             if (pokemon2 == "Charmander")
             {
-                Pokemon1 = new ucCharmander_sinBarras();
-                CBotones1 = new cuadroBotonesCharmander(Pokemon1 as ucCharmander_sinBarras);
-                ContenedorPokemon1.Content = Pokemon1;
-                ContenedorBotones1.Content = CBotones1;
+                Pokemon2 = new ucCharmander_sinBarras();
+                CBotones2 = new cuadroBotonesCharmander(Pokemon2 as ucCharmander_sinBarras);
+                ContenedorPokemon1.Content = Pokemon2;
+                ContenedorBotones1.Content = CBotones2;
                 ((ucCharmander_sinBarras)Pokemon1).AtaqueRealizado += Pokemon1AtaqueRealizado;
             }
             else if (pokemon2 == "Aron")
@@ -82,7 +82,10 @@ namespace IpoKemon_viewbox
             }
             else if (pokemon2 == "Gengar")
             {
+                Pokemon2 = new gengarUC();
                 ContenedorPokemon2.Content = new gengarUC();
+                CBotones2 = new cuadroBotonesGengar(Pokemon2 as gengarUC);
+                ContenedorBotones2.Content = CBotones2;
             }
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
