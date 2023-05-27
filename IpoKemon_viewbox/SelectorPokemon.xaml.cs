@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Charmander_UWP_ControlUsuario;
+using PokemonPruebas;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -28,6 +30,26 @@ namespace IpoKemon_viewbox
             aron_j1.verFondo(false);
             aron_j1.verNombre(false);
         }
+
+        private void ListViewControles_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var listView = (ListView)sender;
+            var userControlSeleccionado = listView.SelectedItem;
+
+            if (userControlSeleccionado is AronCU)
+            {
+                // Acciones para cuando se selecciona AronCU.
+            }
+            else if (userControlSeleccionado is ucCharmander)
+            {
+                // Acciones para cuando se selecciona ucCharmander.
+            }
+            else if (userControlSeleccionado is gengarUC)
+            {
+                // Acciones para cuando se selecciona gengarUC.
+            }
+        }
+
 
     }
 }

@@ -59,6 +59,22 @@ namespace Charmander_UWP_ControlUsuario
             }
         }
 
+        public void soloVerPokemon()
+        {
+            verBarraVida(false);
+            verBarraEnergia(false);
+            verImagenVida(false);
+            verImagenEnergia(false);
+            verPocionVida(false);
+            verPocionEnergia(false);
+            //ocultar botones
+            verBotonActivarEscudo(false);
+            verBotonEstadoEnfadado(false);
+            verBotonLanzarBolaFuego(false);
+            verNombre(false);
+
+        }
+
         public void verBarraVida(bool verBarraVida)
         {
             if (!verBarraVida)
