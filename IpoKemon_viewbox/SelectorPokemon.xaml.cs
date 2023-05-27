@@ -27,8 +27,8 @@ namespace IpoKemon_viewbox
         public SelectorPokemon()
         {
             this.InitializeComponent();
-            aron_j1.verFondo(false);
-            aron_j1.verNombre(false);
+            //aron_j1.verFondo(false);
+            //aron_j1.verNombre(false);
         }
 
         private void ListViewControles_SelectionChanged(object sender, SelectionChangedEventArgs e)

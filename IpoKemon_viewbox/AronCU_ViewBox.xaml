@@ -298,14 +298,12 @@
             <ColumnDefinition Width="86*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="96*"/>
-            <RowDefinition Height="96*"/>
-            <RowDefinition Height="707*"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="21*"/>
+            <RowDefinition Height="22*"/>
+            <RowDefinition Height="212*"/>
+            <RowDefinition Height="44.8"/>
         </Grid.RowDefinitions>
-        <Image x:Name="imgFondo" Grid.RowSpan="4" Grid.ColumnSpan="3" Source="/Assets/Imagen fondo.jpg" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center" Width="1776"/>
-        <TextBlock x:Name="txtBNombre" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Text="Aron" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-        <Viewbox Grid.Column="1" Grid.Row="2">
+        <Viewbox Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="0,0,23,9">
             <Canvas x:Name="cvAron" Height="216" Width="246">
                 <Ellipse x:Name="ellipse2" Height="144" Canvas.Left="90.472" Stroke="Black" Canvas.Top="100.795" Width="51" RenderTransformOrigin="0.713,0.556" HorizontalAlignment="Left" VerticalAlignment="Top" Fill="#FFAFAEAE" UseLayoutRounding="False" d:LayoutRounding="Auto">
                     <Ellipse.RenderTransform>

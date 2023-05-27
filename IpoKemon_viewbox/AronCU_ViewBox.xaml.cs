@@ -38,7 +38,7 @@ namespace IpoKemon_viewbox
             idle.RepeatBehavior = RepeatBehavior.Forever;
             idle.Begin();
         }
-        public void verNombre(bool verNombre)
+       /* public void verNombre(bool verNombre)
         {
             if (!verNombre)
                 this.txtBNombre.Visibility = Visibility.Collapsed;
@@ -46,20 +46,20 @@ namespace IpoKemon_viewbox
             {
                 this.txtBNombre.Visibility = Visibility.Visible;
             }
-        }
+        }*/
         private void Pupila_PointerReleased(object sender, PointerRoutedEventArgs e)
         {
             Storyboard sb = (Storyboard)this.Resources["sbOjo"];
             sb.AutoReverse = true;
             sb.Begin();
         }
-        public void verFondo(bool verFondo)
+       /* public void verFondo(bool verFondo)
         {
             if (!verFondo)
                 this.imgFondo.Source = null;
             else
                 this.imgFondo.Source = new BitmapImage(new Uri("ms-appx:///Assets/Imagen fondo.jpg", UriKind.RelativeOrAbsolute));
-        }
+        }*/
 
         private void tocarEspalda(object sender, PointerRoutedEventArgs e)
         {

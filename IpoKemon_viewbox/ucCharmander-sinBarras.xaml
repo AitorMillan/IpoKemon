@@ -18,12 +18,11 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="39*"/>
-            <ColumnDefinition Width="41*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <Viewbox Stretch="Uniform">
-            <Canvas x:Name="cvPrincipal" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="220" Width="184">
+            <Canvas x:Name="cvPrincipal" Grid.Column="1" Grid.Row="2" Height="220" Width="184">
                 <Canvas x:Name="cvCharmander" Canvas.Left="12" Canvas.Top="35">
                     <Canvas x:Name="cvCola" Height="95" Width="67" HorizontalAlignment="Center" Canvas.Left="108.134" Canvas.Top="58.153" VerticalAlignment="Top" RenderTransformOrigin="0.285,0.847">
                         <Canvas.RenderTransform>

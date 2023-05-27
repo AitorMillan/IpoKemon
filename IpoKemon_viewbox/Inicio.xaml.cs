@@ -25,7 +25,7 @@ namespace IpoKemon_viewbox
         public Inicio()
         {
             this.InitializeComponent();
-            aron.verFondo(false);
+            //aron.verFondo(false);
         }
     }
 }
