@@ -27,6 +27,7 @@ namespace IpoKemon_viewbox
         UserControl Pokemon1;
         UserControl Pokemon2;
         UserControl CBotones1;
+        UserControl CBotones2;
         public PaginaPrueba()
         {
             InitializeComponent();
@@ -36,7 +37,6 @@ namespace IpoKemon_viewbox
         {
             // Obtener la cantidad de daño del ataque
             int cantidadDanio = e.CantidadDanio;
-            txtb.Text = cantidadDanio.ToString();
 
             // Realizar la lógica para quitarle vida al otro Pokemon
             ((AronCU_NoViewBox)Pokemon2).recibirAtaque2(cantidadDanio);
@@ -76,6 +76,9 @@ namespace IpoKemon_viewbox
             {
                 Pokemon2 = new AronCU_NoViewBox();
                 ContenedorPokemon2.Content = Pokemon2;
+                CBotones2 = new cuadroBotonesAron(Pokemon2 as AronCU_NoViewBox);
+                ContenedorBotones2.Content = CBotones2;
+               // ((AronCU_NoViewBox)Pokemon2).AtaqueRealizado += Pokemon1AtaqueRealizado;
             }
             else if (pokemon2 == "Gengar")
             {

@@ -17,23 +17,13 @@ using Windows.UI.Xaml.Navigation;
 
 namespace IpoKemon_viewbox
 {
-    public sealed partial class cuadroBotonesCharmander : UserControl
+    public sealed partial class cuadroBotonesAron : UserControl
     {
-        private ucCharmander_sinBarras Charmie;
-        public cuadroBotonesCharmander(ucCharmander_sinBarras charmander)
+        private AronCU_NoViewBox Aron;
+        public cuadroBotonesAron(AronCU_NoViewBox aron)
         {
             this.InitializeComponent();
-            Charmie = charmander;
-        }
-
-        private void btnAtacar_Click(object sender, RoutedEventArgs e)
-        {
-           Charmie.atacar();
-        }
-
-        private void btnEnfadarse_Click(object sender, RoutedEventArgs e)
-        {
-            Charmie.enfadado();
-        }
+            Aron = aron;
+        }   
     }
 }

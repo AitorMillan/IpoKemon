@@ -20,7 +20,7 @@
         <ContentControl x:Name="ContenedorPokemon1"  HorizontalAlignment="Center" Height="426" VerticalAlignment="Center" Width="422"/>
         <ContentControl x:Name="ContenedorPokemon2"  HorizontalAlignment="Center" Height="426" VerticalAlignment="Center" Width="422" Grid.Column="1"/>
         <ContentControl x:Name="ContenedorBotones1" Grid.Row="1"/>
-        <TextBlock x:Name="txtb" Grid.Column="1" HorizontalAlignment="Center" Height="192" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" Width="438" FontSize="72" Grid.Row="1"/>
+        <ContentControl x:Name="ContenedorBotones2" Grid.Row="1" Grid.Column="1"/>
 
     </Grid>
 </Page>

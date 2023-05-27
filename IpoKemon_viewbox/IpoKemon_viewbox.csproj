@@ -128,6 +128,9 @@
     <Compile Include="Combate.xaml.cs">
       <DependentUpon>Combate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="cuadroBotonesAron.xaml.cs">
+      <DependentUpon>cuadroBotonesAron.xaml</DependentUpon>
+    </Compile>
     <Compile Include="cuadroBotonesCharmander.xaml.cs">
       <DependentUpon>cuadroBotonesCharmander.xaml</DependentUpon>
     </Compile>
@@ -166,6 +169,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\AronFondoBotones.png" />
     <Content Include="Assets\bolaFuego.gif" />
     <Content Include="Assets\Bola_sombra.png" />
     <Content Include="Assets\CombatePokemonStyle.png" />
@@ -205,6 +209,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Combate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="cuadroBotonesAron.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
