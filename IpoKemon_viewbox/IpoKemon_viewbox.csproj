@@ -137,6 +137,9 @@
     <Compile Include="cuadroBotonesGengar.xaml.cs">
       <DependentUpon>cuadroBotonesGengar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="gengarUC-namespace.xaml.cs">
+      <DependentUpon>gengarUC-namespace.xaml</DependentUpon>
+    </Compile>
     <Compile Include="gengarUC.xaml.cs">
       <DependentUpon>gengarUC.xaml</DependentUpon>
     </Compile>
@@ -225,6 +228,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="cuadroBotonesGengar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="gengarUC-namespace.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
