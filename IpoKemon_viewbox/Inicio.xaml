@@ -9,20 +9,18 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="55*"/>
-                <RowDefinition Height="126*"/>
-                <RowDefinition Height="468*"/>
-                <RowDefinition Height="352*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="69*"/>
-                <ColumnDefinition Width="109*"/>
-                <ColumnDefinition Width="72*"/>
-            </Grid.ColumnDefinitions>
-            <local:AronCU x:Name="aron" HorizontalAlignment="Right" Height="378" Width="391" Grid.Row="2" Grid.Column="1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Right" VerticalAlignment="Bottom"/>
-            <TextBlock TextWrapping="Wrap" Text="Bievenido a IpoKemon!!!!" Foreground="Black" FontSize="48" Grid.Column="1" TextAlignment="Center" Grid.Row="1"/>
-        </Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+
+        <MediaPlayerElement 
+            x:Name="BackgroundMediaPlayerElement"
+            AreTransportControlsEnabled="False"
+            AutoPlay="True"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Canvas.ZIndex="0" Grid.RowSpan="2" />
+        <Image x:Name="imgTituloInicio" HorizontalAlignment="Left" Source="/Assets/titulo-ipokemon.png" Margin="50,25,0,0"/>
     </Grid>
 </Page>

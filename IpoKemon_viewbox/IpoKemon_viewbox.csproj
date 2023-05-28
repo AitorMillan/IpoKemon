@@ -187,6 +187,7 @@
     <Content Include="Assets\ElegirPokemonStyle.png" />
     <Content Include="Assets\Energia.png" />
     <Content Include="Assets\escudoFuego.png" />
+    <Content Include="Assets\fondo-inicio.jpg" />
     <Content Include="Assets\FondoBotonesCharmander.jpg" />
     <Content Include="Assets\FondoBotonesGengar.png" />
     <Content Include="Assets\fondo_combate.png" />
@@ -195,8 +196,10 @@
     <Content Include="Assets\llama-03.gif" />
     <Content Include="Assets\PocionEnergia.png" />
     <Content Include="Assets\PocionVida.png" />
+    <Content Include="Assets\titulo-ipokemon.png" />
     <Content Include="Assets\UnJugador.png" />
     <Content Include="Assets\Vida.png" />
+    <Content Include="Assets\video-fondo-inicio.mp4" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

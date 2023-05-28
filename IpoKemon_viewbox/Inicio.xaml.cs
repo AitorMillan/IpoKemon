@@ -5,6 +5,8 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Media.Core;
+using Windows.Media.Playback;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,7 +27,12 @@ namespace IpoKemon_viewbox
         public Inicio()
         {
             this.InitializeComponent();
-            //aron.verFondo(false);
+
+            var mediaSource = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/video-fondo-inicio.mp4"));
+            var mediaPlayer = new MediaPlayer { AutoPlay = true, IsLoopingEnabled = true };
+            mediaPlayer.Source = mediaSource;
+
+            BackgroundMediaPlayerElement.SetMediaPlayer(mediaPlayer);
         }
     }
 }
