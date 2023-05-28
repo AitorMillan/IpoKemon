@@ -32,7 +32,7 @@ namespace IpoKemon_viewbox
         private int danioGolpeCuerpo = 20;
         public delegate void AtaqueRealizadoEventHandler(object sender, AtaqueEventArgs e);
         public event AtaqueRealizadoEventHandler AtaqueRealizado;
-        public event EventHandler CuracionRealizada;
+        public event EventHandler AccionRealizada;
         bool estaCansado;
         bool energico;
         public AronCU_NoViewBox()
@@ -75,11 +75,18 @@ namespace IpoKemon_viewbox
         public void curarse()
         {
             imgPocionVida_PointerReleased(null, null);
-            OnCuracionRealizada();
+            OnAccionRealizada();
         }
-        private void OnCuracionRealizada()
+
+        public void restaurarEnergia()
         {
-            CuracionRealizada?.Invoke(this, EventArgs.Empty);
+            imgPocionEnergia_PointerReleased(null, null);
+            OnAccionRealizada();
+        }
+
+        private void OnAccionRealizada()
+        {
+            AccionRealizada?.Invoke(this, EventArgs.Empty);
         }
         public void invertirPokemon()
         {

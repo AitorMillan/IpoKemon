@@ -47,7 +47,7 @@
                 </ResourceDictionary>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnRestaurarEnergia" Content="Restaurar energía" HorizontalAlignment="Center" Height="96" Width="260" FontSize="24" RenderTransformOrigin="0.5,0.5" Grid.Row="1">
+        <Button x:Name="btnRestaurarEnergia" Content="Restaurar energía" HorizontalAlignment="Center" Height="96" Width="260" FontSize="24" RenderTransformOrigin="0.5,0.5" Grid.Row="1" Click="btnRestaurarEnergia_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <LinearGradientBrush.RelativeTransform>

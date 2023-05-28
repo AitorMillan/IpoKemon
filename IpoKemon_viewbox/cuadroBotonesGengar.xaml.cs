@@ -26,5 +26,20 @@ namespace IpoKemon_viewbox
             this.InitializeComponent();
             Gengar = gengar;
         }
+
+        private void btnBolaSombra_Click(object sender, RoutedEventArgs e)
+        {
+            Gengar.atacar();
+        }
+
+        private void btnCurarse_Click(object sender, RoutedEventArgs e)
+        {
+            Gengar.curarse();
+        }
+
+        private void btnRecuperarEnergia_Click(object sender, RoutedEventArgs e)
+        {
+            Gengar.resutarEnergia();
+        }
     }
 }

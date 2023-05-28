@@ -27,6 +27,7 @@ namespace IpoKemon_viewbox
         DispatcherTimer dtPokeball;
         public delegate void AtaqueRealizadoEventHandler(object sender, AtaqueEventArgs e);
         public event AtaqueRealizadoEventHandler AtaqueRealizado;
+        public event EventHandler AccionRealizada;
         int danio = 15;
         double controlL = 0;
         double controlA = 0;
@@ -34,11 +35,26 @@ namespace IpoKemon_viewbox
         {
             this.InitializeComponent();
         }
-
+        private void OnAccionRealizada()
+        {
+            AccionRealizada?.Invoke(this, EventArgs.Empty);
+        }
         public void atacar()
         {
             BolaSombra_btn_Click(null, null);
             OnAtaqueRealizado(new AtaqueEventArgs(danio));
+        }
+
+        public void resutarEnergia()
+        {
+            aumentarEnergia();
+            OnAccionRealizada();
+        }
+
+        public void curarse()
+        {
+            Potion1_img_PointerReleased(null, null);
+            OnAccionRealizada();
         }
         private void OnAtaqueRealizado(AtaqueEventArgs e)
         {
@@ -68,6 +84,12 @@ namespace IpoKemon_viewbox
         {
             ataqueRecibido();
         }
+
+        private void aumentarEnergia()
+        {
+            pbEnergia.Value += 50;
+        }
+
         private void Potion1_img_PointerReleased(object sender, PointerRoutedEventArgs e)
         {
             HealingDT = new DispatcherTimer();

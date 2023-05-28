@@ -45,16 +45,19 @@ namespace IpoKemon_viewbox
             cambiarTurno();
         }
 
+        private void pokemon2AtaqueRealizado(object sender, AtaqueEventArgs e)
+        {
+            // Obtener la cantidad de daño del ataque
+            int cantidadDanio = e.CantidadDanio;
+            cambiarTurno();
+        }
 
-        private void enfadoRealizado(object sender, EventArgs e)
+
+        private void accionRealizada(object sender, EventArgs e)
         {
             cambiarTurno();
         }
-        
-        private void curacionRealizada(object sender, EventArgs e)
-        {
-            cambiarTurno();
-        }
+
 
         private void cambiarTurno()
         {
@@ -89,8 +92,7 @@ namespace IpoKemon_viewbox
                 ContenedorBotones1.Content = CBotones1;
                 ((AronCU_NoViewBox)Pokemon1).invertirPokemon();
                 ((AronCU_NoViewBox)Pokemon1).AtaqueRealizado += pokemon1AtaqueRealizado;
-               // ((AronCU_NoViewBox)Pokemon1).EnfadoRealizado += enfadoRealizado;
-                ((AronCU_NoViewBox)Pokemon1).CuracionRealizada += curacionRealizada;
+                ((AronCU_NoViewBox)Pokemon1).AccionRealizada += accionRealizada;
             }
             else if (pokemon1 == "Charmander")
             {
@@ -99,9 +101,8 @@ namespace IpoKemon_viewbox
                 ContenedorPokemon1.Content = Pokemon1;
                 ContenedorBotones1.Content = CBotones1;
                 ((ucCharmander_namespace)Pokemon1).invertirPokemon();
-                ((ucCharmander_namespace)Pokemon1).EnfadoRealizado += enfadoRealizado;
+                ((ucCharmander_namespace)Pokemon1).AccionRealizada += accionRealizada;
                 ((ucCharmander_namespace)Pokemon1).AtaqueRealizado += pokemon1AtaqueRealizado;
-                ((ucCharmander_namespace)Pokemon1).CuracionRealizada += curacionRealizada;
             }
             else if (pokemon1 == "Gengar")
             {
@@ -109,9 +110,8 @@ namespace IpoKemon_viewbox
                 CBotones1 = new cuadroBotonesGengar(Pokemon1 as gengarUC_namespace);
                 ContenedorPokemon1.Content = Pokemon1;
                 ContenedorBotones1.Content = CBotones1;
-               // ((gengarUC)Pokemon1).invertirPokemon();
                 ((gengarUC_namespace)Pokemon1).AtaqueRealizado += pokemon1AtaqueRealizado;
-              //  ((gengarUC)Pokemon1).CuracionRealizada += curacionRealizada;
+                ((gengarUC_namespace)Pokemon1).AccionRealizada += accionRealizada;
             }
         }
 
@@ -123,7 +123,8 @@ namespace IpoKemon_viewbox
                 CBotones2 = new cuadroBotonesCharmander(Pokemon2 as ucCharmander_namespace);
                 ContenedorPokemon2.Content = Pokemon2;
                 ContenedorBotones2.Content = CBotones2;
-               // ((ucCharmander)Pokemon2).AtaqueRealizado += pokemon1AtaqueRealizado;
+                ((ucCharmander_namespace)Pokemon2).AccionRealizada += accionRealizada;
+                ((ucCharmander_namespace)Pokemon2).AtaqueRealizado += pokemon2AtaqueRealizado;
             }
             else if (pokemon2 == "Aron")
             {
@@ -131,7 +132,7 @@ namespace IpoKemon_viewbox
                 ContenedorPokemon2.Content = Pokemon2;
                 CBotones2 = new cuadroBotonesAron(Pokemon2 as AronCU_NoViewBox);
                 ContenedorBotones2.Content = CBotones2;
-                ((AronCU_NoViewBox)Pokemon2).AtaqueRealizado += pokemon1AtaqueRealizado;
+                ((AronCU_NoViewBox)Pokemon2).AtaqueRealizado += pokemon2AtaqueRealizado;
             }
             else if (pokemon2 == "Gengar")
             {
@@ -139,6 +140,8 @@ namespace IpoKemon_viewbox
                 ContenedorPokemon2.Content = new gengarUC_namespace();
                 CBotones2 = new cuadroBotonesGengar(Pokemon2 as gengarUC_namespace);
                 ContenedorBotones2.Content = CBotones2;
+                ((gengarUC_namespace)Pokemon2).AtaqueRealizado += pokemon2AtaqueRealizado;
+                ((gengarUC_namespace)Pokemon2).AccionRealizada += accionRealizada;
             }
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)

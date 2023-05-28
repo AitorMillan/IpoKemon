@@ -30,9 +30,7 @@ namespace IpoKemon_viewbox
         private bool escudoActivado = false;
         public delegate void AtaqueRealizadoEventHandler(object sender, AtaqueEventArgs e);
         public event AtaqueRealizadoEventHandler AtaqueRealizado;
-        public event EventHandler CuracionRealizada;
-        public event EventHandler EnfadoRealizado;
-        public event EventHandler EscudoActivado;
+        public event EventHandler AccionRealizada;
         public const int VIDA_CRITICA = 25;
         public bool componentesCargados = false;
         DispatcherTimer dtTimeVida; //temporizador
@@ -48,17 +46,9 @@ namespace IpoKemon_viewbox
         {
             AtaqueRealizado?.Invoke(this, e);
         }
-        private void OnEnfadoRealizado()
+        private void OnAccionRealizada()
         {
-            EnfadoRealizado?.Invoke(this, EventArgs.Empty);
-        }
-        private void OnCuracionRealizada()
-        {
-            CuracionRealizada?.Invoke(this, EventArgs.Empty);
-        }
-        private void OnEscudoActivado()
-        {
-            EscudoActivado?.Invoke(this, EventArgs.Empty);
+            AccionRealizada?.Invoke(this, EventArgs.Empty);
         }
 
         public void enfadado()
@@ -69,7 +59,7 @@ namespace IpoKemon_viewbox
                 escudoActivado = false;
             }
             btnEstadoEnfadado_Click(null, null);
-            OnEnfadoRealizado();
+            OnAccionRealizada();
             estaEnfadado = true;
         }
 
@@ -81,7 +71,7 @@ namespace IpoKemon_viewbox
                 escudoActivado = false;
             }
             imgPocionVida_PointerReleased(null, null);
-            OnCuracionRealizada();
+            OnAccionRealizada();
         }
 
         public void activarEscudo()
@@ -91,7 +81,7 @@ namespace IpoKemon_viewbox
 
             btnActivarEscudo_Click(null, null);
             escudoActivado = true;
-            OnEscudoActivado();
+            OnAccionRealizada();
         }
         public void atacar()
         {

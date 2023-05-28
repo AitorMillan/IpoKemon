@@ -19,7 +19,7 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Image Source="/Assets/FondoBotonesGengar.png" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-        <Button x:Name="btnBolaSombra" Content="Bolsa sombra" Height="96" VerticalAlignment="Center" Width="260" HorizontalAlignment="Center" FontSize="24" Foreground="#E4FFFFFF">
+        <Button x:Name="btnBolaSombra" Content="Bolsa sombra" Height="96" VerticalAlignment="Center" Width="260" HorizontalAlignment="Center" FontSize="24" Foreground="#E4FFFFFF" Click="btnBolaSombra_Click">
             <Button.Resources>
                 <ResourceDictionary>
                     <ResourceDictionary.ThemeDictionaries>
@@ -41,7 +41,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnCurarse" Content="Curarse" Height="96" VerticalAlignment="Center" Width="260" Grid.Column="1" HorizontalAlignment="Center" FontSize="24" Foreground="#E4FFFFFF">
+        <Button x:Name="btnCurarse" Content="Curarse" Height="96" VerticalAlignment="Center" Width="260" Grid.Column="1" HorizontalAlignment="Center" FontSize="24" Foreground="#E4FFFFFF" Click="btnCurarse_Click">
             <Button.Resources>
                 <ResourceDictionary>
                     <ResourceDictionary.ThemeDictionaries>
@@ -63,7 +63,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnRecuperarEnergia" Content="Recuperar energía" Height="96" VerticalAlignment="Center" Width="260" Grid.Row="1" HorizontalAlignment="Center" FontSize="24" Foreground="#E4FFFFFF">
+        <Button x:Name="btnRecuperarEnergia" Content="Recuperar energía" Height="96" VerticalAlignment="Center" Width="260" Grid.Row="1" HorizontalAlignment="Center" FontSize="24" Foreground="#E4FFFFFF" Click="btnRecuperarEnergia_Click">
             <Button.Resources>
                 <ResourceDictionary>
                     <ResourceDictionary.ThemeDictionaries>

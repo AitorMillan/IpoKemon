@@ -35,5 +35,10 @@ namespace IpoKemon_viewbox
         {
             Aron.ataqueCabeza();
         }
+
+        private void btnRestaurarEnergia_Click(object sender, RoutedEventArgs e)
+        {
+            Aron.restaurarEnergia();
+        }
     }
 }
