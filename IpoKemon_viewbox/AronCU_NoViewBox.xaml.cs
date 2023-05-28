@@ -22,15 +22,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace IpoKemon_viewbox
 {
-    public class AtaqueEventArgs : EventArgs
-    {
-        public int CantidadDanio { get; set; }
 
-        public AtaqueEventArgs(int cantidadDanio)
-        {
-            CantidadDanio = cantidadDanio;
-        }
-    }
     public sealed partial class AronCU_NoViewBox : UserControl
     {
         DispatcherTimer miReloj;

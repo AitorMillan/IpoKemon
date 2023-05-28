@@ -125,6 +125,7 @@
     <Compile Include="AronCU_ViewBox.xaml.cs">
       <DependentUpon>AronCU_ViewBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AtaqueEventArgs.cs" />
     <Compile Include="Combate.xaml.cs">
       <DependentUpon>Combate.xaml</DependentUpon>
     </Compile>

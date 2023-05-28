@@ -95,22 +95,22 @@ namespace IpoKemon_viewbox
             else if (pokemon1 == "Charmander")
             {
                 Pokemon1 = new ucCharmander();
-                CBotones1 = new cuadroBotonesCharmander(Pokemon1 as ucCharmander);
+                CBotones1 = new cuadroBotonesCharmander(Pokemon1 as ucCharmander_namespace);
                 ContenedorPokemon1.Content = Pokemon1;
                 ContenedorBotones1.Content = CBotones1;
-                ((ucCharmander)Pokemon1).invertirPokemon();
-                ((ucCharmander)Pokemon1).EnfadoRealizado += enfadoRealizado;
-                ((ucCharmander)Pokemon1).AtaqueRealizado += pokemon1AtaqueRealizado;
-                ((ucCharmander)Pokemon1).CuracionRealizada += curacionRealizada;
+                ((ucCharmander_namespace)Pokemon1).invertirPokemon();
+                ((ucCharmander_namespace)Pokemon1).EnfadoRealizado += enfadoRealizado;
+                ((ucCharmander_namespace)Pokemon1).AtaqueRealizado += pokemon1AtaqueRealizado;
+                ((ucCharmander_namespace)Pokemon1).CuracionRealizada += curacionRealizada;
             }
             else if (pokemon1 == "Gengar")
             {
-                Pokemon1 = new gengarUC();
-                CBotones1 = new cuadroBotonesGengar(Pokemon1 as gengarUC);
+                Pokemon1 = new gengarUC_namespace();
+                CBotones1 = new cuadroBotonesGengar(Pokemon1 as gengarUC_namespace);
                 ContenedorPokemon1.Content = Pokemon1;
                 ContenedorBotones1.Content = CBotones1;
                // ((gengarUC)Pokemon1).invertirPokemon();
-                ((gengarUC)Pokemon1).AtaqueRealizado += pokemon1AtaqueRealizado;
+                ((gengarUC_namespace)Pokemon1).AtaqueRealizado += pokemon1AtaqueRealizado;
               //  ((gengarUC)Pokemon1).CuracionRealizada += curacionRealizada;
             }
         }
@@ -119,8 +119,8 @@ namespace IpoKemon_viewbox
         {
             if (pokemon2 == "Charmander")
             {
-                Pokemon2 = new ucCharmander();
-                CBotones2 = new cuadroBotonesCharmander(Pokemon2 as ucCharmander);
+                Pokemon2 = new ucCharmander_namespace();
+                CBotones2 = new cuadroBotonesCharmander(Pokemon2 as ucCharmander_namespace);
                 ContenedorPokemon2.Content = Pokemon2;
                 ContenedorBotones2.Content = CBotones2;
                // ((ucCharmander)Pokemon2).AtaqueRealizado += pokemon1AtaqueRealizado;
@@ -135,9 +135,9 @@ namespace IpoKemon_viewbox
             }
             else if (pokemon2 == "Gengar")
             {
-                Pokemon2 = new gengarUC();
-                ContenedorPokemon2.Content = new gengarUC();
-                CBotones2 = new cuadroBotonesGengar(Pokemon2 as gengarUC);
+                Pokemon2 = new gengarUC_namespace();
+                ContenedorPokemon2.Content = new gengarUC_namespace();
+                CBotones2 = new cuadroBotonesGengar(Pokemon2 as gengarUC_namespace);
                 ContenedorBotones2.Content = CBotones2;
             }
         }
