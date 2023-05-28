@@ -24,10 +24,12 @@ namespace IpoKemon_viewbox
     public sealed partial class PaginaPrueba : Page
     {
         // Constructor sin parámetros requerido para la navegación
-        UserControl Pokemon1;
-        UserControl Pokemon2;
-        UserControl CBotones1;
-        UserControl CBotones2;
+        private UserControl Pokemon1;
+        private string nombrePokemon1;
+        private string nombrePokemon2;
+        private UserControl Pokemon2;
+        private UserControl CBotones1;
+        private UserControl CBotones2;
         public PaginaPrueba()
         {
             InitializeComponent();
@@ -94,8 +96,10 @@ namespace IpoKemon_viewbox
 
                 if (e.Parameter is String[] parametros)
             {
-                cargarControlUsuario1(parametros[0]);
-                cargarControlUsuario2(parametros[1]);
+                nombrePokemon1 = parametros[0];
+                nombrePokemon2 = parametros[1];
+                cargarControlUsuario1(nombrePokemon1);
+                cargarControlUsuario2(nombrePokemon2);
             }
         }
     }
