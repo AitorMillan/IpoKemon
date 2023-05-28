@@ -11,7 +11,7 @@
     <AssemblyName>IpoKemon_viewbox</AssemblyName>
     <DefaultLanguage>es-ES</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.18362.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
@@ -128,6 +128,7 @@
     <Compile Include="Combate.xaml.cs">
       <DependentUpon>Combate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dominio\PokeInfo.cs" />
     <Compile Include="gengarUC.xaml.cs">
       <DependentUpon>gengarUC.xaml</DependentUpon>
     </Compile>
@@ -136,6 +137,9 @@
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PokeData.xaml.cs">
+      <DependentUpon>PokeData.xaml</DependentUpon>
     </Compile>
     <Compile Include="PokeDex.xaml.cs">
       <DependentUpon>PokeDex.xaml</DependentUpon>
@@ -156,9 +160,11 @@
   <ItemGroup>
     <Content Include="Assets\Bola_sombra.png" />
     <Content Include="Assets\Energia.png" />
+    <Content Include="Assets\FondoPokeballs.jpg" />
     <Content Include="Assets\Imagen fondo.jpg" />
     <Content Include="Assets\PocionEnergia.png" />
     <Content Include="Assets\PocionVida.png" />
+    <Content Include="Assets\Pokedex.png" />
     <Content Include="Assets\Vida.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -197,6 +203,10 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PokeData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PokeDex.xaml">
       <SubType>Designer</SubType>
