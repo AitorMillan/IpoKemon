@@ -137,6 +137,9 @@
     <Compile Include="cuadroBotonesGengar.xaml.cs">
       <DependentUpon>cuadroBotonesGengar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="gengarUC-sinBarras.xaml.cs">
+      <DependentUpon>gengarUC-sinBarras.xaml</DependentUpon>
+    </Compile>
     <Compile Include="gengarUC.xaml.cs">
       <DependentUpon>gengarUC.xaml</DependentUpon>
     </Compile>
@@ -180,6 +183,7 @@
     <Content Include="Assets\ElegirPokemonStyle.png" />
     <Content Include="Assets\Energia.png" />
     <Content Include="Assets\escudoFuego.png" />
+    <Content Include="Assets\flecha-atras.png" />
     <Content Include="Assets\FondoBotonesCharmander.jpg" />
     <Content Include="Assets\FondoBotonesGengar.png" />
     <Content Include="Assets\fondo_combate.png" />
@@ -225,6 +229,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="cuadroBotonesGengar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="gengarUC-sinBarras.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
