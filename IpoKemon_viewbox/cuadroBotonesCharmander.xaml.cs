@@ -20,8 +20,8 @@ namespace IpoKemon_viewbox
 {
     public sealed partial class cuadroBotonesCharmander : UserControl
     {
-        private ucCharmander Charmie;
-        public cuadroBotonesCharmander(ucCharmander charmander)
+        private ucCharmander_namespace Charmie;
+        public cuadroBotonesCharmander(ucCharmander_namespace charmander)
         {
             this.InitializeComponent();
             Charmie = charmander;

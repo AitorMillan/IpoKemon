@@ -94,7 +94,7 @@ namespace IpoKemon_viewbox
             }
             else if (pokemon1 == "Charmander")
             {
-                Pokemon1 = new ucCharmander();
+                Pokemon1 = new ucCharmander_namespace();
                 CBotones1 = new cuadroBotonesCharmander(Pokemon1 as ucCharmander_namespace);
                 ContenedorPokemon1.Content = Pokemon1;
                 ContenedorBotones1.Content = CBotones1;

@@ -20,8 +20,8 @@ namespace IpoKemon_viewbox
 {
     public sealed partial class cuadroBotonesGengar : UserControl
     {
-        private gengarUC Gengar;
-        public cuadroBotonesGengar(gengarUC gengar)
+        private gengarUC_namespace Gengar;
+        public cuadroBotonesGengar(gengarUC_namespace gengar)
         {
             this.InitializeComponent();
             Gengar = gengar;
