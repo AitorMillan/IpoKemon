@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Charmander_UWP_ControlUsuario;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Security.Principal;
+using Windows.Devices.Radios;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -19,13 +22,27 @@ using Windows.UI.Xaml.Navigation;
 
 namespace IpoKemon_viewbox
 {
+    public class AtaqueEventArgs : EventArgs
+    {
+        public int CantidadDanio { get; set; }
+
+        public AtaqueEventArgs(int cantidadDanio)
+        {
+            CantidadDanio = cantidadDanio;
+        }
+    }
     public sealed partial class AronCU_NoViewBox : UserControl
     {
         DispatcherTimer miReloj;
         DispatcherTimer relojAnimaciones;
         Storyboard idle;
-        Boolean estaCansado;
-        Boolean energico;
+        private int danioAtaqueCabeza = 15;
+        private int danioGolpeCuerpo = 20;
+        public delegate void AtaqueRealizadoEventHandler(object sender, AtaqueEventArgs e);
+        public event AtaqueRealizadoEventHandler AtaqueRealizado;
+        public event EventHandler CuracionRealizada;
+        bool estaCansado;
+        bool energico;
         public AronCU_NoViewBox()
         {
             this.InitializeComponent();
@@ -38,6 +55,43 @@ namespace IpoKemon_viewbox
             idle.AutoReverse = true;
             idle.RepeatBehavior = RepeatBehavior.Forever;
             idle.Begin();
+        }
+
+        public void ataqueCabeza()
+        {
+            int danioAtaque = danioAtaqueCabeza;
+            if (energico)
+                danioAtaque = danioAtaqueCabeza * 2;
+
+            btnAtaqueCabeza_Click(null, null);
+            OnAtaqueRealizado(new AtaqueEventArgs(danioAtaque));
+        }
+        public void ataqueCuerpo()
+         {
+             int danioAtaque = danioGolpeCuerpo;
+             if (energico)
+             {
+                 danioAtaque = danioGolpeCuerpo * 2;
+             }
+             btnAtaqueCabeza_Click(null, null);
+             OnAtaqueRealizado(new AtaqueEventArgs(danioAtaque));
+        }
+        private void OnAtaqueRealizado(AtaqueEventArgs e)
+        {
+            AtaqueRealizado?.Invoke(this, e);
+        }
+        public void curarse()
+        {
+            imgPocionVida_PointerReleased(null, null);
+            OnCuracionRealizada();
+        }
+        private void OnCuracionRealizada()
+        {
+            CuracionRealizada?.Invoke(this, EventArgs.Empty);
+        }
+        public void invertirPokemon()
+        {
+            cvAron.RenderTransform = new ScaleTransform() { ScaleX = -1 };
         }
         public double Vida
         {

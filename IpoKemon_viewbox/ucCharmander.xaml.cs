@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IpoKemon_viewbox;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -20,9 +21,26 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Charmander_UWP_ControlUsuario
 {
+    public class AtaqueEventArgs : EventArgs
+    {
+        public int CantidadDanio { get; set; }
+
+        public AtaqueEventArgs(int cantidadDanio)
+        {
+            CantidadDanio = cantidadDanio;
+        }
+    }
+
     public sealed partial class ucCharmander : UserControl
     {
-
+        private int danio = 15;
+        private bool estaEnfadado = false;
+        private bool escudoActivado = false;
+        public delegate void AtaqueRealizadoEventHandler(object sender, AtaqueEventArgs e);
+        public event AtaqueRealizadoEventHandler AtaqueRealizado;
+        public event EventHandler CuracionRealizada;
+        public event EventHandler EnfadoRealizado;
+        public event EventHandler EscudoActivado;
         public const int VIDA_CRITICA = 25;
         public bool componentesCargados = false;
         DispatcherTimer dtTimeVida; //temporizador
@@ -34,7 +52,75 @@ namespace Charmander_UWP_ControlUsuario
             componentesCargados = true;
             movimientoCola();
         }
+        private void OnAtaqueRealizado(AtaqueEventArgs e)
+        {
+            AtaqueRealizado?.Invoke(this, e);
+        }
+        private void OnEnfadoRealizado()
+        {
+            EnfadoRealizado?.Invoke(this, EventArgs.Empty);
+        }
+        private void OnCuracionRealizada()
+        {
+            CuracionRealizada?.Invoke(this, EventArgs.Empty);
+        }
+        private void OnEscudoActivado()
+        {
+            EscudoActivado?.Invoke(this, EventArgs.Empty);
+        }
 
+        public void enfadado()
+        {
+            if (escudoActivado)
+            {
+                btnActivarEscudo_Click(null, null);
+                escudoActivado = false;
+            }
+            btnEstadoEnfadado_Click(null, null);
+            OnEnfadoRealizado();
+            estaEnfadado = true;
+        }
+
+        public void curarse()
+        {
+            if (escudoActivado)
+            {
+                btnActivarEscudo_Click(null, null);
+                escudoActivado = false;
+            }
+            imgPocionVida_PointerReleased(null, null);
+            OnCuracionRealizada();
+        }
+
+        public void activarEscudo()
+        {
+            if (escudoActivado)
+                btnActivarEscudo_Click(null, null);
+         
+            btnActivarEscudo_Click(null, null);
+            escudoActivado = true;
+            OnEscudoActivado();
+        }
+        public void atacar()
+        {
+            if (escudoActivado)
+            {
+                btnActivarEscudo_Click(null, null);
+                escudoActivado = false;
+            }
+            int danioAtaque = danio;
+            if (estaEnfadado)
+            {
+                danioAtaque = danio * 2;
+                estaEnfadado = false;
+            }
+            btnLanzarBolaFuego_Click(null, null);
+            OnAtaqueRealizado(new AtaqueEventArgs(danioAtaque));
+        }
+        public void invertirPokemon()
+        {
+            cvPrincipal.RenderTransform = new ScaleTransform() { ScaleX = -1 };
+        }
         public double Vida
         {
             get { return pbVida.Value;  }
@@ -182,15 +268,12 @@ namespace Charmander_UWP_ControlUsuario
             }
         }
 
-
-
         private void btnEstadoEnfadado_Click(object sender, RoutedEventArgs e)
         {
             Storyboard sb = (Storyboard)this.ptPupilaIzq.Resources["ojoIzqRojoKey"];
             Storyboard sb2 = (Storyboard)this.ptPupilaDer.Resources["ojoDerRojoKey"];
             sb.Begin();
             sb2.Begin();
-
         }
 
         private void pbVida_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)

@@ -5,7 +5,8 @@
     xmlns:local="using:Charmander_UWP_ControlUsuario"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Height="820" Width="1420">
+    mc:Ignorable="d" d:DesignHeight="400"
+    d:DesignWidth="500">
 
     <UserControl.Resources>
         <Storyboard x:Name="sbMovimientoCola">
@@ -70,8 +71,16 @@
         <Button x:Name="btnLanzarBolaFuego" Grid.Column="2" Content="Bola de Fuego&#xA;" Grid.Row="2" VerticalAlignment="Bottom" Background="#F8585454" FontSize="14" Foreground="#FFFFF6F6" Click="btnLanzarBolaFuego_Click" UseLayoutRounding="True" HorizontalAlignment="Stretch" Margin="0,0,0,300"/>
 
 
-        <Viewbox Stretch="Uniform" Grid.Row="2" Grid.Column="1">
-            <Canvas x:Name="cvPrincipal" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="220" Width="184">
+        <Viewbox Stretch="Uniform" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Canvas x:Name="cvPrincipal" Grid.Column="1" Grid.Row="2" Height="220" Width="184" RenderTransformOrigin="0.5,0.5">
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
                 <Canvas x:Name="cvCharmander" Height="199" Width="177" HorizontalAlignment="Left" Canvas.Left="12" Canvas.Top="35" VerticalAlignment="Bottom">
                     <Canvas x:Name="cvCola" Height="95" Width="67" HorizontalAlignment="Center" Canvas.Left="108.134" Canvas.Top="58.153" VerticalAlignment="Top" RenderTransformOrigin="0.285,0.847">
                         <Canvas.RenderTransform>
@@ -437,7 +446,7 @@
                         </Image.RenderTransform>
                     </Image>
                 </Canvas>
-                <Image x:Name="imgBolaFuego" Height="130" Width="155" Source="/Assets/bolaFuego.gif" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Canvas.Left="300" Canvas.Top="131" VerticalAlignment="Bottom" Visibility="Collapsed">
+                <Image x:Name="imgBolaFuego" Height="130" Width="155" Source="/Assets/bolaFuego.gif" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Canvas.Left="-63" Canvas.Top="70" VerticalAlignment="Bottom" Visibility="Collapsed">
                     <Image.RenderTransform>
                         <CompositeTransform/>
                     </Image.RenderTransform>

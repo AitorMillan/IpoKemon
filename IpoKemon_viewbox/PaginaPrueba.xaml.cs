@@ -1,4 +1,5 @@
-﻿using PokemonPruebas;
+﻿using Charmander_UWP_ControlUsuario;
+using PokemonPruebas;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,43 +25,93 @@ namespace IpoKemon_viewbox
     public sealed partial class PaginaPrueba : Page
     {
         // Constructor sin parámetros requerido para la navegación
+        private int tokenTurno;
         private UserControl Pokemon1;
+        private UserControl Pokemon2;
         private string nombrePokemon1;
         private string nombrePokemon2;
-        private UserControl Pokemon2;
         private UserControl CBotones1;
         private UserControl CBotones2;
         public PaginaPrueba()
         {
             InitializeComponent();
+            tokenTurno = 1;
         }
 
-        private void Pokemon1AtaqueRealizado(object sender, AtaqueEventArgs e)
+        private void pokemon1AtaqueRealizado(object sender, AtaqueEventArgs e)
         {
             // Obtener la cantidad de daño del ataque
             int cantidadDanio = e.CantidadDanio;
-
-            // Realizar la lógica para quitarle vida al otro Pokemon
-            ((AronCU_NoViewBox)Pokemon2).recibirAtaque2(cantidadDanio);
+            cambiarTurno();
         }
+
+
+        private void enfadoRealizado(object sender, EventArgs e)
+        {
+            cambiarTurno();
+        }
+        
+        private void curacionRealizada(object sender, EventArgs e)
+        {
+            cambiarTurno();
+        }
+
+        private void cambiarTurno()
+        {
+            if(tokenTurno == 0)
+            {
+                ContenedorBotones1.Visibility = Visibility.Visible;
+                ContenedorBotones2.Visibility = Visibility.Collapsed;
+                txtbEsperaJ1.Visibility = Visibility.Visible;
+                txtbEsperaJ2.Visibility = Visibility.Collapsed;
+                tokenTurno = 1;
+            }
+            else
+            {
+                ContenedorBotones2.Visibility = Visibility.Visible;
+                ContenedorBotones1.Visibility = Visibility.Collapsed;
+                txtbEsperaJ2.Visibility = Visibility.Visible;
+                txtbEsperaJ1.Visibility = Visibility.Collapsed;
+                tokenTurno = 0;
+            }
+            // Si tokenTurno = 0 -> Turno del jugador 1
+            // Si tokenTurno = 1 -> Turno del jugador 2
+        }
+
         private void cargarControlUsuario1(String pokemon1)
         {
-            if (pokemon1 == "Charmander")
+
+            if (pokemon1 == "Aron")
             {
-                Pokemon1 = new ucCharmander_sinBarras();
-                CBotones1 = new cuadroBotonesCharmander(Pokemon1 as ucCharmander_sinBarras);
+                Pokemon1 = new AronCU_NoViewBox();
+                CBotones1 = new cuadroBotonesAron(Pokemon1 as AronCU_NoViewBox);
                 ContenedorPokemon1.Content = Pokemon1;
                 ContenedorBotones1.Content = CBotones1;
-                ((ucCharmander_sinBarras)Pokemon1).invertirPokemon();
-                ((ucCharmander_sinBarras)Pokemon1).AtaqueRealizado += Pokemon1AtaqueRealizado;
+                ((AronCU_NoViewBox)Pokemon1).invertirPokemon();
+                ((AronCU_NoViewBox)Pokemon1).AtaqueRealizado += pokemon1AtaqueRealizado;
+               // ((AronCU_NoViewBox)Pokemon1).EnfadoRealizado += enfadoRealizado;
+                ((AronCU_NoViewBox)Pokemon1).CuracionRealizada += curacionRealizada;
             }
-            else if (pokemon1 == "Aron")
+            else if (pokemon1 == "Charmander")
             {
-                ContenedorPokemon1.Content = new AronCU_NoViewBox();
+                Pokemon1 = new ucCharmander();
+                CBotones1 = new cuadroBotonesCharmander(Pokemon1 as ucCharmander);
+                ContenedorPokemon1.Content = Pokemon1;
+                ContenedorBotones1.Content = CBotones1;
+                ((ucCharmander)Pokemon1).invertirPokemon();
+                ((ucCharmander)Pokemon1).EnfadoRealizado += enfadoRealizado;
+                ((ucCharmander)Pokemon1).AtaqueRealizado += pokemon1AtaqueRealizado;
+                ((ucCharmander)Pokemon1).CuracionRealizada += curacionRealizada;
             }
             else if (pokemon1 == "Gengar")
             {
-                ContenedorPokemon1.Content = new gengarUC();
+                Pokemon1 = new gengarUC();
+                CBotones1 = new cuadroBotonesGengar(Pokemon1 as gengarUC);
+                ContenedorPokemon1.Content = Pokemon1;
+                ContenedorBotones1.Content = CBotones1;
+               // ((gengarUC)Pokemon1).invertirPokemon();
+                ((gengarUC)Pokemon1).AtaqueRealizado += pokemon1AtaqueRealizado;
+              //  ((gengarUC)Pokemon1).CuracionRealizada += curacionRealizada;
             }
         }
 
@@ -68,11 +119,11 @@ namespace IpoKemon_viewbox
         {
             if (pokemon2 == "Charmander")
             {
-                Pokemon2 = new ucCharmander_sinBarras();
-                CBotones2 = new cuadroBotonesCharmander(Pokemon2 as ucCharmander_sinBarras);
-                ContenedorPokemon1.Content = Pokemon2;
-                ContenedorBotones1.Content = CBotones2;
-                ((ucCharmander_sinBarras)Pokemon1).AtaqueRealizado += Pokemon1AtaqueRealizado;
+                Pokemon2 = new ucCharmander();
+                CBotones2 = new cuadroBotonesCharmander(Pokemon2 as ucCharmander);
+                ContenedorPokemon2.Content = Pokemon2;
+                ContenedorBotones2.Content = CBotones2;
+               // ((ucCharmander)Pokemon2).AtaqueRealizado += pokemon1AtaqueRealizado;
             }
             else if (pokemon2 == "Aron")
             {
@@ -80,7 +131,7 @@ namespace IpoKemon_viewbox
                 ContenedorPokemon2.Content = Pokemon2;
                 CBotones2 = new cuadroBotonesAron(Pokemon2 as AronCU_NoViewBox);
                 ContenedorBotones2.Content = CBotones2;
-               // ((AronCU_NoViewBox)Pokemon2).AtaqueRealizado += Pokemon1AtaqueRealizado;
+                ((AronCU_NoViewBox)Pokemon2).AtaqueRealizado += pokemon1AtaqueRealizado;
             }
             else if (pokemon2 == "Gengar")
             {

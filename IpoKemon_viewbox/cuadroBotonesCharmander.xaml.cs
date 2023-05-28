@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Charmander_UWP_ControlUsuario;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,13 +20,12 @@ namespace IpoKemon_viewbox
 {
     public sealed partial class cuadroBotonesCharmander : UserControl
     {
-        private ucCharmander_sinBarras Charmie;
-        public cuadroBotonesCharmander(ucCharmander_sinBarras charmander)
+        private ucCharmander Charmie;
+        public cuadroBotonesCharmander(ucCharmander charmander)
         {
             this.InitializeComponent();
             Charmie = charmander;
         }
-
         private void btnAtacar_Click(object sender, RoutedEventArgs e)
         {
            Charmie.atacar();
@@ -34,6 +34,16 @@ namespace IpoKemon_viewbox
         private void btnEnfadarse_Click(object sender, RoutedEventArgs e)
         {
             Charmie.enfadado();
+        }
+
+        private void btnCurarse_Click(object sender, RoutedEventArgs e)
+        {
+            Charmie.curarse();
+        }
+
+        private void btnActivarEscudo_Click(object sender, RoutedEventArgs e)
+        {
+            Charmie.activarEscudo();
         }
     }
 }

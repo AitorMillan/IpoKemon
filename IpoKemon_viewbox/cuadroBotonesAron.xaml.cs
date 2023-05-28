@@ -24,6 +24,16 @@ namespace IpoKemon_viewbox
         {
             this.InitializeComponent();
             Aron = aron;
-        }   
+        }
+
+        private void btnCurarse_Click(object sender, RoutedEventArgs e)
+        {
+            Aron.curarse();
+        }
+
+        private void btnAtaqueCabeza_Click(object sender, RoutedEventArgs e)
+        {
+            Aron.ataqueCabeza();
+        }
     }
 }
