@@ -162,6 +162,9 @@
     <Compile Include="SelectorPokemon.xaml.cs">
       <DependentUpon>SelectorPokemon.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ucCharmander-namespace.xaml.cs">
+      <DependentUpon>ucCharmander-namespace.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ucCharmander-sinBarras.xaml.cs">
       <DependentUpon>ucCharmander-sinBarras.xaml</DependentUpon>
     </Compile>
@@ -260,6 +263,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SelectorPokemon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ucCharmander-namespace.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
