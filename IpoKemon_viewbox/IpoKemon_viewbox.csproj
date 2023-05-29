@@ -166,6 +166,7 @@
     <Content Include="Assets\PocionVida.png" />
     <Content Include="Assets\Pokedex.png" />
     <Content Include="Assets\Vida.png" />
+    <Content Include="Assets\Volver.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

@@ -7,9 +7,27 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid x:Name="Pokedex">
+        <Grid.Background>
+            <ImageBrush/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="56*"/>
+            <ColumnDefinition Width="84*"/>
+            <ColumnDefinition Width="122*"/>
+            <ColumnDefinition Width="102*"/>
+            <ColumnDefinition Width="35*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="21*"/>
+            <RowDefinition Height="38*"/>
+            <RowDefinition Height="78*"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="96*"/>
+            <RowDefinition Height="58*"/>
+        </Grid.RowDefinitions>
+        <TextBox TextWrapping="Wrap" Text="TITULO" Grid.Column="2" Margin="74,12,128,11" Grid.Row="1" FontSize="36"/>
+        <local:AronCU Margin="2,122,0,29" Grid.RowSpan="3" Grid.Column="1" Grid.Row="1" PointerReleased="AronCU_PointerReleased"/>
 
-    <Grid>
-
-        <TextBlock HorizontalAlignment="Left" Height="160" Margin="59,88,0,0" TextWrapping="Wrap" Text="Pestaña Pokedex" VerticalAlignment="Top" Width="486" Foreground="Black" FontSize="36"/>
     </Grid>
 </Page>
