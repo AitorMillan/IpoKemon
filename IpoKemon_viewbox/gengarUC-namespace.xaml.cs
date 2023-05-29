@@ -36,14 +36,6 @@ namespace IpoKemon_viewbox
             this.InitializeComponent();
         }
 
-        public void invertirPokemon()
-        {
-          /*  CompositeTransform transform = new CompositeTransform();
-            transform.TranslateX = -100;
-            Animation_BolaSombra_gr.RenderTransform = transform;*/
-           // Gengar.RenderTransform = new ScaleTransform() { ScaleX = -1 };
-        }
-
         private void OnAccionRealizada()
         {
             AccionRealizada?.Invoke(this, EventArgs.Empty);

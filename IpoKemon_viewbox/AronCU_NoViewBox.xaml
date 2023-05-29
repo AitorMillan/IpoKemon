@@ -329,7 +329,7 @@
         <ThemeResource ResourceKey="AppBarBackgroundThemeBrush"/>
     </UserControl.Background>
 
-    <Grid Background="White">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="86*"/>
             <ColumnDefinition Width="1285*"/>
