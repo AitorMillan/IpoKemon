@@ -53,7 +53,7 @@ namespace IpoKemon_viewbox
                     ((AronCU_NoViewBox)Pokemon2).recibirDaño(cantidadDanio);
                     break;
                 case "Gengar":
-                  //  ((gengarUC_namespace)Pokemon2).recibirDaño(cantidadDanio);
+                    ((gengarUC_namespace)Pokemon2).recibirDaño(cantidadDanio);
                     break;
             }
             cambiarTurno();
@@ -72,7 +72,7 @@ namespace IpoKemon_viewbox
                     ((AronCU_NoViewBox)Pokemon1).recibirDaño(cantidadDanio);
                     break;
                 case "Gengar":
-                    //  ((gengarUC_namespace)Pokemon1).recibirDaño(cantidadDanio);
+                    ((gengarUC_namespace)Pokemon1).recibirDaño(cantidadDanio);
                     break;
             }
             cambiarTurno();
@@ -140,8 +140,7 @@ namespace IpoKemon_viewbox
                 CBotones1 = new cuadroBotonesGengar(Pokemon1 as gengarUC_namespace);
                 ContenedorPokemon1.Content = Pokemon1;
                 ContenedorBotones1.Content = CBotones1;
-               // ((gengarUC_namespace)Pokemon1).invertirPokemon();
-                //((gengarUC_namespace)Pokemon1).ocultarDatosCombate();
+                ((gengarUC_namespace)Pokemon1).ocultarDatosCombate();
                 ((gengarUC_namespace)Pokemon1).AtaqueRealizado += pokemon1AtaqueRealizado;
                 ((gengarUC_namespace)Pokemon1).AccionRealizada += accionRealizada;
             }
@@ -172,9 +171,10 @@ namespace IpoKemon_viewbox
             else if (pokemon2 == "Gengar")
             {
                 Pokemon2 = new gengarUC_namespace();
-                ContenedorPokemon2.Content = new gengarUC_namespace();
+                ContenedorPokemon2.Content = Pokemon2;
                 CBotones2 = new cuadroBotonesGengar(Pokemon2 as gengarUC_namespace);
                 ContenedorBotones2.Content = CBotones2;
+                ((gengarUC_namespace)Pokemon2).ocultarDatosCombate();
                 ((gengarUC_namespace)Pokemon2).AtaqueRealizado += pokemon2AtaqueRealizado;
                 ((gengarUC_namespace)Pokemon2).AccionRealizada += accionRealizada;
             }

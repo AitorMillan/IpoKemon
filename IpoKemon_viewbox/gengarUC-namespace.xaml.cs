@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -42,20 +43,33 @@ namespace IpoKemon_viewbox
         }
         public void atacar()
         {
-            BolaSombra_btn_Click(null, null);
-            OnAtaqueRealizado(new AtaqueEventArgs(danio));
+            garraSombría();
+
         }
 
-        public void resutarEnergia()
+        public void restaurarEnergia()
         {
             aumentarEnergia();
-            OnAccionRealizada();
+        }
+
+        public void recibirDaño(int daño)
+        {
+            pbVida.Value -= daño;
+            colorVida();
+        }
+
+        public void ocultarDatosCombate()
+        {
+            verPocionEnergia(false);
+            verPocionVida(false);
+            verNombre(false);
+            verImagenFondo(false);
+            verBotonBolaSombras(false);
         }
 
         public void curarse()
         {
             Potion1_img_PointerReleased(null, null);
-            OnAccionRealizada();
         }
         private void OnAtaqueRealizado(AtaqueEventArgs e)
         {
@@ -81,14 +95,11 @@ namespace IpoKemon_viewbox
             else
                 this.pbVida.Visibility = Visibility.Visible;
         }
-        public void recibirAtaque()
-        {
-            ataqueRecibido();
-        }
 
         private void aumentarEnergia()
         {
             pbEnergia.Value += 50;
+            OnAccionRealizada();
         }
 
         private void Potion1_img_PointerReleased(object sender, PointerRoutedEventArgs e)
@@ -124,6 +135,7 @@ namespace IpoKemon_viewbox
 
             if (controlL == 20)
             {
+                OnAccionRealizada();
                 this.HealingDT.Stop();
                 //this.Potion1_img.Opacity = 1;
                 controlL = 0;
@@ -132,6 +144,7 @@ namespace IpoKemon_viewbox
 
             if (pbVida.Value >= 100)
             {
+                OnAccionRealizada();
                 this.HealingDT.Stop();
                 this.imgPocionVida.Opacity = 0.0;
             }
@@ -167,6 +180,15 @@ namespace IpoKemon_viewbox
             else
                 this.imgPocionVida.Source = new BitmapImage(new Uri("ms-appx:///Assets/PocionVida.png", UriKind.RelativeOrAbsolute));
         }
+
+        public void verBotonBolaSombras(bool verBotonBolaSombras)
+        {
+            if (!verBotonBolaSombras)
+                this.BolaSombra_btn.Visibility = Visibility.Collapsed;
+            else
+                this.BolaSombra_btn.Visibility = Visibility.Visible;
+        }
+
         public void verPocionEnergia(bool verPocionEnergia)
         {
             if (!verPocionEnergia)
@@ -294,18 +316,15 @@ namespace IpoKemon_viewbox
             return tipoCaptura;
         }
 
-        private void ataqueRecibido()
+        private async void garraSombría()
         {
             this.Animation_Zarpa_gr.Visibility = Visibility.Visible;
             this.Zarpa_img.Visibility = Visibility.Visible;
 
             Storyboard Atack = (Storyboard)this.Resources["Atack"];
             Atack.Begin();
-
-            HealingDT = new DispatcherTimer();
-            HealingDT.Interval = TimeSpan.FromMilliseconds(50);
-            HealingDT.Tick += bajarVida;
-            HealingDT.Start();
+            await Task.Delay(1000);
+            OnAtaqueRealizado(new AtaqueEventArgs(danio));
         }
 
         private void bajarVida(object sender, object e)

@@ -24,22 +24,55 @@ namespace IpoKemon_viewbox
         public cuadroBotonesGengar(gengarUC_namespace gengar)
         {
             this.InitializeComponent();
+            this.IsEnabledChanged += CuadroBotonesGengar_IsEnabledChanged;
             Gengar = gengar;
         }
 
         private void btnBolaSombra_Click(object sender, RoutedEventArgs e)
         {
             Gengar.atacar();
+            desactivarBotones();
         }
 
         private void btnCurarse_Click(object sender, RoutedEventArgs e)
         {
             Gengar.curarse();
+            desactivarBotones();
         }
 
         private void btnRecuperarEnergia_Click(object sender, RoutedEventArgs e)
         {
-            Gengar.resutarEnergia();
+            Gengar.restaurarEnergia();
+            desactivarBotones();
+        }
+
+        private void btnRendirse_Click(object sender, RoutedEventArgs e)
+        {
+            //desactivarBotones();
+        }
+
+        private void CuadroBotonesGengar_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if ((bool)e.NewValue == true)
+            {
+                activarBotones();
+            }
+        }
+
+        private void desactivarBotones()
+        {
+            btnBolaSombra.IsEnabled = false;
+            btnCurarse.IsEnabled = false;
+            btnRecuperarEnergia.IsEnabled = false;
+            btnRendirse.IsEnabled = false;
+        }
+
+        private void activarBotones()
+        {
+            btnBolaSombra.IsEnabled = true;
+            btnCurarse.IsEnabled = true;
+            btnRecuperarEnergia.IsEnabled = true;
+            btnRendirse.IsEnabled = true;
         }
     }
 }
