@@ -174,8 +174,9 @@ namespace IpoKemon_viewbox
             else
             {
                 // Obtener los nombres de los Pokémon seleccionados
-                string pokemonP1 = lastSelectedPokemonP1.Name;
-                string pokemonP2 = lastSelectedPokemonP2.Name;
+                string pokemonP1 = lastSelectedPokemonP1.Name.Replace("border","").Replace("P1","");
+
+                string pokemonP2 = lastSelectedPokemonP2.Name.Replace("border", "").Replace("P2", "");
 
                 // Aquí va tu código para cambiar al siguiente frame, pasando los datos como parámetros
                 // Por ejemplo:
