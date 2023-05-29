@@ -23,7 +23,56 @@ namespace IpoKemon_viewbox
         public cuadroBotonesAron(AronCU_NoViewBox aron)
         {
             this.InitializeComponent();
+            this.IsEnabledChanged += CuadroBotonesAron_IsEnabledChanged;
             Aron = aron;
-        }   
+        }
+
+        private void btnCurarse_Click(object sender, RoutedEventArgs e)
+        {
+            Aron.curarse();
+            desactivarBotones();
+        }
+
+        private void btnAtaqueCabeza_Click(object sender, RoutedEventArgs e)
+        {
+            Aron.ataqueCabeza();
+            desactivarBotones();
+        }
+
+        private void btnRestaurarEnergia_Click(object sender, RoutedEventArgs e)
+        {
+            Aron.restaurarEnergia();
+            desactivarBotones();
+        }
+
+        private void btnGolpeCuerpo_Click(object sender, RoutedEventArgs e)
+        {
+            Aron.ataqueCuerpo();
+            desactivarBotones();
+        }
+        private void CuadroBotonesAron_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if ((bool)e.NewValue == true)
+            {
+                activarBotones();
+            }
+        }
+
+        private void desactivarBotones()
+        {
+            btnAtaqueCabeza.IsEnabled = false;
+            btnCurarse.IsEnabled = false;
+            btnGolpeCuerpo.IsEnabled = false;
+            btnRestaurarEnergia.IsEnabled = false;
+        }
+
+        private void activarBotones()
+        {
+            btnAtaqueCabeza.IsEnabled = true;
+            btnCurarse.IsEnabled = true;
+            btnGolpeCuerpo.IsEnabled = true;
+            btnRestaurarEnergia.IsEnabled = true;
+        }
+
     }
 }

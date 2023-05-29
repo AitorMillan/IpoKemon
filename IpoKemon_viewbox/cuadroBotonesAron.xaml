@@ -20,7 +20,7 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Image Source="/Assets/AronFondoBotones.png" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-        <Button x:Name="btnAtaqueCabeza" Content="Ataque cabeza" HorizontalAlignment="Center" Height="96" Width="260" FontSize="24" RenderTransformOrigin="0.5,0.5">
+        <Button x:Name="btnAtaqueCabeza" Content="Ataque cabeza" HorizontalAlignment="Center" Height="96" Width="260" FontSize="24" RenderTransformOrigin="0.5,0.5" Click="btnAtaqueCabeza_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <LinearGradientBrush.RelativeTransform>
@@ -47,7 +47,7 @@
                 </ResourceDictionary>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnRestaurarEnergia" Content="Restaurar energía" HorizontalAlignment="Center" Height="96" Width="260" FontSize="24" RenderTransformOrigin="0.5,0.5" Grid.Row="1">
+        <Button x:Name="btnRestaurarEnergia" Content="Restaurar energía" HorizontalAlignment="Center" Height="96" Width="260" FontSize="24" RenderTransformOrigin="0.5,0.5" Grid.Row="1" Click="btnRestaurarEnergia_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <LinearGradientBrush.RelativeTransform>
@@ -74,7 +74,7 @@
                 </ResourceDictionary>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnCurarse" Content="Curarse" HorizontalAlignment="Center" Height="96" Width="260" FontSize="24" RenderTransformOrigin="0.5,0.5" Grid.Row="1" Grid.Column="1">
+        <Button x:Name="btnCurarse" Content="Curarse" HorizontalAlignment="Center" Height="96" Width="260" FontSize="24" RenderTransformOrigin="0.5,0.5" Grid.Row="1" Grid.Column="1" Click="btnCurarse_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <LinearGradientBrush.RelativeTransform>
@@ -101,7 +101,7 @@
                 </ResourceDictionary>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnGolpeCuerpo" Content="Golpe cuerpo" HorizontalAlignment="Center" Height="96" Width="260" FontSize="24" RenderTransformOrigin="0.5,0.5" Grid.Column="1" VerticalAlignment="Center">
+        <Button x:Name="btnGolpeCuerpo" Content="Golpe cuerpo" HorizontalAlignment="Center" Height="96" Width="260" FontSize="24" RenderTransformOrigin="0.5,0.5" Grid.Column="1" VerticalAlignment="Center" Click="btnGolpeCuerpo_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <LinearGradientBrush.RelativeTransform>

@@ -19,7 +19,7 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Image Source="/Assets/FondoBotonesCharmander.jpg" Margin="-6,0,0,0" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-        <Button x:Name="btnCurarse" Content="Curarse" Height="96" Width="260" Grid.Column="1" HorizontalAlignment="Center" FontSize="24">
+        <Button x:Name="btnCurarse" Content="Curarse" Height="96" Width="260" Grid.Column="1" HorizontalAlignment="Center" FontSize="24" Click="btnCurarse_Click">
             <Button.Resources>
                 <ResourceDictionary>
                     <ResourceDictionary.ThemeDictionaries>
@@ -75,7 +75,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnActivarEscudo" Content="Activar escudo" Height="96" Width="260" HorizontalAlignment="Center" FontSize="24" Margin="0,49,0,0" Grid.Row="1" VerticalAlignment="Top">
+        <Button x:Name="btnActivarEscudo" Content="Activar escudo" Height="96" Width="260" HorizontalAlignment="Center" FontSize="24" Margin="0,49,0,0" Grid.Row="1" VerticalAlignment="Top" Click="btnActivarEscudo_Click">
             <Button.Resources>
                 <ResourceDictionary>
                     <ResourceDictionary.ThemeDictionaries>

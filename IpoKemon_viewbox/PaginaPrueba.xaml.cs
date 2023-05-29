@@ -1,4 +1,5 @@
-﻿using PokemonPruebas;
+﻿using Charmander_UWP_ControlUsuario;
+using PokemonPruebas;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -24,43 +26,123 @@ namespace IpoKemon_viewbox
     public sealed partial class PaginaPrueba : Page
     {
         // Constructor sin parámetros requerido para la navegación
+        private int tokenTurno;
         private UserControl Pokemon1;
+        private UserControl Pokemon2;
         private string nombrePokemon1;
         private string nombrePokemon2;
-        private UserControl Pokemon2;
         private UserControl CBotones1;
         private UserControl CBotones2;
         public PaginaPrueba()
         {
             InitializeComponent();
+            tokenTurno = 1;
         }
 
-        private void Pokemon1AtaqueRealizado(object sender, AtaqueEventArgs e)
+        private void pokemon1AtaqueRealizado(object sender, AtaqueEventArgs e)
         {
             // Obtener la cantidad de daño del ataque
             int cantidadDanio = e.CantidadDanio;
+            
+            switch (nombrePokemon2)
+            {
+                case "Charmander":
+                    ((ucCharmander_namespace)Pokemon2).recibirDaño(cantidadDanio);
+                    break;
+                case "Aron":
+                    ((AronCU_NoViewBox)Pokemon2).recibirDaño(cantidadDanio);
+                    break;
+                case "Gengar":
+                    ((gengarUC_namespace)Pokemon2).recibirDaño(cantidadDanio);
+                    break;
+            }
+            cambiarTurno();
+        }
 
-            // Realizar la lógica para quitarle vida al otro Pokemon
-            ((AronCU_NoViewBox)Pokemon2).recibirAtaque2(cantidadDanio);
+        private void pokemon2AtaqueRealizado(object sender, AtaqueEventArgs e)
+        {
+            // Obtener la cantidad de daño del ataque
+            int cantidadDanio = e.CantidadDanio;
+            switch (nombrePokemon1)
+            {
+                case "Charmander":
+                    ((ucCharmander_namespace)Pokemon1).recibirDaño(cantidadDanio);
+                    break;
+                case "Aron":
+                    ((AronCU_NoViewBox)Pokemon1).recibirDaño(cantidadDanio);
+                    break;
+                case "Gengar":
+                    ((gengarUC_namespace)Pokemon1).recibirDaño(cantidadDanio);
+                    break;
+            }
+            cambiarTurno();
+        }
+
+
+        private void accionRealizada(object sender, EventArgs e)
+        {
+            cambiarTurno();
+        }
+
+        private void cambiarTurno()
+        {            
+            // Si tokenTurno = 0 -> Turno del jugador 1
+            // Si tokenTurno = 1 -> Turno del jugador 2
+            if (tokenTurno == 0)
+            {
+                ContenedorBotones1.Visibility = Visibility.Visible;
+                ContenedorBotones1.IsEnabled = true;
+                ContenedorBotones2.IsEnabled = false;
+                ContenedorBotones2.Visibility = Visibility.Collapsed;
+                txtbEsperaJ1.Visibility = Visibility.Visible;
+                txtbEsperaJ2.Visibility = Visibility.Collapsed;
+                tokenTurno = 1;
+            }
+            else
+            {
+                ContenedorBotones2.Visibility = Visibility.Visible;
+                ContenedorBotones1.Visibility = Visibility.Collapsed;
+                ContenedorBotones2.IsEnabled = true;
+                ContenedorBotones1.IsEnabled = false;
+                txtbEsperaJ2.Visibility = Visibility.Visible;
+                txtbEsperaJ1.Visibility = Visibility.Collapsed;
+                tokenTurno = 0;
+            }
+
         }
         private void cargarControlUsuario1(String pokemon1)
         {
             if (pokemon1 == "Charmander")
             {
-                Pokemon1 = new ucCharmander_sinBarras();
-                CBotones1 = new cuadroBotonesCharmander(Pokemon1 as ucCharmander_sinBarras);
+                Pokemon1 = new ucCharmander_namespace();
+                CBotones1 = new cuadroBotonesCharmander(Pokemon1 as ucCharmander_namespace);
                 ContenedorPokemon1.Content = Pokemon1;
                 ContenedorBotones1.Content = CBotones1;
-                ((ucCharmander_sinBarras)Pokemon1).invertirPokemon();
-                ((ucCharmander_sinBarras)Pokemon1).AtaqueRealizado += Pokemon1AtaqueRealizado;
+                ((ucCharmander_namespace)Pokemon1).invertirPokemon();
+                ((ucCharmander_namespace)Pokemon1).ocultarDatosCombate();
+                ((ucCharmander_namespace)Pokemon1).AtaqueRealizado += pokemon1AtaqueRealizado;
+                ((ucCharmander_namespace)Pokemon1).AccionRealizada += accionRealizada;
             }
             else if (pokemon1 == "Aron")
             {
-                ContenedorPokemon1.Content = new AronCU_NoViewBox();
+                Pokemon1 = new AronCU_NoViewBox();
+                CBotones1 = new cuadroBotonesAron(Pokemon1 as AronCU_NoViewBox);
+                ContenedorPokemon1.Content = Pokemon1;
+                ContenedorBotones1.Content = CBotones1;
+                ((AronCU_NoViewBox)Pokemon1).invertirPokemon();
+                ((AronCU_NoViewBox)Pokemon1).ocultarDatosCombate();
+                ((AronCU_NoViewBox)Pokemon1).AtaqueRealizado += pokemon1AtaqueRealizado;
+                ((AronCU_NoViewBox)Pokemon1).AccionRealizada += accionRealizada;
             }
             else if (pokemon1 == "Gengar")
             {
-                ContenedorPokemon1.Content = new gengarUC();
+                Pokemon1 = new gengarUC_namespace();
+                CBotones1 = new cuadroBotonesGengar(Pokemon1 as gengarUC_namespace);
+                ContenedorPokemon1.Content = Pokemon1;
+                ContenedorBotones1.Content = CBotones1;
+                ((gengarUC_namespace)Pokemon1).ocultarDatosCombate();
+                ((gengarUC_namespace)Pokemon1).AtaqueRealizado += pokemon1AtaqueRealizado;
+                ((gengarUC_namespace)Pokemon1).AccionRealizada += accionRealizada;
             }
         }
 
@@ -68,11 +150,13 @@ namespace IpoKemon_viewbox
         {
             if (pokemon2 == "Charmander")
             {
-                Pokemon2 = new ucCharmander_sinBarras();
-                CBotones2 = new cuadroBotonesCharmander(Pokemon2 as ucCharmander_sinBarras);
-                ContenedorPokemon1.Content = Pokemon2;
-                ContenedorBotones1.Content = CBotones2;
-                ((ucCharmander_sinBarras)Pokemon1).AtaqueRealizado += Pokemon1AtaqueRealizado;
+                Pokemon2 = new ucCharmander_namespace();
+                CBotones2 = new cuadroBotonesCharmander(Pokemon2 as ucCharmander_namespace);
+                ContenedorPokemon2.Content = Pokemon2;
+                ContenedorBotones2.Content = CBotones2;
+                ((ucCharmander_namespace)Pokemon2).ocultarDatosCombate();
+                ((ucCharmander_namespace)Pokemon2).AtaqueRealizado += pokemon2AtaqueRealizado;
+                ((ucCharmander_namespace)Pokemon2).AccionRealizada += accionRealizada;
             }
             else if (pokemon2 == "Aron")
             {
@@ -80,14 +164,19 @@ namespace IpoKemon_viewbox
                 ContenedorPokemon2.Content = Pokemon2;
                 CBotones2 = new cuadroBotonesAron(Pokemon2 as AronCU_NoViewBox);
                 ContenedorBotones2.Content = CBotones2;
-               // ((AronCU_NoViewBox)Pokemon2).AtaqueRealizado += Pokemon1AtaqueRealizado;
+                ((AronCU_NoViewBox)Pokemon2).ocultarDatosCombate();
+                ((AronCU_NoViewBox)Pokemon2).AtaqueRealizado += pokemon2AtaqueRealizado;
+                ((AronCU_NoViewBox)Pokemon2).AccionRealizada += accionRealizada;
             }
             else if (pokemon2 == "Gengar")
             {
-                Pokemon2 = new gengarUC();
-                ContenedorPokemon2.Content = new gengarUC();
-                CBotones2 = new cuadroBotonesGengar(Pokemon2 as gengarUC);
+                Pokemon2 = new gengarUC_namespace();
+                ContenedorPokemon2.Content = Pokemon2;
+                CBotones2 = new cuadroBotonesGengar(Pokemon2 as gengarUC_namespace);
                 ContenedorBotones2.Content = CBotones2;
+                ((gengarUC_namespace)Pokemon2).ocultarDatosCombate();
+                ((gengarUC_namespace)Pokemon2).AtaqueRealizado += pokemon2AtaqueRealizado;
+                ((gengarUC_namespace)Pokemon2).AccionRealizada += accionRealizada;
             }
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
