@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
@@ -42,32 +43,28 @@ namespace IpoKemon_viewbox
 
         public void CrearPokemonInfo()
         {
-            PokeList.Add(new PokeInfo("Aron", "Aron", "Aron", "Aron", null, "Aron"));
+            PokeList.Add(new PokeInfo("Aron","Acero","Roca",0.4,60, "Se alimenta de minerales de hierro o, en ocasiones, de vías de tren para producir la coraza de acero que le protege el cuerpo."));
+            PokeList.Add(new PokeInfo("Charmander", "Fuego", "",0.6,8.5, "Prefiere las cosas calientes. Dicen que cuando llueve le sale vapor de la punta de la cola."));
+            PokeList.Add(new PokeInfo("Gengar","Fantasma","Veneno",1.5,40.5, "Para quitarle la vida a su presa, se desliza en su sombra y espera su oportunidad en silencio."));
         }
 
         public void obtenerDatosPoke(int n_boton)
         {
             String pokeNombre = null;
-            Debug.WriteLine(n_boton);
+       
             switch (n_boton)
             {
                 case 1:
                     pokeNombre = "Aron";
+                    this.Pokemon_img.Source = new BitmapImage(new Uri("ms-appx:///Assets/Aron_Pkdx.png"));
                     break;
                 case 2:
-                    pokeNombre = "Dragonite";
+                    pokeNombre = "Charmander";
+                    this.Pokemon_img.Source = new BitmapImage(new Uri("ms-appx:///Assets/Charmander_Pkdx.png"));
                     break;
                 case 3:
-                    pokeNombre = "Jigglypuff";
-                    break;
-                case 4:
-                    pokeNombre = "Zapdos";
-                    break;
-                case 5:
-                    pokeNombre = "Charizard";
-                    break;
-                case 6:
-                    pokeNombre = "Onix";
+                    pokeNombre = "Gengar";
+                    this.Pokemon_img.Source = new BitmapImage(new Uri("ms-appx:///Assets/Gengar_Pkdx.png"));
                     break;
             }
             PokeInfo pokemonElegido = null;
@@ -80,11 +77,12 @@ namespace IpoKemon_viewbox
                 }
             }
 
-            t_nombre.Text = pokemonElegido.Nombre;
-            t_desc.Text = pokemonElegido.descripcion;
-            t_altura.Text = pokemonElegido.altura;
-            t_peso.Text = pokemonElegido.peso;
-            t_tipo.Text = pokemonElegido.tipo;
+            Nombre_txt.Text = pokemonElegido.Nombre;
+            Descripcion_txt.Text = pokemonElegido.descripcion;
+            Altura_txt.Text = pokemonElegido.altura + "m";
+            Peso_txt.Text = pokemonElegido.peso + "Kg";
+            Tipo_txt.Text = pokemonElegido.tipo;
+            Tipo2_txt.Text = pokemonElegido.tipo2;
 
         }
 
@@ -93,5 +91,7 @@ namespace IpoKemon_viewbox
             Frame aux = (Frame)this.Parent;
             aux.Navigate(typeof(PokeDex));
         }
+
+        
     }
 }

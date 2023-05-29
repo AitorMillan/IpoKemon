@@ -38,17 +38,22 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Assets/FondoPokeballs.jpg" Stretch="Fill"/>
         </Grid.Background>
-        <Image x:Name="foto" Grid.ColumnSpan="11" Margin="0,0,0,0" Grid.RowSpan="12" Source="/Assets/Pokedex.png" Stretch="Fill" />
-        <Image x:Name="imagPoke" Grid.Column="2" Grid.ColumnSpan="4" Margin="4,18,0,13" Grid.RowSpan="3" Grid.Row="3" Stretch="Fill" Source="{Binding imagen}"/>
-        <TextBlock x:Name="t_desc" Grid.Column="7" Margin="27,21,32,56" Grid.RowSpan="3" TextWrapping="Wrap" Text="TextBlock" Grid.ColumnSpan="4" Grid.Row="3" TextAlignment="Justify" FontSize="8"/>
-        <TextBlock x:Name="t_nombre" Grid.Column="1" Grid.RowSpan="3" Grid.Row="8" TextWrapping="NoWrap" Text="TextBlock" TextAlignment="Center" FontStretch="Normal" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="4" Margin="21,14,0,0" Width="68" Height="20"/>
-        <TextBlock x:Name="t_tipo" Grid.Column="7" Margin="27,0,0,0" Grid.Row="6" TextWrapping="Wrap" Text="TextBlock" Foreground="Black" TextAlignment="Left" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="2" Height="13" Width="40" FontSize="9"/>
-        <TextBlock x:Name="t_altura" Grid.Column="7" Grid.Row="8" TextWrapping="Wrap" Text="TextBlock" TextAlignment="Center" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Center" Height="16" Width="60" Grid.ColumnSpan="3" Margin="27,0,0,0" Grid.RowSpan="2">
+        <Image x:Name="Pokedex_img" Grid.ColumnSpan="11" Margin="0,0,0,0" Grid.RowSpan="12" Source="/Assets/Pokedex.png" Stretch="Fill" />
+        <Image x:Name="Pokemon_img" Grid.Column="2" Grid.ColumnSpan="5" Margin="14,28,165,13" Grid.RowSpan="3" Grid.Row="3" Stretch="Fill" Source="{Binding imagen}"/>
+        <TextBlock x:Name="Descripcion_txt" Grid.Column="7" Margin="104,75,130,2" Grid.RowSpan="2" TextWrapping="Wrap" Text="Descripción" Grid.ColumnSpan="4" Grid.Row="3" TextAlignment="Justify" FontSize="14" Foreground="White" FontWeight="Bold"/>
+        <TextBlock x:Name="Nombre_txt" Grid.Column="2" Grid.Row="8" TextWrapping="NoWrap" Text="Nombre" TextAlignment="Center" FontStretch="Normal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="127" Height="59" Grid.ColumnSpan="3" Margin="23,46,0,0" FontSize="24" FontWeight="Bold" Grid.RowSpan="3"/>
+        <TextBlock x:Name="Tipo_txt" Grid.Column="7" Margin="74,13,34,15" Grid.Row="6" TextWrapping="Wrap" Text="Tipo" Foreground="Black" TextAlignment="Center" FontSize="18" Grid.ColumnSpan="2" FontWeight="Bold"/>
+        <TextBlock x:Name="Altura_txt" Grid.Column="7" Grid.Row="8" TextWrapping="Wrap" Text="Altura" TextAlignment="Center" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top" Height="52" Width="135" Grid.ColumnSpan="2" Margin="84,23,0,0" FontSize="20" Foreground="White" FontWeight="Bold" Grid.RowSpan="2">
             <TextBlock.RenderTransform>
                 <CompositeTransform ScaleX="1"/>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock x:Name="t_peso" Grid.Column="9" Grid.Row="8" TextWrapping="Wrap" Text="TextBlock" TextAlignment="Center" Margin="29,6,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-        <Image x:Name="Volver_img" Grid.RowSpan="2" Grid.Column="9" Margin="211,34,79,10" Source="Assets/volver.png" Grid.ColumnSpan="2" PointerReleased="Volver_img_PointerReleased"/>
+        <Image x:Name="Volver_img" Grid.RowSpan="2" Grid.Column="10" Margin="38,34,38,10" Source="Assets/Volver_ico.png" PointerReleased="Volver_img_PointerReleased"/>
+        <TextBlock x:Name="Tipo2_txt" Grid.Column="8" Margin="44,13,73,20" Grid.Row="6" TextWrapping="Wrap" Foreground="Black" TextAlignment="Center" FontSize="18" FontWeight="Bold" Grid.ColumnSpan="2"><Run Text="Tipo"/><Run Text="2"/></TextBlock>
+        <TextBlock x:Name="Peso_txt" Grid.Column="9" Grid.Row="8" TextWrapping="Wrap" Text="Peso" TextAlignment="Center" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top" Height="52" Width="135" Margin="77,22,0,0" FontSize="20" Foreground="White" FontWeight="Bold" Grid.RowSpan="2">
+            <TextBlock.RenderTransform>
+                <CompositeTransform ScaleX="1"/>
+            </TextBlock.RenderTransform>
+        </TextBlock>
     </Grid>
 </Page>
