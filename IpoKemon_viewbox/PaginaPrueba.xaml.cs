@@ -140,6 +140,8 @@ namespace IpoKemon_viewbox
                 CBotones1 = new cuadroBotonesGengar(Pokemon1 as gengarUC_namespace);
                 ContenedorPokemon1.Content = Pokemon1;
                 ContenedorBotones1.Content = CBotones1;
+                ((gengarUC_namespace)Pokemon1).invertirPokemon();
+                //((gengarUC_namespace)Pokemon1).ocultarDatosCombate();
                 ((gengarUC_namespace)Pokemon1).AtaqueRealizado += pokemon1AtaqueRealizado;
                 ((gengarUC_namespace)Pokemon1).AccionRealizada += accionRealizada;
             }

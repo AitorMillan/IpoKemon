@@ -7,7 +7,7 @@ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignHeight="300"
-    d:DesignWidth="400">
+    d:DesignWidth="400" RenderTransformOrigin="0.5,0.5">
     <UserControl.Resources>
         <Storyboard x:Name="CatchSuccesfull">
             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Animation_Pokeball_gr" Storyboard.TargetProperty="(UIElement.Visibility)">
@@ -290,8 +290,24 @@ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </UserControl.Resources>
+    <UserControl.RenderTransform>
+        <TransformGroup>
+            <ScaleTransform ScaleX="-1"/>
+            <SkewTransform/>
+            <RotateTransform/>
+            <TranslateTransform/>
+        </TransformGroup>
+    </UserControl.RenderTransform>
 
-    <Grid x:Name="Base_gr">
+    <Grid x:Name="Base_gr" RenderTransformOrigin="0.5,0.5">
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Grid.RenderTransform>
         <Grid.RowDefinitions>
             <RowDefinition Height="80*"/>
             <RowDefinition Height="80*"/>
@@ -469,7 +485,12 @@ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         </Grid>
         <Grid x:Name="Animation_BolaSombra_gr" Grid.Column="2" Margin="10,216,10,84" Grid.Row="2" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
             <Grid.RenderTransform>
-                <CompositeTransform/>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
             </Grid.RenderTransform>
             <Image x:Name="BolaSombra_img" Source="/Assets/Bola_sombra.png" Margin="0,-10,0,10"/>
         </Grid>

@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     d:DesignHeight="420"
     d:DesignWidth="760">
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -64,6 +64,28 @@
             </Button.Background>
         </Button>
         <Button x:Name="btnRecuperarEnergia" Content="Recuperar energía" Height="96" VerticalAlignment="Center" Width="260" Grid.Row="1" HorizontalAlignment="Center" FontSize="24" Foreground="#E4FFFFFF" Click="btnRecuperarEnergia_Click">
+            <Button.Resources>
+                <ResourceDictionary>
+                    <ResourceDictionary.ThemeDictionaries>
+                        <ResourceDictionary x:Key="Dark">
+                            <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White"/>
+                            <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#FF4F117C"/>
+                        </ResourceDictionary>
+                        <ResourceDictionary x:Key="Light">
+                            <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White"/>
+                            <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#FF4F117C"/>
+                        </ResourceDictionary>
+                    </ResourceDictionary.ThemeDictionaries>
+                </ResourceDictionary>
+            </Button.Resources>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF7F2EB7"/>
+                    <GradientStop Color="#FF2E0B47" Offset="0.353"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnRendirse" Content="Rendirse" Height="96" Width="260" Grid.Row="1" HorizontalAlignment="Center" FontSize="24" Foreground="#E4FFFFFF" Click="btnRecuperarEnergia_Click" Grid.Column="1">
             <Button.Resources>
                 <ResourceDictionary>
                     <ResourceDictionary.ThemeDictionaries>
