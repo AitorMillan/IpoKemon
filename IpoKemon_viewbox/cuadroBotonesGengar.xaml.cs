@@ -28,6 +28,32 @@ namespace IpoKemon_viewbox
             Gengar = gengar;
         }
 
+        public void accionAleatoria()
+        {
+            Random rnd = new Random();
+            int accion = rnd.Next(1, 5);
+            switch (accion)
+            {
+                case 1:
+                    Gengar.atacar();
+                    break;
+                case 2:
+                    Gengar.curarse();
+                    break;
+                case 3:
+                    Gengar.restaurarEnergia();
+                    break;
+                case 4:
+                    Gengar.rendirse();
+                    break;
+            }
+        }
+
+        public void curar()
+        {
+            Gengar.curarse();
+        }
+
         private void btnBolaSombra_Click(object sender, RoutedEventArgs e)
         {
             Gengar.atacar();

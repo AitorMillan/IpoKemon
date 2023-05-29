@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -27,7 +28,11 @@ namespace IpoKemon_viewbox
     /// </summary>
     public sealed partial class PaginaPrueba : Page
     {
+
+        const int VIDA_CRITICA = 8;
+
         // Constructor sin parámetros requerido para la navegación
+        private int numJugadores;
         private int tokenTurno;
         private UserControl Pokemon1;
         private UserControl Pokemon2;
@@ -81,14 +86,22 @@ namespace IpoKemon_viewbox
 
         private void mostrarGanador(string jugadorGanador, string nombrePokemon)
         {
+            string tituloVictoria = "ENHORABUENA " + jugadorGanador;
+            string textoVictoria = "Tu pokemon " + nombrePokemon + " ha ganado el combate";
+            if (jugadorGanador == "JUGADOR 2" && numJugadores == 1)
+            {
+                tituloVictoria = "LO SENTIMOS, JUGADOR 1";
+                textoVictoria = "Has perdido el combate contra la CPU";
+            }
+                
             string nombreFoto = nombrePokemon.ToLower() + "Victoria.png";
             //CÓDIGO PARA FINALIZAR LA PARTIDA
             this.Frame.Navigate(typeof(Combate));
             new ToastContentBuilder()
             .AddArgument("action", "Favoritos")
             .AddArgument("conversationId", 9813)
-            .AddText("ENHORABUENA "+jugadorGanador)
-            .AddText("Tu pokemon " +nombrePokemon+ " ha ganado el combate")
+            .AddText(tituloVictoria)
+            .AddText(textoVictoria)
             .AddInlineImage(new Uri("ms-appx:///Assets/"+nombreFoto))
             .Show();
         }
@@ -115,6 +128,7 @@ namespace IpoKemon_viewbox
             }
             if (vida <= 0)
             {
+                
                 mostrarGanador("JUGADOR 2", nombrePokemon2);
             }
             cambiarTurno();
@@ -127,7 +141,7 @@ namespace IpoKemon_viewbox
         }
 
         private void cambiarTurno()
-        {            
+        {
             // Si tokenTurno = 0 -> Turno del jugador 1
             // Si tokenTurno = 1 -> Turno del jugador 2
             if (tokenTurno == 0)
@@ -142,13 +156,55 @@ namespace IpoKemon_viewbox
             }
             else
             {
-                ContenedorBotones2.Visibility = Visibility.Visible;
-                ContenedorBotones1.Visibility = Visibility.Collapsed;
-                ContenedorBotones2.IsEnabled = true;
-                ContenedorBotones1.IsEnabled = false;
-                txtbEsperaJ2.Visibility = Visibility.Visible;
-                txtbEsperaJ1.Visibility = Visibility.Collapsed;
-                tokenTurno = 0;
+                if (numJugadores == 2)
+                {
+                    ContenedorBotones2.Visibility = Visibility.Visible;
+                    ContenedorBotones1.Visibility = Visibility.Collapsed;
+                    ContenedorBotones2.IsEnabled = true;
+                    ContenedorBotones1.IsEnabled = false;
+                    txtbEsperaJ2.Visibility = Visibility.Visible;
+                    txtbEsperaJ1.Visibility = Visibility.Collapsed;
+                    tokenTurno = 0;
+                }
+                else //IA
+                {
+                    double vida;
+                    
+                    switch (nombrePokemon2)
+                    {
+                        case "Charmander":
+                            //(("cuadroBotones"+nombrePokemon2)CBotones2).accionAleatoria();
+                            vida = ((ucCharmander_namespace)Pokemon2).Vida;
+                            if (vida <= VIDA_CRITICA)
+                                ((cuadroBotonesCharmander)CBotones2).curar();
+                            else
+                                ((cuadroBotonesCharmander)CBotones2).accionAleatoria();
+                            break;
+                        case "Aron":
+                            vida = ((AronCU_NoViewBox)Pokemon2).Vida;
+                            if (vida <= VIDA_CRITICA)
+                                ((cuadroBotonesAron)CBotones2).curar();
+                            else
+                                ((cuadroBotonesAron)CBotones2).accionAleatoria();
+                            break;
+                        case "Gengar":
+                            vida = ((gengarUC_namespace)Pokemon2).Vida;
+                            if (vida <= VIDA_CRITICA)
+                                ((cuadroBotonesGengar)CBotones2).curar();
+                            else
+                                ((cuadroBotonesGengar)CBotones2).accionAleatoria();
+                            break;
+                            
+                    }
+                    //ContenedorBotones2.Visibility = Visibility.Visible;
+                    ContenedorBotones1.Visibility = Visibility.Collapsed;
+                    //ContenedorBotones2.IsEnabled = true;
+                    ContenedorBotones1.IsEnabled = false;
+                    //txtbEsperaJ2.Visibility = Visibility.Visible;
+                    txtbEsperaJ1.Visibility = Visibility.Collapsed;
+                    tokenTurno = 0;
+                }
+
             }
 
         }
@@ -230,7 +286,7 @@ namespace IpoKemon_viewbox
             if (e.Parameter is Tuple<int, string, string> data)
             {
                 // Desempaquetar los datos
-                int numJugadores = data.Item1;
+                numJugadores = data.Item1;
                 nombrePokemon1 = data.Item2;
                 nombrePokemon2 = data.Item3;
                 cargarControlUsuario1(nombrePokemon1);

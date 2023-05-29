@@ -193,6 +193,7 @@
     <Content Include="Assets\Energia.png" />
     <Content Include="Assets\escudoFuego.png" />
     <Content Include="Assets\flecha-atras.png" />
+    <Content Include="Assets\fondo-combate.jpg" />
     <Content Include="Assets\FondoBotonesCharmander.jpg" />
     <Content Include="Assets\FondoBotonesGengar.png" />
     <Content Include="Assets\fondo_combate.png" />

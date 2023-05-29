@@ -7,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Automation.Peers;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
@@ -34,6 +35,32 @@ namespace IpoKemon_viewbox
             btnCurarse.IsEnabled = true;
             btnEnfadarse.IsEnabled = true;
             btnActivarEscudo.IsEnabled = true;
+        }
+
+        public void accionAleatoria()
+        {
+            Random rnd = new Random();
+            int accion = rnd.Next(1, 5);
+            switch (accion)
+            {
+                case 1:
+                    Charmie.atacar();
+                    break;
+                case 2:
+                    Charmie.enfadado();
+                    break;
+                case 3:
+                    Charmie.curarse();
+                    break;
+                case 4:
+                    Charmie.activarEscudo();
+                    break;
+            }
+        }
+
+        public void curar()
+        {
+            Charmie.curarse();
         }
 
         private void btnAtacar_Click(object sender, RoutedEventArgs e)

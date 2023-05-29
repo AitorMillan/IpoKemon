@@ -27,6 +27,32 @@ namespace IpoKemon_viewbox
             Aron = aron;
         }
 
+        public void accionAleatoria()
+        {
+            Random rnd = new Random();
+            int accion = rnd.Next(1, 5);
+            switch (accion)
+            {
+                case 1:
+                    Aron.ataqueCabeza();
+                    break;
+                case 2:
+                    Aron.ataqueCuerpo();
+                    break;
+                case 3:
+                    Aron.curarse();
+                    break;
+                case 4:
+                    Aron.restaurarEnergia();
+                    break;
+            }
+        }
+
+        public void curar()
+        {
+            Aron.curarse();
+        }
+
         private void btnCurarse_Click(object sender, RoutedEventArgs e)
         {
             Aron.curarse();

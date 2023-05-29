@@ -86,6 +86,7 @@ namespace IpoKemon_viewbox
                 {
                     borders[i].Background = new SolidColorBrush(Colors.NavajoWhite);
                     buttons[i].IsEnabled = false;
+                    lastSelectedPokemonP2 = borders[i];
                 }
                 else
                 {
