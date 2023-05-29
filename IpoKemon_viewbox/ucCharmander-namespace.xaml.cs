@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -25,6 +26,8 @@ namespace IpoKemon_viewbox
 
     public sealed partial class ucCharmander_namespace : UserControl
     {
+        private double INCREMENTOVIDA = 25;
+        private double vidaASubir;
         private int danio = 15;
         private bool estaEnfadado = false;
         private bool escudoActivado = false;
@@ -56,8 +59,6 @@ namespace IpoKemon_viewbox
             verPocionEnergia(false);
             verPocionVida(false);
             verBotonActivarEscudo(false);
-            verBotonEstadoEnfadado(false);
-            verBotonLanzarBolaFuego(false);
             verNombre(false);
             verImagenFondo(false);
         }
@@ -68,6 +69,7 @@ namespace IpoKemon_viewbox
             if (escudoActivado)
             {
                 escudoActivado = false;
+                btnActivarEscudo_Click(null, null);
             }
             else 
             {
@@ -82,24 +84,29 @@ namespace IpoKemon_viewbox
                 btnActivarEscudo_Click(null, null);
                 escudoActivado = false;
             }
-            btnEstadoEnfadado_Click(null, null);
-            OnAccionRealizada();
+            estadoEnfadado();
             estaEnfadado = true;
         }
 
         public void curarse()
         {
+            if (estaEnfadado)
+                estaEnfadado = false;
+
             if (escudoActivado)
             {
                 btnActivarEscudo_Click(null, null);
                 escudoActivado = false;
             }
             imgPocionVida_PointerReleased(null, null);
-            OnAccionRealizada();
+            
         }
 
         public void activarEscudo()
         {
+            if(estaEnfadado)
+                estaEnfadado = false;
+
             if (escudoActivado)
                 btnActivarEscudo_Click(null, null);
 
@@ -120,8 +127,7 @@ namespace IpoKemon_viewbox
                 danioAtaque = danio * 2;
                 estaEnfadado = false;
             }
-            btnLanzarBolaFuego_Click(null, null);
-            OnAtaqueRealizado(new AtaqueEventArgs(danioAtaque));
+            lanzarBolaFuego(danioAtaque);
         }
         public void invertirPokemon()
         {
@@ -161,8 +167,6 @@ namespace IpoKemon_viewbox
             verPocionEnergia(false);
             //ocultar botones
             verBotonActivarEscudo(false);
-            verBotonEstadoEnfadado(false);
-            verBotonLanzarBolaFuego(false);
             verNombre(false);
 
         }
@@ -210,26 +214,13 @@ namespace IpoKemon_viewbox
             else
                 this.imgPocionEnergia.Source = new BitmapImage(new Uri("ms-appx:///Assets/PocionEnergia.png", UriKind.RelativeOrAbsolute));
         }
-        public void verBotonLanzarBolaFuego(bool verBotonLanzarBolaFuego)
-        {
-            if (!verBotonLanzarBolaFuego)
-                this.btnLanzarBolaFuego.Visibility = Visibility.Collapsed;
-            else
-                this.btnLanzarBolaFuego.Visibility = Visibility.Visible;
-        }
+
         public void verBotonActivarEscudo(bool verBotonActivarEscudo)
         {
             if (!verBotonActivarEscudo)
                 this.btnActivarEscudo.Visibility = Visibility.Collapsed;
             else
                 this.btnActivarEscudo.Visibility = Visibility.Visible;
-        }
-        public void verBotonEstadoEnfadado(bool verBotonEstadoEnfadado)
-        {
-            if (!verBotonEstadoEnfadado)
-                this.btnEstadoEnfadado.Visibility = Visibility.Collapsed;
-            else
-                this.btnEstadoEnfadado.Visibility = Visibility.Visible;
         }
         public void verImagenFondo(bool verImagenFondo)
         {
@@ -258,6 +249,7 @@ namespace IpoKemon_viewbox
         private void imgPocionVida_PointerReleased(object sender, PointerRoutedEventArgs e)
         {
             dtTimeVida = new DispatcherTimer();
+            vidaASubir = pbVida.Value + INCREMENTOVIDA;
             dtTimeVida.Interval = TimeSpan.FromMilliseconds(100);
             dtTimeVida.Tick += increaseHealth;
             dtTimeVida.Start();
@@ -267,20 +259,25 @@ namespace IpoKemon_viewbox
 
         private void increaseHealth(object sender, object e)
         {
-            pbVida.Value += 0.5;
-            if (pbVida.Value >= 100)
+            pbVida.Value += 1;
+            double vidaActual = pbVida.Value;
+            if (vidaActual == vidaASubir || (vidaActual == 100 && vidaASubir>100))
             {
+                OnAccionRealizada();
+                dtTimeVida.Tick -= increaseHealth;
                 dtTimeVida.Stop();
                 imgPocionVida.Opacity = 1;
             }
         }
 
-        private void btnEstadoEnfadado_Click(object sender, RoutedEventArgs e)
+        private async void estadoEnfadado()
         {
             Storyboard sb = (Storyboard)this.ptPupilaIzq.Resources["ojoIzqRojoKey"];
             Storyboard sb2 = (Storyboard)this.ptPupilaDer.Resources["ojoDerRojoKey"];
             sb.Begin();
             sb2.Begin();
+            await Task.Delay(3000);
+            OnAccionRealizada();
         }
 
         private void pbVida_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
@@ -323,12 +320,13 @@ namespace IpoKemon_viewbox
 
         }
 
-        private void btnLanzarBolaFuego_Click(object sender, RoutedEventArgs e)
+        private async void lanzarBolaFuego(int danioAtaque)
         {
             Storyboard sb = (Storyboard)this.Resources["sbBolaFuego"];
             sb.AutoReverse = false;
             sb.Begin();
-
+            await Task.Delay(2500);
+            OnAtaqueRealizado(new AtaqueEventArgs(danioAtaque));
         }
 
         private void imgPocionEnergia_PointerReleased(object sender, PointerRoutedEventArgs e)

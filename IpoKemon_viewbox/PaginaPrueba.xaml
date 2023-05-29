@@ -18,7 +18,7 @@
             <RowDefinition Height="11*"/>
         </Grid.RowDefinitions>
         <ContentControl x:Name="ContenedorPokemon1"/>
-        <ContentControl x:Name="ContenedorPokemon2"  HorizontalAlignment="Center" Height="426" VerticalAlignment="Center" Width="422" Grid.Column="1"/>
+        <ContentControl x:Name="ContenedorPokemon2" Grid.Column="1"/>
         <ContentControl x:Name="ContenedorBotones1" Grid.Row="1"/>
         <ContentControl x:Name="ContenedorBotones2" Grid.Row="1" Grid.Column="1" Visibility="Collapsed"/>
         <Viewbox Grid.Row="1" Grid.Column="1">

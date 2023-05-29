@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -42,7 +43,19 @@ namespace IpoKemon_viewbox
         {
             // Obtener la cantidad de daño del ataque
             int cantidadDanio = e.CantidadDanio;
-
+            
+            switch (nombrePokemon2)
+            {
+                case "Charmander":
+                    ((ucCharmander_namespace)Pokemon2).recibirDaño(cantidadDanio);
+                    break;
+                case "Aron":
+                    ((AronCU_NoViewBox)Pokemon2).recibirDaño(cantidadDanio);
+                    break;
+                case "Gengar":
+                  //  ((gengarUC_namespace)Pokemon2).recibirDaño(cantidadDanio);
+                    break;
+            }
             cambiarTurno();
         }
 
@@ -50,7 +63,18 @@ namespace IpoKemon_viewbox
         {
             // Obtener la cantidad de daño del ataque
             int cantidadDanio = e.CantidadDanio;
-
+            switch (nombrePokemon1)
+            {
+                case "Charmander":
+                    ((ucCharmander_namespace)Pokemon1).recibirDaño(cantidadDanio);
+                    break;
+                case "Aron":
+                    ((AronCU_NoViewBox)Pokemon1).recibirDaño(cantidadDanio);
+                    break;
+                case "Gengar":
+                    //  ((gengarUC_namespace)Pokemon1).recibirDaño(cantidadDanio);
+                    break;
+            }
             cambiarTurno();
         }
 
@@ -60,12 +84,13 @@ namespace IpoKemon_viewbox
             cambiarTurno();
         }
 
-
         private void cambiarTurno()
         {
             if(tokenTurno == 0)
             {
                 ContenedorBotones1.Visibility = Visibility.Visible;
+                ContenedorBotones1.IsEnabled = true;
+                ContenedorBotones2.IsEnabled = false;
                 ContenedorBotones2.Visibility = Visibility.Collapsed;
                 txtbEsperaJ1.Visibility = Visibility.Visible;
                 txtbEsperaJ2.Visibility = Visibility.Collapsed;
@@ -75,6 +100,8 @@ namespace IpoKemon_viewbox
             {
                 ContenedorBotones2.Visibility = Visibility.Visible;
                 ContenedorBotones1.Visibility = Visibility.Collapsed;
+                ContenedorBotones2.IsEnabled = true;
+                ContenedorBotones1.IsEnabled = false;
                 txtbEsperaJ2.Visibility = Visibility.Visible;
                 txtbEsperaJ1.Visibility = Visibility.Collapsed;
                 tokenTurno = 0;
@@ -82,7 +109,6 @@ namespace IpoKemon_viewbox
             // Si tokenTurno = 0 -> Turno del jugador 1
             // Si tokenTurno = 1 -> Turno del jugador 2
         }
-
         private void cargarControlUsuario1(String pokemon1)
         {
             if (pokemon1 == "Charmander")
@@ -103,6 +129,7 @@ namespace IpoKemon_viewbox
                 ContenedorPokemon1.Content = Pokemon1;
                 ContenedorBotones1.Content = CBotones1;
                 ((AronCU_NoViewBox)Pokemon1).invertirPokemon();
+                ((AronCU_NoViewBox)Pokemon1).ocultarDatosCombate();
                 ((AronCU_NoViewBox)Pokemon1).AtaqueRealizado += pokemon1AtaqueRealizado;
                 ((AronCU_NoViewBox)Pokemon1).AccionRealizada += accionRealizada;
             }
@@ -125,6 +152,7 @@ namespace IpoKemon_viewbox
                 CBotones2 = new cuadroBotonesCharmander(Pokemon2 as ucCharmander_namespace);
                 ContenedorPokemon2.Content = Pokemon2;
                 ContenedorBotones2.Content = CBotones2;
+                ((ucCharmander_namespace)Pokemon2).ocultarDatosCombate();
                 ((ucCharmander_namespace)Pokemon2).AccionRealizada += accionRealizada;
                 ((ucCharmander_namespace)Pokemon2).AtaqueRealizado += pokemon2AtaqueRealizado;
             }
@@ -134,7 +162,9 @@ namespace IpoKemon_viewbox
                 ContenedorPokemon2.Content = Pokemon2;
                 CBotones2 = new cuadroBotonesAron(Pokemon2 as AronCU_NoViewBox);
                 ContenedorBotones2.Content = CBotones2;
+                ((AronCU_NoViewBox)Pokemon2).ocultarDatosCombate();
                 ((AronCU_NoViewBox)Pokemon2).AtaqueRealizado += pokemon2AtaqueRealizado;
+                ((AronCU_NoViewBox)Pokemon2).AccionRealizada += accionRealizada;
             }
             else if (pokemon2 == "Gengar")
             {
