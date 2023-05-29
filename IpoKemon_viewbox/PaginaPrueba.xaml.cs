@@ -42,6 +42,7 @@ namespace IpoKemon_viewbox
         {
             // Obtener la cantidad de daño del ataque
             int cantidadDanio = e.CantidadDanio;
+
             cambiarTurno();
         }
 
@@ -49,6 +50,7 @@ namespace IpoKemon_viewbox
         {
             // Obtener la cantidad de daño del ataque
             int cantidadDanio = e.CantidadDanio;
+
             cambiarTurno();
         }
 
@@ -83,8 +85,18 @@ namespace IpoKemon_viewbox
 
         private void cargarControlUsuario1(String pokemon1)
         {
-
-            if (pokemon1 == "Aron")
+            if (pokemon1 == "Charmander")
+            {
+                Pokemon1 = new ucCharmander_namespace();
+                CBotones1 = new cuadroBotonesCharmander(Pokemon1 as ucCharmander_namespace);
+                ContenedorPokemon1.Content = Pokemon1;
+                ContenedorBotones1.Content = CBotones1;
+                ((ucCharmander_namespace)Pokemon1).invertirPokemon();
+                ((ucCharmander_namespace)Pokemon1).ocultarDatosCombate();
+                ((ucCharmander_namespace)Pokemon1).AtaqueRealizado += pokemon1AtaqueRealizado;
+                ((ucCharmander_namespace)Pokemon1).AccionRealizada += accionRealizada;
+            }
+            else if (pokemon1 == "Aron")
             {
                 Pokemon1 = new AronCU_NoViewBox();
                 CBotones1 = new cuadroBotonesAron(Pokemon1 as AronCU_NoViewBox);
@@ -93,16 +105,6 @@ namespace IpoKemon_viewbox
                 ((AronCU_NoViewBox)Pokemon1).invertirPokemon();
                 ((AronCU_NoViewBox)Pokemon1).AtaqueRealizado += pokemon1AtaqueRealizado;
                 ((AronCU_NoViewBox)Pokemon1).AccionRealizada += accionRealizada;
-            }
-            else if (pokemon1 == "Charmander")
-            {
-                Pokemon1 = new ucCharmander_namespace();
-                CBotones1 = new cuadroBotonesCharmander(Pokemon1 as ucCharmander_namespace);
-                ContenedorPokemon1.Content = Pokemon1;
-                ContenedorBotones1.Content = CBotones1;
-                ((ucCharmander_namespace)Pokemon1).invertirPokemon();
-                ((ucCharmander_namespace)Pokemon1).AccionRealizada += accionRealizada;
-                ((ucCharmander_namespace)Pokemon1).AtaqueRealizado += pokemon1AtaqueRealizado;
             }
             else if (pokemon1 == "Gengar")
             {

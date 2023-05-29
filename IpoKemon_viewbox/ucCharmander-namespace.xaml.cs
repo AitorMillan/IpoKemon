@@ -51,6 +51,30 @@ namespace IpoKemon_viewbox
             AccionRealizada?.Invoke(this, EventArgs.Empty);
         }
 
+        public void ocultarDatosCombate()
+        {
+            verPocionEnergia(false);
+            verPocionVida(false);
+            verBotonActivarEscudo(false);
+            verBotonEstadoEnfadado(false);
+            verBotonLanzarBolaFuego(false);
+            verNombre(false);
+            verImagenFondo(false);
+        }
+
+
+        public void recibirDaño(int daño)
+        {
+            if (escudoActivado)
+            {
+                escudoActivado = false;
+            }
+            else 
+            {
+                pbVida.Value -= daño;
+            }
+
+        }
         public void enfadado()
         {
             if (escudoActivado)
@@ -243,7 +267,7 @@ namespace IpoKemon_viewbox
 
         private void increaseHealth(object sender, object e)
         {
-            pbVida.Value += 0.2;
+            pbVida.Value += 0.5;
             if (pbVida.Value >= 100)
             {
                 dtTimeVida.Stop();
@@ -287,12 +311,6 @@ namespace IpoKemon_viewbox
                 //Se igonora la excepción
             }
 
-
-        }
-
-        private void quitarVida(object sender, RoutedEventArgs e)
-        {
-            pbVida.Value -= 15;
 
         }
 
