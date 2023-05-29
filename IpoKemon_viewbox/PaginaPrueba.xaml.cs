@@ -1,4 +1,5 @@
 ﻿using Charmander_UWP_ControlUsuario;
+using Microsoft.Toolkit.Uwp.Notifications;
 using PokemonPruebas;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -39,41 +41,81 @@ namespace IpoKemon_viewbox
             tokenTurno = 1;
         }
 
+        private void rendirse1(object sender, EventArgs e)
+        {
+            mostrarGanador("JUGADOR 2", nombrePokemon2);
+        }
+
+        private void rendirse2(object sender, EventArgs e)
+        {
+            mostrarGanador("JUGADOR 1", nombrePokemon1);
+        }
+
         private void pokemon1AtaqueRealizado(object sender, AtaqueEventArgs e)
         {
             // Obtener la cantidad de daño del ataque
             int cantidadDanio = e.CantidadDanio;
+            double vida = 100;
             
             switch (nombrePokemon2)
             {
                 case "Charmander":
                     ((ucCharmander_namespace)Pokemon2).recibirDaño(cantidadDanio);
+                    vida = ((ucCharmander_namespace)Pokemon2).Vida;
                     break;
                 case "Aron":
                     ((AronCU_NoViewBox)Pokemon2).recibirDaño(cantidadDanio);
+                    vida = ((AronCU_NoViewBox)Pokemon2).Vida;
                     break;
                 case "Gengar":
                     ((gengarUC_namespace)Pokemon2).recibirDaño(cantidadDanio);
+                    vida = ((gengarUC_namespace)Pokemon2).Vida;
                     break;
             }
+            if (vida <= 0)
+            {
+                mostrarGanador("JUGADOR 1", nombrePokemon1);
+            }
             cambiarTurno();
+        }
+
+        private void mostrarGanador(string jugadorGanador, string nombrePokemon)
+        {
+            string nombreFoto = nombrePokemon.ToLower() + "Victoria.png";
+            //CÓDIGO PARA FINALIZAR LA PARTIDA
+            this.Frame.Navigate(typeof(Combate));
+            new ToastContentBuilder()
+            .AddArgument("action", "Favoritos")
+            .AddArgument("conversationId", 9813)
+            .AddText("ENHORABUENA "+jugadorGanador)
+            .AddText("Tu pokemon " +nombrePokemon+ " ha ganado el combate")
+            .AddInlineImage(new Uri("ms-appx:///Assets/"+nombreFoto))
+            .Show();
         }
 
         private void pokemon2AtaqueRealizado(object sender, AtaqueEventArgs e)
         {
             // Obtener la cantidad de daño del ataque
             int cantidadDanio = e.CantidadDanio;
+            double vida = 100;
             switch (nombrePokemon1)
             {
                 case "Charmander":
                     ((ucCharmander_namespace)Pokemon1).recibirDaño(cantidadDanio);
+                    vida = ((ucCharmander_namespace)Pokemon1).Vida;
                     break;
                 case "Aron":
                     ((AronCU_NoViewBox)Pokemon1).recibirDaño(cantidadDanio);
+                    vida = ((AronCU_NoViewBox)Pokemon1).Vida;
                     break;
                 case "Gengar":
                     ((gengarUC_namespace)Pokemon1).recibirDaño(cantidadDanio);
+                    vida = ((gengarUC_namespace)Pokemon1).Vida;
                     break;
+            }
+            if (vida <= 0)
+            {
+                mostrarGanador("JUGADOR 2", nombrePokemon2);
             }
             cambiarTurno();
         }
@@ -143,6 +185,7 @@ namespace IpoKemon_viewbox
                 ((gengarUC_namespace)Pokemon1).ocultarDatosCombate();
                 ((gengarUC_namespace)Pokemon1).AtaqueRealizado += pokemon1AtaqueRealizado;
                 ((gengarUC_namespace)Pokemon1).AccionRealizada += accionRealizada;
+                ((gengarUC_namespace)Pokemon1).RendicionRealizada += rendirse1;
             }
         }
 
@@ -177,18 +220,24 @@ namespace IpoKemon_viewbox
                 ((gengarUC_namespace)Pokemon2).ocultarDatosCombate();
                 ((gengarUC_namespace)Pokemon2).AtaqueRealizado += pokemon2AtaqueRealizado;
                 ((gengarUC_namespace)Pokemon2).AccionRealizada += accionRealizada;
+                ((gengarUC_namespace)Pokemon2).RendicionRealizada += rendirse2;
             }
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
-                if (e.Parameter is String[] parametros)
+            if (e.Parameter is Tuple<int, string, string> data)
             {
-                nombrePokemon1 = parametros[0];
-                nombrePokemon2 = parametros[1];
+                // Desempaquetar los datos
+                int numJugadores = data.Item1;
+                nombrePokemon1 = data.Item2;
+                nombrePokemon2 = data.Item3;
                 cargarControlUsuario1(nombrePokemon1);
                 cargarControlUsuario2(nombrePokemon2);
+
+                // Ahora puedes usar estas variables en tu código
+                // ...
             }
         }
     }

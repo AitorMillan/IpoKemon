@@ -23,11 +23,11 @@ namespace IpoKemon_viewbox
 
     public sealed partial class gengarUC_namespace : UserControl
     {
-
         DispatcherTimer HealingDT;
         DispatcherTimer dtPokeball;
         public delegate void AtaqueRealizadoEventHandler(object sender, AtaqueEventArgs e);
         public event AtaqueRealizadoEventHandler AtaqueRealizado;
+        public event EventHandler RendicionRealizada;
         public event EventHandler AccionRealizada;
         int danio = 15;
         double controlL = 0;
@@ -35,6 +35,11 @@ namespace IpoKemon_viewbox
         public gengarUC_namespace()
         {
             this.InitializeComponent();
+        }
+    
+        private void onRendicionRealizada()
+        {
+            RendicionRealizada?.Invoke(this, EventArgs.Empty);
         }
 
         private void OnAccionRealizada()
@@ -44,7 +49,11 @@ namespace IpoKemon_viewbox
         public void atacar()
         {
             garraSombría();
+        }
 
+        public void rendirse()
+        {
+            onRendicionRealizada();
         }
 
         public void restaurarEnergia()

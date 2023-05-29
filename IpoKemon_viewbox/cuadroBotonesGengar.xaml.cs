@@ -48,7 +48,7 @@ namespace IpoKemon_viewbox
 
         private void btnRendirse_Click(object sender, RoutedEventArgs e)
         {
-            //desactivarBotones();
+            Gengar.rendirse();
         }
 
         private void CuadroBotonesGengar_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)

@@ -138,15 +138,12 @@
     <Compile Include="cuadroBotonesGengar.xaml.cs">
       <DependentUpon>cuadroBotonesGengar.xaml</DependentUpon>
     </Compile>
-    
     <Compile Include="gengarUC-namespace.xaml.cs">
       <DependentUpon>gengarUC-namespace.xaml</DependentUpon>
-	</Compile>
-
-	  <Compile Include="gengarUC-sinBarras.xaml.cs">
-		  <DependentUpon>gengarUC-sinBarras.xaml</DependentUpon>
     </Compile>
-	  
+    <Compile Include="gengarUC-sinBarras.xaml.cs">
+      <DependentUpon>gengarUC-sinBarras.xaml</DependentUpon>
+    </Compile>
     <Compile Include="gengarUC.xaml.cs">
       <DependentUpon>gengarUC.xaml</DependentUpon>
     </Compile>
@@ -186,8 +183,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AronFondoBotones.png" />
+    <Content Include="Assets\aronVictoria.png" />
     <Content Include="Assets\bolaFuego.gif" />
     <Content Include="Assets\Bola_sombra.png" />
+    <Content Include="Assets\charmanderVictoria.png" />
     <Content Include="Assets\CombatePokemonStyle.png" />
     <Content Include="Assets\DosJugadores.png" />
     <Content Include="Assets\ElegirPokemonStyle.png" />
@@ -198,6 +197,7 @@
     <Content Include="Assets\FondoBotonesGengar.png" />
     <Content Include="Assets\fondo_combate.png" />
     <Content Include="Assets\fuego.gif" />
+    <Content Include="Assets\gengarVictoria.png" />
     <Content Include="Assets\Imagen fondo.jpg" />
     <Content Include="Assets\llama-03.gif" />
     <Content Include="Assets\PocionEnergia.png" />
@@ -243,14 +243,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-
-    <Page Include="gengarUC-namespace.xaml"/>
-
+    <Page Include="gengarUC-namespace.xaml" />
     <Page Include="gengarUC-sinBarras.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-	  
     <Page Include="gengarUC.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -295,6 +292,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.14</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications">
+      <Version>7.1.3</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.UI.Xaml">
       <Version>2.8.3</Version>

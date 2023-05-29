@@ -40,11 +40,13 @@ namespace IpoKemon_viewbox
 
         private void BtnDosJugadores_Click(object sender, RoutedEventArgs e)
         {
+            numJugadores = 2;
             Frame aux = (Frame)this.Parent;
-            String[] pokemons = new String[2];
+            aux.Navigate(typeof(SelectorPokemon), numJugadores);
+           /* String[] pokemons = new String[2];
             pokemons[0] = "Gengar";
             pokemons[1] = "Gengar";
-            aux.Navigate(typeof(PaginaPrueba), pokemons);
+            aux.Navigate(typeof(PaginaPrueba), pokemons);*/
         }
     }
 }

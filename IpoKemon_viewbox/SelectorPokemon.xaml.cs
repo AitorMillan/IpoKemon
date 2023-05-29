@@ -56,7 +56,6 @@ namespace IpoKemon_viewbox
             {
                 defaultBackground = borderAronP1.Background;
             }
-            numJugadores = 2;
 
             PersonalizarPagina();
         }
@@ -180,7 +179,7 @@ namespace IpoKemon_viewbox
 
                 // Aquí va tu código para cambiar al siguiente frame, pasando los datos como parámetros
                 // Por ejemplo:
-                //Frame.Navigate(typeof(SiguienteFrame), new Tuple<int, string, string>(numJugadores, pokemonP1, pokemonP2));
+                Frame.Navigate(typeof(PaginaPrueba), new Tuple<int, string, string>(numJugadores, pokemonP1, pokemonP2));
             }
         }
 
