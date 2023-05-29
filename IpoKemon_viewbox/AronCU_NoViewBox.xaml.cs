@@ -28,7 +28,6 @@ namespace IpoKemon_viewbox
     {
         private double INCREMENTOVIDA = 25;
         private double vidaASubir;
-        private double vidaABajar;
         DispatcherTimer miReloj;
         DispatcherTimer relojAnimaciones;
         Storyboard idle;
@@ -70,7 +69,7 @@ namespace IpoKemon_viewbox
         {
             int danioAtaque = danioAtaqueCabeza;
             if (energico)
-                danioAtaque = danioAtaqueCabeza * 2;
+                danioAtaque = (int)Math.Round(danioAtaqueCabeza * 1.5);
             else if (estaCansado)
                 danioAtaque = 10;
 
@@ -88,22 +87,19 @@ namespace IpoKemon_viewbox
                     danioAtaque = danioGolpeCuerpo / 2;
             }
              ataqueCuerpo(danioAtaque);
-             
+        }
+        public void curarse()
+        {
+            imgPocionVida_PointerReleased(null, null);
         }
         private void OnAtaqueRealizado(AtaqueEventArgs e)
         {
             AtaqueRealizado?.Invoke(this, e);
         }
-        public void curarse()
-        {
-            imgPocionVida_PointerReleased(null, null);
-            OnAccionRealizada();
-        }
 
         public void restaurarEnergia()
         {
             imgPocionEnergia_PointerReleased(null, null);
-            OnAccionRealizada();
         }
 
         private void OnAccionRealizada()
@@ -194,6 +190,7 @@ namespace IpoKemon_viewbox
         }
         private void imgPocionVida_PointerReleased(object sender, PointerRoutedEventArgs e)
         {
+            vidaASubir = pbVida.Value + INCREMENTOVIDA;
             miReloj.Interval = TimeSpan.FromMilliseconds(100);
             miReloj.Tick += subirVida;
             miReloj.Start();
@@ -201,9 +198,11 @@ namespace IpoKemon_viewbox
         }
         private void subirVida(object sender, object e)
         {
-            pbVida.Value += 0.5;
-            if (pbVida.Value >= 100)
+            pbVida.Value += 1;
+            double vidaActual = pbVida.Value;
+            if (vidaActual == vidaASubir || (vidaActual == 100 && vidaASubir > 100))
             {
+                OnAccionRealizada();
                 miReloj.Tick -= subirVida;
                 miReloj.Stop();
                 imgPocionVida.Opacity = 1;
@@ -211,8 +210,9 @@ namespace IpoKemon_viewbox
         }
         private void subirEnergia(object sender, object e)
         {
-            pbEnergia.Value += 0.5;
-            if (pbEnergia.Value > 50 && estaCansado)
+            pbEnergia.Value += 1;
+            double energiaActual = pbEnergia.Value;
+            if (pbEnergia.Value > 50 && estaCansado )
             {
                 Storyboard sb = (Storyboard)this.Resources["sbRecuperaEnergia"];
                 sb.AutoReverse = false;
@@ -231,6 +231,7 @@ namespace IpoKemon_viewbox
                 miReloj.Tick -= subirEnergia;
                 miReloj.Stop();
                 imgPocionEnergia.Opacity = 1;
+                OnAccionRealizada();
             }
         }
         private void bajarEnergia(object sender, object e)
@@ -248,7 +249,7 @@ namespace IpoKemon_viewbox
                     sb.Begin();
                     estaCansado = true;
                 }
-                else if (pbEnergia.Value < 80 && energico)
+                else if (pbEnergia.Value <= 90 && energico)
                 {
                     energico = false;
                     Storyboard sb = (Storyboard)this.Resources["sbNoEnergico"];
@@ -258,23 +259,13 @@ namespace IpoKemon_viewbox
             }
         }
 
-        private void bajarVida(object sender, object e)
-        {
-            pbVida.Value -= 1;
-            double vidaActual = pbVida.Value;
-            if (vidaActual == vidaABajar || (vidaActual == 0 && vidaABajar < 100))
-            {
-                miReloj.Stop();
-                miReloj.Tick -= bajarVida;
-                idle.Resume();
-            }
-        }
         private void imgPocionEnergia_PointerReleased(object sender, PointerRoutedEventArgs e)
         {
             miReloj.Interval = TimeSpan.FromMilliseconds(100);
             miReloj.Tick += subirEnergia;
             miReloj.Start();
             imgPocionEnergia.Opacity = 0.1;
+
         }
 
         private void Pupila_PointerReleased(object sender, PointerRoutedEventArgs e)
@@ -338,15 +329,11 @@ namespace IpoKemon_viewbox
             sb.Begin();
             await Task.Delay(3400);
             OnAtaqueRealizado(new AtaqueEventArgs(danioAtaque));
-
         }
         private void ataqueRecibido(int daño)
         {
-            vidaABajar = pbVida.Value - daño;
+            pbVida.Value -= daño;
             idle.Pause();
-            miReloj.Interval = TimeSpan.FromMilliseconds(100);
-            miReloj.Tick += bajarVida;
-            miReloj.Start();
             Storyboard sb = (Storyboard)this.Resources["sbRecibirAtaque"];
             sb.AutoReverse = false;
             sb.Begin();

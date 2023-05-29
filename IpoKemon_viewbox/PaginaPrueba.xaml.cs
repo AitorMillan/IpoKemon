@@ -85,8 +85,10 @@ namespace IpoKemon_viewbox
         }
 
         private void cambiarTurno()
-        {
-            if(tokenTurno == 0)
+        {            
+            // Si tokenTurno = 0 -> Turno del jugador 1
+            // Si tokenTurno = 1 -> Turno del jugador 2
+            if (tokenTurno == 0)
             {
                 ContenedorBotones1.Visibility = Visibility.Visible;
                 ContenedorBotones1.IsEnabled = true;
@@ -106,8 +108,7 @@ namespace IpoKemon_viewbox
                 txtbEsperaJ1.Visibility = Visibility.Collapsed;
                 tokenTurno = 0;
             }
-            // Si tokenTurno = 0 -> Turno del jugador 1
-            // Si tokenTurno = 1 -> Turno del jugador 2
+
         }
         private void cargarControlUsuario1(String pokemon1)
         {
@@ -153,8 +154,8 @@ namespace IpoKemon_viewbox
                 ContenedorPokemon2.Content = Pokemon2;
                 ContenedorBotones2.Content = CBotones2;
                 ((ucCharmander_namespace)Pokemon2).ocultarDatosCombate();
-                ((ucCharmander_namespace)Pokemon2).AccionRealizada += accionRealizada;
                 ((ucCharmander_namespace)Pokemon2).AtaqueRealizado += pokemon2AtaqueRealizado;
+                ((ucCharmander_namespace)Pokemon2).AccionRealizada += accionRealizada;
             }
             else if (pokemon2 == "Aron")
             {
