@@ -141,11 +141,12 @@
     
     <Compile Include="gengarUC-namespace.xaml.cs">
       <DependentUpon>gengarUC-namespace.xaml</DependentUpon>
+	</Compile>
 
-    <Compile Include="gengarUC-sinBarras.xaml.cs">
-      <DependentUpon>gengarUC-sinBarras.xaml</DependentUpon>
-
+	  <Compile Include="gengarUC-sinBarras.xaml.cs">
+		  <DependentUpon>gengarUC-sinBarras.xaml</DependentUpon>
     </Compile>
+	  
     <Compile Include="gengarUC.xaml.cs">
       <DependentUpon>gengarUC.xaml</DependentUpon>
     </Compile>
@@ -243,13 +244,13 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
 
-    <Page Include="gengarUC-namespace.xaml">
+    <Page Include="gengarUC-namespace.xaml"/>
 
     <Page Include="gengarUC-sinBarras.xaml">
-
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+	  
     <Page Include="gengarUC.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
