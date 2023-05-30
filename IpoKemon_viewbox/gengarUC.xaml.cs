@@ -19,17 +19,39 @@ using Windows.UI.Xaml.Navigation;
 
 namespace PokemonPruebas
 {
+    public class AtaqueEventArgs : EventArgs
+    {
+        public int CantidadDanio { get; set; }
 
+        public AtaqueEventArgs(int cantidadDanio)
+        {
+            CantidadDanio = cantidadDanio;
+        }
+    }
     public sealed partial class gengarUC : UserControl
     {
         DispatcherTimer HealingDT;
         DispatcherTimer dtPokeball;
+        public delegate void AtaqueRealizadoEventHandler(object sender, AtaqueEventArgs e);
+        public event AtaqueRealizadoEventHandler AtaqueRealizado;
+        int danio = 15;
         double controlL = 0;
         double controlA = 0;
         public gengarUC()
         {
             this.InitializeComponent();
         }
+
+        public void atacar()
+        {
+            BolaSombra_btn_Click(null, null);
+            OnAtaqueRealizado(new AtaqueEventArgs(danio));
+        }
+        private void OnAtaqueRealizado(AtaqueEventArgs e)
+        {
+            AtaqueRealizado?.Invoke(this, e);
+        }
+        
         public double Vida
         {
             get { return pbVida.Value; }

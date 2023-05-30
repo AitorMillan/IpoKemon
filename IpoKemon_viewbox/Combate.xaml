@@ -9,7 +9,41 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Height="160" Margin="97,101,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Pestaña combate" VerticalAlignment="Top" Width="486" Foreground="Black" FontSize="36"/>
-        <local:ratingUC HorizontalAlignment="Left" Height="146" Margin="10,353,0,0" VerticalAlignment="Top" Width="265"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="369*"/>
+            <ColumnDefinition Width="381*"/>
+            <ColumnDefinition Width="376*"/>
+            <ColumnDefinition Width="375*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="89*"/>
+        </Grid.RowDefinitions>
+
+
+        <Image Source="/Assets/fondo_combate.png" Stretch="Fill" Grid.RowSpan="2" HorizontalAlignment="Left" Grid.ColumnSpan="4" Width="1500"/>
+        <Button x:Name="BtnUnJugador" Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Center" Margin="0,20,10,20" Click="BtnUnJugador_Click">
+            <StackPanel>
+                <Image Source="Assets/UnJugador.png" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Viewbox MaxHeight="50">
+                    <TextBlock Text=" Un Jugador  " HorizontalAlignment="Center" FontWeight="Bold"/>
+                </Viewbox>
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="BtnDosJugadores" Grid.Row="1" Grid.Column="2" VerticalAlignment="Stretch" Margin="10,20,0,20" HorizontalAlignment="Center" Click="BtnDosJugadores_Click">
+            <StackPanel>
+                <Image Source="Assets/DosJugadores.png" />
+                <Viewbox MaxHeight="50">
+                    <TextBlock Text="Dos Jugadores" HorizontalAlignment="Center" FontWeight="Bold"/>
+                </Viewbox>
+            </StackPanel>
+        </Button>
+
+
+        <Image x:Name="imgTituloCombate" Grid.ColumnSpan="4" Source="/Assets/CombatePokemonStyle.png"/>
+
+
+
     </Grid>
 </Page>

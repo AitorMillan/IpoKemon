@@ -125,10 +125,26 @@
     <Compile Include="AronCU_ViewBox.xaml.cs">
       <DependentUpon>AronCU_ViewBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AtaqueEventArgs.cs" />
     <Compile Include="Combate.xaml.cs">
       <DependentUpon>Combate.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dominio\PokeInfo.cs" />
+    <Compile Include="cuadroBotonesAron.xaml.cs">
+      <DependentUpon>cuadroBotonesAron.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="cuadroBotonesCharmander.xaml.cs">
+      <DependentUpon>cuadroBotonesCharmander.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="cuadroBotonesGengar.xaml.cs">
+      <DependentUpon>cuadroBotonesGengar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="gengarUC-namespace.xaml.cs">
+      <DependentUpon>gengarUC-namespace.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="gengarUC-sinBarras.xaml.cs">
+      <DependentUpon>gengarUC-sinBarras.xaml</DependentUpon>
+    </Compile>
     <Compile Include="gengarUC.xaml.cs">
       <DependentUpon>gengarUC.xaml</DependentUpon>
     </Compile>
@@ -138,8 +154,13 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+
     <Compile Include="PokeData.xaml.cs">
       <DependentUpon>PokeData.xaml</DependentUpon>
+    </Compile>
+
+    <Compile Include="PaginaPrueba.xaml.cs">
+      <DependentUpon>PaginaPrueba.xaml</DependentUpon>
     </Compile>
     <Compile Include="PokeDex.xaml.cs">
       <DependentUpon>PokeDex.xaml</DependentUpon>
@@ -147,6 +168,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ratingUC.xaml.cs">
       <DependentUpon>ratingUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SelectorPokemon.xaml.cs">
+      <DependentUpon>SelectorPokemon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ucCharmander-namespace.xaml.cs">
+      <DependentUpon>ucCharmander-namespace.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ucCharmander-sinBarras.xaml.cs">
+      <DependentUpon>ucCharmander-sinBarras.xaml</DependentUpon>
     </Compile>
     <Compile Include="ucCharmander.xaml.cs">
       <DependentUpon>ucCharmander.xaml</DependentUpon>
@@ -165,13 +195,40 @@
     <Content Include="Assets\FondoPokeballs.jpg" />
     <Content Include="Assets\Fondo_Pokeball.jpg" />
     <Content Include="Assets\Gengar_Pkdx.png" />
+    <Content Include="Assets\AronFondoBotones.png" />
+    <Content Include="Assets\aronVictoria.png" />
+    <Content Include="Assets\bolaFuego.gif" />
+    <Content Include="Assets\Bola_sombra.png" />
+    <Content Include="Assets\charmanderVictoria.png" />
+    <Content Include="Assets\CombatePokemonStyle.png" />
+    <Content Include="Assets\DosJugadores.png" />
+    <Content Include="Assets\ElegirPokemonStyle.png" />
+    <Content Include="Assets\Energia.png" />
+    <Content Include="Assets\escudoFuego.png" />
+    <Content Include="Assets\fondo-inicio.jpg" />
+    <Content Include="Assets\flecha-atras.png" />
+    <Content Include="Assets\fondo-combate.jpg" />
+    <Content Include="Assets\fondo-combate2.jpg" />
+    <Content Include="Assets\fondo-combate3.jpg" />
+    <Content Include="Assets\fondo-combate4.jpg" />
+    <Content Include="Assets\FondoBotonesCharmander.jpg" />
+    <Content Include="Assets\FondoBotonesGengar.png" />
+    <Content Include="Assets\fondo_combate.png" />
+    <Content Include="Assets\fuego.gif" />
+    <Content Include="Assets\gengarVictoria.png" />
     <Content Include="Assets\Imagen fondo.jpg" />
+    <Content Include="Assets\llama-03.gif" />
     <Content Include="Assets\PocionEnergia.png" />
     <Content Include="Assets\PocionVida.png" />
     <Content Include="Assets\Pokedex.png" />
     <Content Include="Assets\Pokedex_logo.png" />
     <Content Include="Assets\Vida.png" />
     <Content Include="Assets\Volver_ico.png" />
+    <Content Include="Assets\titulo-ipokemon.png" />
+    <Content Include="Assets\UnJugador.png" />
+    <Content Include="Assets\Vida.png" />
+    <Content Include="Assets\video-fondo-inicio.mp4" />
+    <Content Include="Assets\Zarpa.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -198,6 +255,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="cuadroBotonesAron.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="cuadroBotonesCharmander.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="cuadroBotonesGengar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="gengarUC-namespace.xaml" />
+    <Page Include="gengarUC-sinBarras.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="gengarUC.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -211,6 +285,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="PokeData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PaginaPrueba.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -219,6 +297,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ratingUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelectorPokemon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ucCharmander-namespace.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ucCharmander-sinBarras.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -231,9 +321,18 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.14</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications">
+      <Version>7.1.3</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.UI.Xaml">
       <Version>2.8.3</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\PokemonHollow.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\PokemonSolid.ttf" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

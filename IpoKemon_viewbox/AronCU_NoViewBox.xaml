@@ -325,8 +325,11 @@
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
     </UserControl.Resources>
+    <UserControl.Background>
+        <ThemeResource ResourceKey="AppBarBackgroundThemeBrush"/>
+    </UserControl.Background>
 
-    <Grid Background="White">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="86*"/>
             <ColumnDefinition Width="1285*"/>
@@ -345,7 +348,15 @@
         <ProgressBar x:Name="pbEnergia" Grid.Column="1" Grid.Row="1" Value ="80" Foreground="#FFF9DB19" Background="#66F9DB19" VerticalAlignment="Stretch" Margin="10,10,10,10"/>
         <Image x:Name="imgPocionEnergia" Grid.Column="2" Margin="0,9,0,10" Grid.Row="1" Source="/Assets/PocionEnergia.png" PointerReleased="imgPocionEnergia_PointerReleased"/>
         <Image x:Name="imgEnergia" Grid.Row="1" Source="/Assets/Energia.png"/>
-        <Canvas x:Name="cvAron" Grid.Row="2" Grid.Column="1" Height="254" Width="278">
+        <Canvas x:Name="cvAron" Grid.Row="2" Grid.Column="1" Height="254" Width="278" RenderTransformOrigin="0.5,0.5">
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
             <Ellipse x:Name="ellipse2" Height="144" Canvas.Left="90.472" Stroke="Black" Canvas.Top="100.795" Width="51" RenderTransformOrigin="0.713,0.556" HorizontalAlignment="Left" VerticalAlignment="Top" Fill="#FFAFAEAE" UseLayoutRounding="False" d:LayoutRounding="Auto">
                 <Ellipse.RenderTransform>
                     <CompositeTransform Rotation="27.51" SkewY="4.509" ScaleX="1.021" ScaleY="0.979" TranslateX="-3.06" TranslateY="2.69"/>
@@ -479,9 +490,7 @@
 
         </Canvas>
         <StackPanel Grid.Column="1" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Top" Orientation="Horizontal" Margin="0,2,0,0">
-            <Button x:Name="btnAtaqueCabeza" Content="Ataque cabeza" Click="btnAtaqueCabeza_Click"/>
             <Button x:Name="btnAtaqueCabezaEnfadado" Content="Ataque cabeza enfadado" Click="btnAtaqueCabezaEnfadado_Click" Margin="8,0,8,0"/>
-            <Button x:Name="btnAtaqueCuerpo" Content="Ataque cuerpo" Width="118" Click="btnAtaqueCuerpo_Click"/>
         </StackPanel>
         <TextBlock x:Name="txtBNombre" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Text="Aron" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
 
