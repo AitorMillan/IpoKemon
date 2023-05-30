@@ -190,6 +190,7 @@
     <Content Include="Assets\Bola_sombra.png" />
     <Content Include="Assets\cancionCombate.mp3" />
     <Content Include="Assets\Charmander_Pkdx.png" />
+    <Content Include="Assets\combateIA.mp3" />
     <Content Include="Assets\Energia.png" />
     <Content Include="Assets\FondoPokeballs.jpg" />
     <Content Include="Assets\Fondo_Pokeball.jpg" />

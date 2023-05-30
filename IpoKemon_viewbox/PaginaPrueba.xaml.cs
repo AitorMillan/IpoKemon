@@ -64,10 +64,19 @@ namespace IpoKemon_viewbox
         {
             // Obtenemos la canción, ajustamos su sonido, la ponemos en bucle y la reproducimos
             mediaPlayer = new MediaPlayer();
+            StorageFile file;
+
             StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync("Assets");
-            StorageFile file = await folder.GetFileAsync("cancionCombate.mp3");
+            if (numJugadores == 2)
+            {
+                file = await folder.GetFileAsync("cancionCombate.mp3");
+            }
+            else
+            {
+                file = await folder.GetFileAsync("combateIA.mp3");
+            }
             mediaPlayer.SetFileSource(file);
-            mediaPlayer.Volume = 0.05;
+            mediaPlayer.Volume = 0.3;
             mediaPlayer.IsLoopingEnabled = true;
             mediaPlayer.Play();
         }
@@ -310,10 +319,10 @@ namespace IpoKemon_viewbox
             if (e.Parameter is Tuple<int, string, string> data)
             {
                 // Desempaquetar los datos
-                iniciarMusica();
                 numJugadores = data.Item1;
                 nombrePokemon1 = data.Item2;
                 nombrePokemon2 = data.Item3;
+                iniciarMusica();
                 cargarControlUsuario1(nombrePokemon1);
                 cargarControlUsuario2(nombrePokemon2);
 
