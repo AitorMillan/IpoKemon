@@ -50,6 +50,7 @@ namespace IpoKemon_viewbox
         {
             //Cambiar idioma a inglés
             ApplicationLanguages.PrimaryLanguageOverride = "en-US";
+            
             await Task.Delay(1);
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame?.Navigate(typeof(MainPage));

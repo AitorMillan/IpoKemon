@@ -194,11 +194,11 @@ namespace IpoKemon_viewbox
             }
             if (vida <= 0 && Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride.Equals("es-ES"))
             {
-                mostrarGanador("JUGADOR 2", nombrePokemon1);
+                mostrarGanador("JUGADOR 2", nombrePokemon2);
             }
             else if (vida <= 0 && Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride.Equals("en-US"))
             {
-                mostrarGanador("PLAYER 2", nombrePokemon1);
+                mostrarGanador("PLAYER 2", nombrePokemon2);
             }
             cambiarTurno();
         }
