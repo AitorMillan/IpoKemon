@@ -28,20 +28,19 @@ namespace IpoKemon_viewbox
             this.InitializeComponent();
         }
 
-        private void Aron_img_PointerReleased(object sender, PointerRoutedEventArgs e)
+        private void btnAron_Click(object sender, RoutedEventArgs e)
         {
             Frame aux = (Frame)this.Parent;
             aux.Navigate(typeof(PokeData), 1);
         }
 
-        private void Charmander_img_PointerReleased(object sender, PointerRoutedEventArgs e)
+        private void btnCharmander_Click(object sender, RoutedEventArgs e)
         {
             Frame aux = (Frame)this.Parent;
             aux.Navigate(typeof(PokeData), 2);
-
         }
 
-        private void Gengar_img_PointerReleased(object sender, PointerRoutedEventArgs e)
+        private void btnGengar_Click(object sender, RoutedEventArgs e)
         {
             Frame aux = (Frame)this.Parent;
             aux.Navigate(typeof(PokeData), 3);
