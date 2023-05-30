@@ -9,20 +9,43 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="55*"/>
-                <RowDefinition Height="126*"/>
-                <RowDefinition Height="468*"/>
-                <RowDefinition Height="352*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="69*"/>
-                <ColumnDefinition Width="109*"/>
-                <ColumnDefinition Width="72*"/>
-            </Grid.ColumnDefinitions>
-            <local:AronCU x:Name="aron" HorizontalAlignment="Right" Height="378" Width="391" Grid.Row="2" Grid.Column="1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Right" VerticalAlignment="Bottom"/>
-            <TextBlock TextWrapping="Wrap" Text="Bievenido a IpoKemon!!!!" Foreground="Black" FontSize="48" Grid.Column="1" TextAlignment="Center" Grid.Row="1"/>
-        </Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="51*"/>
+            <ColumnDefinition Width="49*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+
+        <MediaPlayerElement 
+            x:Name="BackgroundMediaPlayerElement"
+            AreTransportControlsEnabled="False"
+            AutoPlay="True"
+            Canvas.ZIndex="0" Grid.RowSpan="2" Grid.ColumnSpan="2" />
+        <Image x:Name="imgTituloInicio" Source="/Assets/titulo-ipokemon.png" />
+        <Border
+            Grid.Row="1" Grid.Column="0"
+            Grid.RowSpan="1" Grid.ColumnSpan="1"
+            Background="#f5f5dc"
+            BorderBrush="DarkRed"
+            BorderThickness="2"
+            CornerRadius="10"
+            Margin="20,80,20,80">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <TextBlock
+                    x:Name="tbBienvenida"
+                    Text=""
+                    FontSize="24"
+                    Foreground="Black"
+                    TextWrapping="Wrap"
+                    Margin="10">
+                </TextBlock>
+            </ScrollViewer>
+        </Border>
+
+
+
+
     </Grid>
 </Page>

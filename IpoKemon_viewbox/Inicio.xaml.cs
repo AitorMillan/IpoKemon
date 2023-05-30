@@ -5,6 +5,8 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Media.Core;
+using Windows.Media.Playback;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -17,15 +19,47 @@ using Windows.UI.Xaml.Navigation;
 
 namespace IpoKemon_viewbox
 {
-    /// <summary>
-    /// Una página vacía que se puede usar de forma independiente o a la que se puede navegar dentro de un objeto Frame.
-    /// </summary>
     public sealed partial class Inicio : Page
     {
+        private string textoBienvenida = "¡Bienvenido, futuro Maestro Pokémon! Aquí comienza tu increíble viaje. Entrena a tus Pokémon, enfrenta desafíos épicos, descubre nuevas especies y busca convertirte en el mejor. \n¡Tu aventura Pokémon comienza ahora!";
+        private int indexLetra = 0;
+        private DispatcherTimer timer;
+
         public Inicio()
         {
             this.InitializeComponent();
-            //aron.verFondo(false);
+
+            var mediaSource = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/video-fondo-inicio.mp4"));
+            var mediaPlayer = new MediaPlayer { AutoPlay = true, IsLoopingEnabled = true };
+            mediaPlayer.Source = mediaSource;
+
+            BackgroundMediaPlayerElement.SetMediaPlayer(mediaPlayer);
+
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMilliseconds(25);
+            timer.Tick += Timer_Tick;
+            timer.Start();
         }
+
+        private void Timer_Tick(object sender, object e)
+        {
+            if (indexLetra < textoBienvenida.Length)
+            {
+                tbBienvenida.Text += textoBienvenida[indexLetra];
+                indexLetra++;
+                if (textoBienvenida[indexLetra - 1] != ' ' && indexLetra < textoBienvenida.Length && textoBienvenida[indexLetra] == ' ')
+                {
+                    tbBienvenida.Text += ' ';
+                }
+            }
+            else
+            {
+                timer.Stop();
+            }
+        }
+
+
     }
+
 }
+
