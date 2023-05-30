@@ -108,7 +108,11 @@ namespace IpoKemon_viewbox
                 estaEnfadado = false;
 
             if (escudoActivado)
-                btnActivarEscudo_Click(null, null);
+            {
+                btnActivarEscudo_Click(null, null); //para desactivarlo
+                //escudoActivado = false;
+            }
+                
 
             btnActivarEscudo_Click(null, null);
             escudoActivado = true;

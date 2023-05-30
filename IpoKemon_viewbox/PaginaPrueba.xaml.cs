@@ -200,7 +200,7 @@ namespace IpoKemon_viewbox
                     ContenedorBotones1.Visibility = Visibility.Collapsed;
                     //ContenedorBotones2.IsEnabled = true;
                     ContenedorBotones1.IsEnabled = false;
-                    //txtbEsperaJ2.Visibility = Visibility.Visible;
+                    txtbEsperaJ2.Visibility = Visibility.Visible;
                     txtbEsperaJ1.Visibility = Visibility.Collapsed;
                     tokenTurno = 0;
                 }
@@ -295,6 +295,18 @@ namespace IpoKemon_viewbox
                 // Ahora puedes usar estas variables en tu código
                 // ...
             }
+
+            personalizarTextos(numJugadores);
+        }
+
+        private void personalizarTextos(int nJugadores)
+        {
+            if (nJugadores == 1)
+            {
+                txtbEsperaJ1.Text = "Turno del Jugador 1";
+                txtbEsperaJ2.Text = "Turno de la CPU";
+            }
+
         }
     }
 }

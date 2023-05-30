@@ -26,7 +26,7 @@
         <Image x:Name="imgFondo" Grid.ColumnSpan="4" Grid.RowSpan="4" Source="/Assets/fondo_combate.png" Stretch="Fill"/>
         <Image x:Name="imgTitulo" Source="/Assets/ElegirPokemonStyle.png" Grid.ColumnSpan="4" Margin="0,5,0,5"/>
 
-        <Button x:Name="btnAtras" Click="btnAtras_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FF0E3E50" BorderThickness="0" Margin="120,20,120,20">
+        <Button x:Name="btnAtras" Click="btnAtras_Click" HorizontalAlignment="Center" VerticalAlignment="Stretch" Background="#FF0E3E50" BorderThickness="0">
             <Image Source="/Assets/flecha-atras.png"/>
         </Button>
 
@@ -94,17 +94,20 @@
                 </Viewbox>
             </Button>
         </Border>
-        <Button x:Name="btnComenzarBatalla" Grid.Column="1" Content="Comenzar Batalla" Grid.Row="3" VerticalAlignment="Center" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="36" Background="#FFA41E4B" Foreground="#E4FFFFFF" Click="btnComenzarBatalla_Click">
-            <Button.BorderBrush>
-                <LinearGradientBrush EndPoint="0,3" MappingMode="Absolute">
-                    <LinearGradientBrush.RelativeTransform>
-                        <ScaleTransform CenterY="0.5" ScaleY="-1"/>
-                    </LinearGradientBrush.RelativeTransform>
-                    <GradientStop Color="#29000000" Offset="0.33"/>
-                    <GradientStop Color="#0FFD0000" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.BorderBrush>
-        </Button>
+        <Viewbox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
+            <Button x:Name="btnComenzarBatalla" Content="Comenzar Batalla" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#FFA41E4B" Foreground="#E4FFFFFF" Click="btnComenzarBatalla_Click" Margin="25,0,25,0">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0,3" MappingMode="Absolute">
+                        <LinearGradientBrush.RelativeTransform>
+                            <ScaleTransform CenterY="0.5" ScaleY="-1"/>
+                        </LinearGradientBrush.RelativeTransform>
+                        <GradientStop Color="#29000000" Offset="0.33"/>
+                        <GradientStop Color="#0FFD0000" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+        </Viewbox>
+
     </Grid>
 </Page>
 

@@ -17,18 +17,25 @@
             <RowDefinition Height="14*"/>
             <RowDefinition Height="11*"/>
         </Grid.RowDefinitions>
-        <Image Grid.RowSpan="2" Grid.ColumnSpan="2" Source="/Assets/fondo-combate.jpg" Stretch="UniformToFill"/>
+        <Image x:Name="imgFondo" Grid.RowSpan="2" Grid.ColumnSpan="2" Source="/Assets/fondo-combate4.jpg" Stretch="UniformToFill"/>
 
         <ContentControl x:Name="ContenedorPokemon1"/>
         <ContentControl x:Name="ContenedorPokemon2" Grid.Column="1"/>
         <ContentControl x:Name="ContenedorBotones1" Grid.Row="1"/>
         <ContentControl x:Name="ContenedorBotones2" Grid.Row="1" Grid.Column="1" Visibility="Collapsed"/>
         <Viewbox Grid.Row="1" Grid.Column="1">
-            <TextBlock x:Name="txtbEsperaJ1" TextWrapping="Wrap" Text="Esperando al jugador 1..." Grid.Column="1" Grid.Row="1" FontSize="60" TextAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+            <Grid>
+                <Rectangle Fill="Beige"/>
+                <TextBlock x:Name="txtbEsperaJ1" TextWrapping="Wrap" Text="Esperando al jugador 1..." FontSize="50" TextAlignment="Center" Foreground="Black" VerticalAlignment="Center"/>
+            </Grid>
         </Viewbox>
-        <Viewbox>
-            <TextBlock x:Name="txtbEsperaJ2" TextWrapping="Wrap" Text="Esperando al jugador 2..." FontSize="60" TextAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Visibility="Collapsed" Foreground="White"/>
+        <Viewbox Grid.Row="1">
+            <Grid>
+                <Rectangle Fill="Beige"/>
+                <TextBlock x:Name="txtbEsperaJ2" TextWrapping="Wrap" Text="Esperando al jugador 2..." FontSize="60" TextAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" Foreground="Black"/>
+            </Grid>
         </Viewbox>
+
 
     </Grid>
 </Page>
