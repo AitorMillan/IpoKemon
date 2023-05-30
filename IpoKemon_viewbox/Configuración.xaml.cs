@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.Resources.Core;
 using Windows.Foundation;
@@ -31,20 +32,25 @@ namespace IpoKemon_viewbox
         {
             this.InitializeComponent();
         }
-        private void hplEspaña_Click(object sender, RoutedEventArgs e)
+        private async void hplEspaña_Click(object sender, RoutedEventArgs e)
         {
             //Cambiar idioma a español
             ApplicationLanguages.PrimaryLanguageOverride = "es-ES";
 
+            await Task.Delay(1);
+
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame?.Navigate(typeof(MainPage));
+
+            //Reiniciar la aplicación para que el cambio de idioma tenga efecto
+            //CoreApplication.GetCurrentView().Reload();
         }
 
-        private void hplIngles_Click(object sender, RoutedEventArgs e)
+        private async void hplIngles_Click(object sender, RoutedEventArgs e)
         {
             //Cambiar idioma a inglés
             ApplicationLanguages.PrimaryLanguageOverride = "en-US";
-
+            await Task.Delay(1);
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame?.Navigate(typeof(MainPage));
         }
