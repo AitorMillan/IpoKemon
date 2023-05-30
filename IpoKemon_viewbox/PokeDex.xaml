@@ -1,15 +1,37 @@
 ﻿<Page
-    x:Class="IpoKemon_viewbox.PokeDex"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:IpoKemon_viewbox"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Custom="using:Charmander_UWP_ControlUsuario"
+    x:Class="IpoKemon_viewbox.PokeDex"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid x:Name="Pokedex">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/Fondo_Pokeball.jpg"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="56*"/>
+            <ColumnDefinition Width="84*"/>
+            <ColumnDefinition Width="122*"/>
+            <ColumnDefinition Width="102*"/>
+            <ColumnDefinition Width="35*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="21*"/>
+            <RowDefinition Height="38*"/>
+            <RowDefinition Height="78*"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="96*"/>
+            <RowDefinition Height="58*"/>
+        </Grid.RowDefinitions>
+        <Image x:Name="Titulo_img" Grid.RowSpan="3" Source="Assets/Pokedex_logo.png" Grid.Column="1" Margin="277,-32,344,184" Grid.ColumnSpan="3"/>
 
-    <Grid>
+        <Image x:Name="Aron_img" Margin="90,12,339,232" Grid.Row="1" Source="Assets/Aron_Pkdx.png" Grid.ColumnSpan="3" Grid.RowSpan="4" PointerReleased="Aron_img_PointerReleased"/>
+        <Image x:Name="Charmander_img" Margin="348,28,21,248" Grid.Row="1" Source="/Assets/Charmander_Pkdx.png" Grid.ColumnSpan="3" Grid.RowSpan="4" Grid.Column="2" PointerReleased="Charmander_img_PointerReleased"/>
+        <Image x:Name="Gengar_img" Margin="192,112,271,96" Grid.Row="2" Source="/Assets/Gengar_Pkdx.png" Grid.ColumnSpan="3" Grid.RowSpan="4" Grid.Column="1" PointerReleased="Gengar_img_PointerReleased"/>
 
-        <TextBlock HorizontalAlignment="Left" Height="160" Margin="59,88,0,0" TextWrapping="Wrap" Text="Pestaña Pokedex" VerticalAlignment="Top" Width="486" Foreground="Black" FontSize="36"/>
     </Grid>
 </Page>

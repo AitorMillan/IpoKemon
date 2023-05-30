@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -25,6 +26,25 @@ namespace IpoKemon_viewbox
         public PokeDex()
         {
             this.InitializeComponent();
+        }
+
+        private void Aron_img_PointerReleased(object sender, PointerRoutedEventArgs e)
+        {
+            Frame aux = (Frame)this.Parent;
+            aux.Navigate(typeof(PokeData), 1);
+        }
+
+        private void Charmander_img_PointerReleased(object sender, PointerRoutedEventArgs e)
+        {
+            Frame aux = (Frame)this.Parent;
+            aux.Navigate(typeof(PokeData), 2);
+
+        }
+
+        private void Gengar_img_PointerReleased(object sender, PointerRoutedEventArgs e)
+        {
+            Frame aux = (Frame)this.Parent;
+            aux.Navigate(typeof(PokeData), 3);
         }
     }
 }

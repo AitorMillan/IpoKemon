@@ -63,7 +63,9 @@
         </SplitView>
         <StackPanel Grid.Row="1"/>
         <Frame x:Name="fmMain" Grid.Column="1" Grid.Row="1"/>
+
         <Grid Grid.ColumnSpan="2" Grid.Row="1"/>
+
 
 
     </Grid>
