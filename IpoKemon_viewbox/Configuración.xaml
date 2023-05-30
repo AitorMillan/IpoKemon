@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="IpoKemon_viewbox.Configuración"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:IpoKemon_viewbox"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="296*"/>
+            <ColumnDefinition Width="1205*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22*"/>
+            <RowDefinition Height="103*"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Uid="TransTituloConfiguracion"  TextWrapping="Wrap" Text="CONFIGURACIÓN" FontSize="48" TextAlignment="Center" Grid.ColumnSpan="2"/>
+        <StackPanel Grid.Row="1" Margin="30,0,0,0" Orientation="Vertical">
+            <TextBlock x:Uid="TransIdioma" TextWrapping="Wrap" Text="IDIOMA:" Height="72" FontSize="24"/>
+            <StackPanel Orientation="Horizontal">
+                <Image Width="54" Source="/Assets/iconoEspaña.png"/>
+                <HyperlinkButton x:Name="hplEspaña" x:Uid="TransIdiomaEspañol" Content="Español" Click="hplEspaña_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                <Image Width="57" Source="/Assets/iconoInglaterra.png" Height="60"/>
+                <HyperlinkButton x:Name="hplIngles" x:Uid="TransIdiomaInglés" Content="Inglés" VerticalAlignment="Stretch" Click="hplIngles_Click"/>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Page>

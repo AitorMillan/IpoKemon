@@ -129,6 +129,9 @@
     <Compile Include="Combate.xaml.cs">
       <DependentUpon>Combate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Configuración.xaml.cs">
+      <DependentUpon>Configuración.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dominio\PokeInfo.cs" />
     <Compile Include="cuadroBotonesAron.xaml.cs">
       <DependentUpon>cuadroBotonesAron.xaml</DependentUpon>
@@ -190,8 +193,10 @@
     <Content Include="Assets\Bola_sombra.png" />
     <Content Include="Assets\cancionCombate.mp3" />
     <Content Include="Assets\Charmander_Pkdx.png" />
+    <Content Include="Assets\ChooseYourPokemonStyle.png" />
     <Content Include="Assets\combateIA.mp3" />
     <Content Include="Assets\Energia.png" />
+    <Content Include="Assets\FightPokemonStyle.png" />
     <Content Include="Assets\FondoPokeballs.jpg" />
     <Content Include="Assets\Fondo_Pokeball.jpg" />
     <Content Include="Assets\Gengar_Pkdx.png" />
@@ -216,6 +221,8 @@
     <Content Include="Assets\fondo_combate.png" />
     <Content Include="Assets\fuego.gif" />
     <Content Include="Assets\gengarVictoria.png" />
+    <Content Include="Assets\iconoEspaña.png" />
+    <Content Include="Assets\iconoInglaterra.png" />
     <Content Include="Assets\Imagen fondo.jpg" />
     <Content Include="Assets\llama-03.gif" />
     <Content Include="Assets\PocionEnergia.png" />
@@ -252,6 +259,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Combate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Configuración.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -333,6 +344,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\PokemonSolid.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\es-ES\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\en-US\Resources.resw" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

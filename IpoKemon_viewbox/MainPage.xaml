@@ -44,18 +44,18 @@
                     <SymbolIcon Grid.Row="2" Margin="4" Symbol="People"/>
                     <SymbolIcon Grid.Row="3" Margin="4" Symbol="Camera"/>
 
-                    <Button x:Name="btnInicio" Content="Inicio" Height="50"
+                    <Button x:Uid="TransInicio" x:Name="btnInicio" Content="Inicio" Height="50"
                     Background="{x:Null}" FontSize="20" FontWeight="Bold"
                     BorderBrush="{x:Null}" Click="btnInicio_Click" Width="269" Grid.Column="1" HorizontalAlignment="Center"/>
 
                     <Button x:Name="btnPokedex" Grid.Row="1" Grid.Column="1" Content="PokeDex" Height="50" Background="{x:Null}"
                     FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" BorderBrush="{x:Null}" Click="btnPokedex_Click" Width="269"/>
 
-                    <Button x:Name="btnCombate" Grid.Row="2" Grid.Column="1" Content="Combate" Height="50" Background="{x:Null}"
+                    <Button x:Uid="TransCombate" x:Name="btnCombate" Grid.Row="2" Grid.Column="1" Content="Combate" Height="50" Background="{x:Null}"
                     FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" BorderBrush="{x:Null}" Click="btnCombate_Click" Width="269"/>
 
-                    <Button Grid.Row="3" Grid.Column="1" Content="Captura" Height="50" Background="{x:Null}"
-                    FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" BorderBrush="{x:Null}" Width="269"/>
+                    <Button x:Name="btnAjustes" x:Uid="TransAjustes" Grid.Row="3" Grid.Column="1" Content="Ajustes" Height="50" Background="{x:Null}"
+                    FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" BorderBrush="{x:Null}" Width="269" Click="btnAjustes_Click"/>
 
 
                 </Grid>

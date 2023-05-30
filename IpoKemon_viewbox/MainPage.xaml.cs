@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Diagnostics;
+using Windows.Globalization;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0xc0a
 
@@ -27,6 +28,7 @@ namespace IpoKemon_viewbox
     {
         SolidColorBrush botonPulsado = new SolidColorBrush(Windows.UI.Color.FromArgb(80, 184, 199, 200));
         string pestanaAnterior = "Inicio";
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -64,6 +66,8 @@ namespace IpoKemon_viewbox
                 btnCombate.Background = null;
             else if (pestana == "Inicio")
                 btnInicio.Background = null;
+            else if (pestana == "Configuración")
+                btnAjustes.Background = null;
         }
 
         private void btnPokedex_Click(object sender, RoutedEventArgs e)
@@ -94,6 +98,14 @@ namespace IpoKemon_viewbox
         private void btnMenu_Click(object sender, RoutedEventArgs e)
         {
             sView.IsPaneOpen = !sView.IsPaneOpen;
+        }
+
+        private void btnAjustes_Click(object sender, RoutedEventArgs e)
+        {
+            fmMain.Navigate(typeof(Configuración));
+            Color_Pestana_Anterior(pestanaAnterior);
+            btnAjustes.Background = botonPulsado;
+            pestanaAnterior = "Configuración";
         }
     }
 }

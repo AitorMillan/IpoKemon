@@ -43,9 +43,19 @@ namespace IpoKemon_viewbox
 
         public void CrearPokemonInfo()
         {
-            PokeList.Add(new PokeInfo("Aron","Acero","Roca",0.4,60, "Se alimenta de minerales de hierro o, en ocasiones, de vías de tren para producir la coraza de acero que le protege el cuerpo."));
-            PokeList.Add(new PokeInfo("Charmander", "Fuego", "",0.6,8.5, "Prefiere las cosas calientes. Dicen que cuando llueve le sale vapor de la punta de la cola."));
-            PokeList.Add(new PokeInfo("Gengar","Fantasma","Veneno",1.5,40.5, "Para quitarle la vida a su presa, se desliza en su sombra y espera su oportunidad en silencio."));
+            if (Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride.Equals("en-US"))
+            {
+                PokeList.Add(new PokeInfo("Aron", "Steel", "Rock", 0.4, 60, "It feeds on iron minerals or, occasionally, on railroad tracks to produce the steel shell that protects its body."));
+                PokeList.Add(new PokeInfo("Charmander", "Fire", "", 0.6, 8.5, "It prefers hot things. It's said that when it rains steam comes out of the tip of its tail."));
+                PokeList.Add(new PokeInfo("Gengar", "Ghost", "Poison", 1.5, 40.5, "To take the life of its prey, it slides into its shadow and waits for its chance in silence."));
+                return;
+            }
+            else 
+            { 
+                PokeList.Add(new PokeInfo("Aron","Acero","Roca",0.4,60, "Se alimenta de minerales de hierro o, en ocasiones, de vías de tren para producir la coraza de acero que le protege el cuerpo."));
+                PokeList.Add(new PokeInfo("Charmander", "Fuego", "",0.6,8.5, "Prefiere las cosas calientes. Dicen que cuando llueve le sale vapor de la punta de la cola."));
+                PokeList.Add(new PokeInfo("Gengar","Fantasma","Veneno",1.5,40.5, "Para quitarle la vida a su presa, se desliza en su sombra y espera su oportunidad en silencio."));
+            }
         }
 
         public void obtenerDatosPoke(int n_boton)

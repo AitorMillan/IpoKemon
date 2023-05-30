@@ -26,7 +26,7 @@
             <StackPanel>
                 <Image Source="Assets/UnJugador.png" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 <Viewbox MaxHeight="50">
-                    <TextBlock Text=" Un Jugador  " HorizontalAlignment="Center" FontWeight="Bold"/>
+                    <TextBlock x:Uid="TransUnJugador" Text=" Un Jugador  " HorizontalAlignment="Center" FontWeight="Bold"/>
                 </Viewbox>
             </StackPanel>
         </Button>
@@ -35,13 +35,13 @@
             <StackPanel>
                 <Image Source="Assets/DosJugadores.png" />
                 <Viewbox MaxHeight="50">
-                    <TextBlock Text="Dos Jugadores" HorizontalAlignment="Center" FontWeight="Bold"/>
+                    <TextBlock x:Uid="TransDosJugadores" Text="Dos Jugadores"  HorizontalAlignment="Center" FontWeight="Bold"/>
                 </Viewbox>
             </StackPanel>
         </Button>
 
 
-        <Image x:Name="imgTituloCombate" Grid.ColumnSpan="4" Source="/Assets/CombatePokemonStyle.png"/>
+        <Image x:Uid="TransTituloCombate" x:Name="imgTituloCombate" Grid.ColumnSpan="4" Source="/Assets/CombatePokemonStyle.png"/>
 
 
 

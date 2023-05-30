@@ -19,7 +19,7 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Image Source="/Assets/FondoBotonesGengar.png" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-        <Button x:Name="btnBolaSombra" Content="Garra Sombría" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontSize="24" Foreground="#E4FFFFFF" Click="btnBolaSombra_Click" Margin="40,25,40,25">
+        <Button x:Uid="TransBotonAtaqueGengar" x:Name="btnBolaSombra" Content="Garra Umbría" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontSize="24" Foreground="#E4FFFFFF" Click="btnBolaSombra_Click" Margin="40,25,40,25">
             <Button.Resources>
                 <ResourceDictionary>
                     <ResourceDictionary.ThemeDictionaries>
@@ -41,7 +41,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnCurarse" Content="Curarse" VerticalAlignment="Stretch" Grid.Column="1" HorizontalAlignment="Stretch" FontSize="24" Foreground="#E4FFFFFF" Click="btnCurarse_Click" Margin="40,25,40,25">
+        <Button x:Uid="TransBotonCurarse" x:Name="btnCurarse" Content="Curarse" VerticalAlignment="Stretch" Grid.Column="1" HorizontalAlignment="Stretch" FontSize="24" Foreground="#E4FFFFFF" Click="btnCurarse_Click" Margin="40,25,40,25">
             <Button.Resources>
                 <ResourceDictionary>
                     <ResourceDictionary.ThemeDictionaries>
@@ -63,7 +63,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnRecuperarEnergia" Content="Recuperar energía" VerticalAlignment="Stretch" Grid.Row="1" HorizontalAlignment="Stretch" FontSize="24" Foreground="#E4FFFFFF" Click="btnRecuperarEnergia_Click" Margin="40,25,40,25">
+        <Button x:Uid="TransBotonEnergia" x:Name="btnRecuperarEnergia" Content="Recuperar energía" VerticalAlignment="Stretch" Grid.Row="1" HorizontalAlignment="Stretch" FontSize="24" Foreground="#E4FFFFFF" Click="btnRecuperarEnergia_Click" Margin="40,25,40,25">
             <Button.Resources>
                 <ResourceDictionary>
                     <ResourceDictionary.ThemeDictionaries>
@@ -85,7 +85,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnRendirse" Content="Rendirse" Grid.Row="1" HorizontalAlignment="Stretch" FontSize="24" Foreground="#E4FFFFFF" Click="btnRendirse_Click" Grid.Column="1" VerticalAlignment="Stretch" Margin="40,25,40,25">
+        <Button x:Uid="TransBotonRendirse" x:Name="btnRendirse" Content="Rendirse" Grid.Row="1" HorizontalAlignment="Stretch" FontSize="24" Foreground="#E4FFFFFF" Click="btnRendirse_Click" Grid.Column="1" VerticalAlignment="Stretch" Margin="40,25,40,25">
             <Button.Resources>
                 <ResourceDictionary>
                     <ResourceDictionary.ThemeDictionaries>

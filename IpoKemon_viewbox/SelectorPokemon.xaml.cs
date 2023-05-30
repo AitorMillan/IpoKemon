@@ -69,7 +69,10 @@ namespace IpoKemon_viewbox
             }
             else
             {
-                txtJugador2.Text = "Jugador 2";
+                if (Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride.Equals("en-US"))
+                    txtJugador2.Text = "Player 2";
+                else
+                    txtJugador2.Text = "Jugador 2";
             }
         }
         private void SeleccionarPokemonCPU()

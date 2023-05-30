@@ -24,7 +24,7 @@
             <RowDefinition Height="83*"/>
         </Grid.RowDefinitions>
         <Image x:Name="imgFondo" Grid.ColumnSpan="4" Grid.RowSpan="4" Source="/Assets/fondo_combate.png" Stretch="Fill"/>
-        <Image x:Name="imgTitulo" Source="/Assets/ElegirPokemonStyle.png" Grid.ColumnSpan="4" Margin="0,5,0,5"/>
+        <Image x:Uid="TransTituloEleccion" x:Name="imgTitulo" Source="/Assets/ElegirPokemonStyle.png" Grid.ColumnSpan="4" Margin="0,5,0,5"/>
 
         <Button x:Name="btnAtras" Click="btnAtras_Click" HorizontalAlignment="Center" VerticalAlignment="Stretch" Background="#FF0E3E50" BorderThickness="0">
             <Image Source="/Assets/flecha-atras.png"/>
@@ -61,13 +61,13 @@
 
         <Border x:Name="brdJugador1" BorderBrush="Black" BorderThickness="1" Grid.Row="1" Background="#FFE0CECE" Grid.ColumnSpan="2" Margin="80,15,80,15">
             <Viewbox>
-                <TextBlock x:Name="txtJugador1" Text="Jugador 1" FontWeight="Bold" FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFDD6E15"/>
+                <TextBlock x:Uid="TransJugador1" x:Name="txtJugador1" Text="Jugador 1" FontWeight="Bold" FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFDD6E15"/>
             </Viewbox>
         </Border>
 
         <Border x:Name="brdJugador2" BorderBrush="Black" BorderThickness="1" Grid.Row="1" Background="#FFE0CECE" Grid.ColumnSpan="2" Margin="80,15,80,15" Grid.Column="2">
             <Viewbox>
-                <TextBlock x:Name="txtJugador2" Text="Jugador 2" FontWeight="Bold" FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFDD6E15"/>
+                <TextBlock x:Uid="TransJugador2" x:Name="txtJugador2" Text="Jugador 2" FontWeight="Bold" FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFDD6E15"/>
             </Viewbox>
         </Border>
 
@@ -95,7 +95,7 @@
             </Button>
         </Border>
         <Viewbox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
-            <Button x:Name="btnComenzarBatalla" Content="Comenzar Batalla" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#FFA41E4B" Foreground="#E4FFFFFF" Click="btnComenzarBatalla_Click" Margin="25,0,25,0">
+            <Button x:Uid="TransBotonCombate" x:Name="btnComenzarBatalla" Content="Comenzar Batalla" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#FFA41E4B" Foreground="#E4FFFFFF" Click="btnComenzarBatalla_Click" Margin="25,0,25,0">
                 <Button.BorderBrush>
                     <LinearGradientBrush EndPoint="0,3" MappingMode="Absolute">
                         <LinearGradientBrush.RelativeTransform>

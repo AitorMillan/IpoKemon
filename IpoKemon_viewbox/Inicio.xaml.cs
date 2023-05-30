@@ -21,13 +21,15 @@ namespace IpoKemon_viewbox
 {
     public sealed partial class Inicio : Page
     {
-        private string textoBienvenida = "¡Bienvenido, futuro Maestro Pokémon! Aquí comienza tu increíble viaje. Entrena a tus Pokémon, enfrenta desafíos épicos, descubre nuevas especies y busca convertirte en el mejor. \n¡Tu aventura Pokémon comienza ahora!";
+        private string textoBienvenida;
         private int indexLetra = 0;
         private DispatcherTimer timer;
 
         public Inicio()
         {
             this.InitializeComponent();
+
+            stringInicio();
 
             var mediaSource = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/video-fondo-inicio.mp4"));
             var mediaPlayer = new MediaPlayer { AutoPlay = true, IsLoopingEnabled = true };
@@ -39,6 +41,20 @@ namespace IpoKemon_viewbox
             timer.Interval = TimeSpan.FromMilliseconds(25);
             timer.Tick += Timer_Tick;
             timer.Start();
+        }
+
+        private void stringInicio()
+        {
+            if (Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride.Equals("en-US"))
+            {
+                //En inglés
+                textoBienvenida = "Welcome, future Pokémon Master! Here begins your journey. Train your Pokémon, face epic challenges, discover new species and seek to become the best. \nYour Pokémon adventure begins now!";
+            }
+            else
+            {
+                //En español
+                textoBienvenida = "¡Bienvenido, futuro Maestro Pokémon! Aquí comienza tu increíble viaje. Entrena a tus Pokémon, enfrenta desafíos épicos, descubre nuevas especies y busca convertirte en el mejor. \n¡Tu aventura Pokémon comienza ahora!";
+            }
         }
 
         private void Timer_Tick(object sender, object e)

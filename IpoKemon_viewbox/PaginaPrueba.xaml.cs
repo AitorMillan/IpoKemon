@@ -52,12 +52,18 @@ namespace IpoKemon_viewbox
 
         private void rendirse1(object sender, EventArgs e)
         {
-            mostrarGanador("JUGADOR 2", nombrePokemon2);
+            if (Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride.Equals("es-ES"))
+                mostrarGanador("JUGADOR 2", nombrePokemon2);
+            else
+                mostrarGanador("PLAYER 2", nombrePokemon2);
         }
 
         private void rendirse2(object sender, EventArgs e)
         {
-            mostrarGanador("JUGADOR 1", nombrePokemon1);
+            if (Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride.Equals("es-ES"))
+                mostrarGanador("JUGADOR 1", nombrePokemon1);
+            else
+                mostrarGanador("PLAYER 1", nombrePokemon1);
         }
 
         private async void iniciarMusica()
@@ -76,7 +82,7 @@ namespace IpoKemon_viewbox
                 file = await folder.GetFileAsync("combateIA.mp3");
             }
             mediaPlayer.SetFileSource(file);
-            mediaPlayer.Volume = 0.3;
+            mediaPlayer.Volume = 0.2;
             mediaPlayer.IsLoopingEnabled = true;
             mediaPlayer.Play();
         }
@@ -109,22 +115,48 @@ namespace IpoKemon_viewbox
                     break;
             }
             // Si la vida es menor o igual a 0, mostramos el ganador
-            if (vida <= 0)
+            if (vida <= 0 && Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride.Equals("es-ES"))
             {
                 mostrarGanador("JUGADOR 1", nombrePokemon1);
+            }
+            else if (vida <= 0 && Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride.Equals("en-US"))
+            {
+                mostrarGanador("PLAYER 1", nombrePokemon1);
             }
             cambiarTurno();
         }
 
         private void mostrarGanador(string jugadorGanador, string nombrePokemon)
         {
-            string tituloVictoria = "ENHORABUENA " + jugadorGanador;
-            string textoVictoria = "Tu pokemon " + nombrePokemon + " ha ganado el combate";
-            if (jugadorGanador == "JUGADOR 2" && numJugadores == 1)
+            string tituloVictoria = "";
+            string textoVictoria = "";
+            if (Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride.Equals("en-US"))
             {
-                tituloVictoria = "LO SENTIMOS, JUGADOR 1";
-                textoVictoria = "Has perdido el combate contra la CPU";
+                if (jugadorGanador == "PLAYER 2" && numJugadores == 1)
+                {
+                    tituloVictoria = "SORRY, PLAYER 1";
+                    textoVictoria = "You have lost the fight against the CPU";
+                }
+                else
+                {
+                    tituloVictoria = "CONGRATULATIONS " + jugadorGanador;
+                    textoVictoria = "Your Pokemon " + nombrePokemon + " won the fight";
+                }
             }
+            else
+            {
+                if (jugadorGanador == "JUGADOR 2" && numJugadores == 1)
+                {
+                    tituloVictoria = "LO SENTIMOS, JUGADOR 1";
+                    textoVictoria = "Has perdido el combate contra la CPU";
+                }
+                else
+                {
+                tituloVictoria = "ENHORABONA " + jugadorGanador;
+                textoVictoria = "Tu pokemon " + nombrePokemon + " ha ganado el combate";
+                }
+            }
+            
             mediaPlayer.Pause();
             string nombreFoto = nombrePokemon.ToLower() + "Victoria.png";
             //CÓDIGO PARA FINALIZAR LA PARTIDA
@@ -160,10 +192,13 @@ namespace IpoKemon_viewbox
                     vida = ((gengarUC_namespace)Pokemon1).Vida;
                     break;
             }
-            if (vida <= 0)
+            if (vida <= 0 && Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride.Equals("es-ES"))
             {
-                
-                mostrarGanador("JUGADOR 2", nombrePokemon2);
+                mostrarGanador("JUGADOR 2", nombrePokemon1);
+            }
+            else if (vida <= 0 && Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride.Equals("en-US"))
+            {
+                mostrarGanador("PLAYER 2", nombrePokemon1);
             }
             cambiarTurno();
         }
@@ -335,12 +370,24 @@ namespace IpoKemon_viewbox
 
         private void personalizarTextos(int nJugadores)
         {
-            if (nJugadores == 1)
+            if (Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride.Equals("en-US"))
+            {
+                if (nJugadores == 1)
+                {
+                    txtbEsperaJ1.Text = "Player's turn";
+                    txtbEsperaJ2.Text = "CPU'S turn";
+                }
+                else
+                {
+                    txtbEsperaJ1.Text = "Player 1's turn";
+                    txtbEsperaJ2.Text = "Player 2's turn";
+                }
+            }
+            else if (nJugadores == 1 && Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride.Equals("es-ES"))
             {
                 txtbEsperaJ1.Text = "Turno del Jugador 1";
                 txtbEsperaJ2.Text = "Turno de la CPU";
             }
-
         }
     }
 }

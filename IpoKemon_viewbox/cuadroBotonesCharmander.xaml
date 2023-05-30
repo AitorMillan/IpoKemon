@@ -19,7 +19,7 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Image Source="/Assets/FondoBotonesCharmander.jpg" Margin="-6,0,0,0" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-        <Button x:Name="btnCurarse" Content="Curarse" Grid.Column="1" HorizontalAlignment="Stretch" FontSize="24" Click="btnCurarse_Click" Margin="40,25,40,25" VerticalAlignment="Stretch">
+        <Button x:Uid="TransBotonCurarse" x:Name="btnCurarse" Content="Curarse" Grid.Column="1" HorizontalAlignment="Stretch" FontSize="24" Click="btnCurarse_Click" Margin="40,25,40,25" VerticalAlignment="Stretch">
             <Button.Resources>
                 <ResourceDictionary>
                     <ResourceDictionary.ThemeDictionaries>
@@ -48,7 +48,7 @@
         </Button>
         <Image Height="74" VerticalAlignment="Bottom" Width="80" Source="/Assets/fuego.gif" Grid.Row="1" HorizontalAlignment="Left"/>
         <Image HorizontalAlignment="Right" Height="74" VerticalAlignment="Bottom" Width="80" Source="/Assets/fuego.gif" Grid.Column="1"/>
-        <Button x:Name="btnAtacar" Content="Atacar" HorizontalAlignment="Stretch" FontSize="24" Click="btnAtacar_Click" VerticalAlignment="Stretch" Margin="40,25,40,25">
+        <Button x:Uid="TransBotonAtaqueCharmander" x:Name="btnAtacar" Content="Bola de fuego" HorizontalAlignment="Stretch" FontSize="24" Click="btnAtacar_Click" VerticalAlignment="Stretch" Margin="40,25,40,25">
             <Button.Resources>
                 <ResourceDictionary>
                     <ResourceDictionary.ThemeDictionaries>
@@ -75,7 +75,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnActivarEscudo" Content="Activar escudo" HorizontalAlignment="Stretch" FontSize="24" Grid.Row="1" VerticalAlignment="Stretch" Click="btnActivarEscudo_Click" Margin="40,25,40,25">
+        <Button x:Uid="TransBotonEscudoCharmander" x:Name="btnActivarEscudo" Content="Activar escudo" HorizontalAlignment="Stretch" FontSize="24" Grid.Row="1" VerticalAlignment="Stretch" Click="btnActivarEscudo_Click" Margin="40,25,40,25">
             <Button.Resources>
                 <ResourceDictionary>
                     <ResourceDictionary.ThemeDictionaries>
@@ -102,7 +102,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnEnfadarse" Content="Enfadarse" HorizontalAlignment="Stretch" FontSize="24" Grid.Row="1" VerticalAlignment="Stretch" Grid.Column="1" Click="btnEnfadarse_Click" Margin="40,25,40,25">
+        <Button x:Uid="TransBotonEnfadarse" x:Name="btnEnfadarse" Content="Enfadarse" HorizontalAlignment="Stretch" FontSize="24" Grid.Row="1" VerticalAlignment="Stretch" Grid.Column="1" Click="btnEnfadarse_Click" Margin="40,25,40,25">
             <Button.Resources>
                 <ResourceDictionary>
                     <ResourceDictionary.ThemeDictionaries>
