@@ -325,8 +325,11 @@
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
     </UserControl.Resources>
+    <UserControl.Background>
+        <ThemeResource ResourceKey="AppBarBackgroundThemeBrush"/>
+    </UserControl.Background>
 
-    <Grid Background="White">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="86*"/>
             <ColumnDefinition Width="1285*"/>
@@ -487,9 +490,7 @@
 
         </Canvas>
         <StackPanel Grid.Column="1" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Top" Orientation="Horizontal" Margin="0,2,0,0">
-            <Button x:Name="btnAtaqueCabeza" Content="Ataque cabeza" Click="btnAtaqueCabeza_Click"/>
             <Button x:Name="btnAtaqueCabezaEnfadado" Content="Ataque cabeza enfadado" Click="btnAtaqueCabezaEnfadado_Click" Margin="8,0,8,0"/>
-            <Button x:Name="btnAtaqueCuerpo" Content="Ataque cuerpo" Width="118" Click="btnAtaqueCuerpo_Click"/>
         </StackPanel>
         <TextBlock x:Name="txtBNombre" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Text="Aron" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
 

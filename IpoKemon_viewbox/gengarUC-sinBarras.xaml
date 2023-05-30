@@ -1,0 +1,138 @@
+﻿<UserControl
+    x:Class="IpoKemon_viewbox.gengarUC_sinBarras"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:IpoKemon_viewbox"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Height="465" Width="530">
+
+
+
+    <Grid x:Name="Base_gr">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Viewbox>
+            <Canvas x:Name="Gengar" RenderTransformOrigin="0.5,0.5" Height="451" Grid.Column="1" Grid.Row="2" Width="548">
+                <Canvas x:Name="Orejas" Height="382" Width="550">
+                    <Path x:Name="Oreja_izq" Data="M576.73358,214.51445 L603.68108,209.08707 629.88279,212.92001 622.34663,179.54459 599.28919,134.36165 580.62364,182.15128 z" Fill="#FF6E5D94" Height="102" Canvas.Left="123.274" Stroke="Black" Stretch="Fill" Canvas.Top="42.903" Width="54" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" FocusVisualPrimaryBrush="#FF6E5D94">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-42.274"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                    <Path x:Name="Oreja_drch" Data="M576.73358,214.51445 L603.68108,209.08707 629.88279,212.92001 622.34663,179.54459 599.28919,134.36165 580.62364,182.15128 z" Fill="#FF6E5D94" Height="102" Canvas.Left="366.369" Stroke="Black" Stretch="Fill" Canvas.Top="38.67" Width="54" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="34.992"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                </Canvas>
+                <Canvas x:Name="Brazos" Height="382" Width="550">
+                    <Path x:Name="Brazo_izq" Data="M666.8606,116.86661 L682.53694,150.16388 667.14686,182.34184 653.73044,212.3746 639.50611,249.31151 632.94103,226.31839 620.28957,238.32041 618.71669,220.95539 605.58691,231.68138 613.24579,191.99523 618.71669,177.06214 626.47307,159.81727 634.03521,146.97185 648.25954,131.90516 z" Fill="#FF6E5D94" Height="136" Canvas.Left="106.32" Stroke="Black" Stretch="Fill" Canvas.Top="170.26" Width="78" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Path x:Name="Brazo_drch" Data="M666.8606,116.86661 L682.53694,150.16388 667.14686,182.34184 653.73044,212.3746 639.50611,249.31151 632.94103,226.31839 620.28957,238.32041 618.71669,220.95539 605.58691,231.68138 613.24579,191.99523 618.71669,177.06214 626.47307,159.81727 634.03521,146.97185 648.25954,131.90516 z" Fill="#FF6E5D94" Height="136" Canvas.Left="365.809" Stroke="Black" Stretch="Fill" Canvas.Top="170.26" Width="78" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                </Canvas>
+                <Canvas x:Name="Piernas" Height="382" Width="550">
+                    <Path x:Name="Pierna_izq" Data="M647.5717,140.84908 L697.11326,152.52443 704.67188,170.35966 706.66099,188.43268 701.36416,207.56728 683.77461,210.66472 664.68596,210.54836 649.79481,211.97518 656.29095,207.93253 636.20289,208.40814 643.39861,204.84109 625.00954,205.07889 633.21832,200.61891 625.88256,189.87335 624.81435,171.21215 628.81576,156.38924 636.79189,147.30422 z" Fill="#FF6E5D94" Height="120" Canvas.Left="165.339" Stroke="Black" Stretch="Fill" Canvas.Top="260.487" Width="83" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <Path x:Name="Pierna_drch" Data="M647.5717,140.84908 L697.11326,152.52443 704.67188,170.35966 706.66099,188.43268 701.36416,207.56728 683.77461,210.66472 664.68596,210.54836 649.79481,211.97518 656.29095,207.93253 636.20289,208.40814 643.39861,204.84109 625.00954,205.07889 633.21832,200.61891 625.88256,189.87335 624.81435,171.21215 628.81576,156.38924 636.79189,147.30422 z" Fill="#FF6E5D94" Height="120" Canvas.Left="304.539" Stroke="Black" Stretch="Fill" Canvas.Top="260.487" Width="83" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                </Canvas>
+                <Canvas x:Name="Cuerpo" Height="382" Width="550">
+                    <Path x:Name="Cuerpo_pt" Data="M285.4927,101.74073 L304.42084,84.604138 308.64646,97.356912 329.46476,77.361131 342.56868,90.934247 361.04188,64.944549 364.88943,86.708145 386.0858,68.049404 387.97448,89.677852 412.21858,76.330121 423.34869,94.228462 444.88457,81.505569 453.08742,98.054114 477.2334,140.74386 484.15669,192.81441 480.88905,244.36506 473.35212,269.57884 457.97056,290.72642 440.9978,303.81778 422.43384,307.34237 401.21789,310.36345 375.22835,313.23977 353.482,311.70812 332.79645,308.17869 307.86771,304.14506 286.65176,296.0778 269.679,269.57884 260.8662,242.37816 255.42221,198.02711 259.77766,144.39329 z" Fill="#FF6E5D94" Height="264" Canvas.Left="160" Stroke="Black" Stretch="Fill" Canvas.Top="62.92" Width="231" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Canvas>
+                <Canvas x:Name="Boca" Height="382" Width="550">
+                    <Path x:Name="Boca1" Data="M0.5,0.5 L0.7741251,0.60842133 C7.6937682,3.2801729 15.257704,5.6292136 23.348116,7.6030288 41.710803,12.082968 62.785619,14.629944 85.19503,14.629944 117.4778,14.629944 146.99088,9.3442078 169.61593,0.60842133 L169.89005,0.5 169.8518,0.67050171 C162.6648,30.378967 127.49659,52.929947 85.19503,52.929947 60.946731,52.929947 39.042354,45.519998 23.408676,33.599526 11.769143,24.724536 3.6054908,13.349341 0.53825736,0.67050171 z" Fill="White" HorizontalAlignment="Center" Height="57" Canvas.Left="193.044" Stroke="Black" Stretch="Fill" Canvas.Top="204.79" VerticalAlignment="Center" Width="171"/>
+                    <Path x:Name="izq1" Data="M308,213.44 L307.5,236.14" Fill="#FFF4F4F5" Height="26" Canvas.Left="212.039" Stroke="Black" Stretch="Fill" Canvas.Top="211.84" Width="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Path x:Name="izq2" Data="M340.6,217.74 L339.70001,254.44001" Fill="#FFF4F4F5" Height="38" Canvas.Left="241.439" Stroke="Black" Stretch="Fill" Canvas.Top="217.02" Width="2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Path x:Name="centro" Data="M368,221.44 L369.1,260.14" Fill="#FFF4F4F5" Height="41" Canvas.Left="276.623" Stroke="Black" Stretch="Fill" Canvas.Top="220.636" Width="2" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-2"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                    <Path x:Name="derecha2" Data="M439.4,212.94 L440.89999,235.64" Fill="#FFF4F4F5" Height="27" Canvas.Left="342.739" Stroke="Black" Stretch="Fill" Canvas.Top="211.74" Width="2" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="3"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                    <Path x:Name="derecha1" Data="M411.4,218.94 L413.29999,254.04" Fill="#FFF4F4F5" Height="38" Canvas.Left="315.139" Stroke="Black" Stretch="Fill" Canvas.Top="216.54" Width="3" RenderTransformOrigin="0.5,0.5">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="3"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                </Canvas>
+                <Canvas x:Name="Ojo_izq" Height="434" Width="550">
+                    <Path x:Name="Ojoizq" Canvas.Left="203.518" Stroke="Black" Fill="#FFEA503B" Data="M1.343657,0.5 L66.223168,22.126568 65.993904,23.174923 C61.752423,40.882408 50.356076,50.782602 35.323579,50.782602 16.822039,50.782602 0.5000003,34.263741 0.5,10.239357 0.5000003,7.2363091 0.73435122,4.3043365 1.1806003,1.4725876 z" Height="51" RenderTransformOrigin="0.509568137442128,0.188780943617065" Stretch="Fill" Canvas.Top="153.276" Width="67" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="26.565"/>
+                                <TranslateTransform X="0.40046485617126848" Y="0.16587797467992971"/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                    <Ellipse x:Name="Ojo1" Height="22" Canvas.Left="234.639" Stroke="Black" Canvas.Top="166.44" Width="9" HorizontalAlignment="Left" VerticalAlignment="Center" Fill="Black"/>
+                    <Ellipse x:Name="Ojo2" Height="11" Canvas.Left="236.139" Stroke="Black" Canvas.Top="166.44" Width="6" Fill="#FFF6DDDD" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                </Canvas>
+                <Canvas x:Name="Ojo_drch" Height="293" Width="420">
+                    <Path x:Name="Ojodrch" Canvas.Left="281.888" Stroke="Black" Fill="#FFEA503B" Data="M1.343657,0.5 L66.223168,22.126568 65.993904,23.174923 C61.752423,40.882408 50.356076,50.782602 35.323579,50.782602 16.822039,50.782602 0.5000003,34.263741 0.5,10.239357 0.5000003,7.2363091 0.73435122,4.3043365 1.1806003,1.4725876 z" Height="51" RenderTransformOrigin="0.509568137442128,0.188780943617065" Stretch="Fill" Canvas.Top="153.276" Width="67" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-26.565"/>
+                                <TranslateTransform X="0.40046485617126848" Y="0.16587797467992971"/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                    <Ellipse x:Name="Ojo3" Height="22" Canvas.Left="311.839" Stroke="Black" Canvas.Top="166.44" Width="9" HorizontalAlignment="Left" VerticalAlignment="Center" Fill="Black"/>
+                    <Ellipse x:Name="Ojo4" Height="11" Canvas.Left="313.339" Stroke="Black" Canvas.Top="166.44" Width="6" Fill="#FFF6DDDD" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                </Canvas>
+            </Canvas>
+        </Viewbox>
+    </Grid>
+</UserControl>

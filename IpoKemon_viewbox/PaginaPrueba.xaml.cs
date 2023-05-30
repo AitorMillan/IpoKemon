@@ -1,12 +1,15 @@
 ﻿using Charmander_UWP_ControlUsuario;
+using Microsoft.Toolkit.Uwp.Notifications;
 using PokemonPruebas;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -14,6 +17,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -24,7 +28,11 @@ namespace IpoKemon_viewbox
     /// </summary>
     public sealed partial class PaginaPrueba : Page
     {
+
+        const int VIDA_CRITICA = 8;
+
         // Constructor sin parámetros requerido para la navegación
+        private int numJugadores;
         private int tokenTurno;
         private UserControl Pokemon1;
         private UserControl Pokemon2;
@@ -38,29 +46,109 @@ namespace IpoKemon_viewbox
             tokenTurno = 1;
         }
 
+        private void rendirse1(object sender, EventArgs e)
+        {
+            mostrarGanador("JUGADOR 2", nombrePokemon2);
+        }
+
+        private void rendirse2(object sender, EventArgs e)
+        {
+            mostrarGanador("JUGADOR 1", nombrePokemon1);
+        }
+
         private void pokemon1AtaqueRealizado(object sender, AtaqueEventArgs e)
         {
             // Obtener la cantidad de daño del ataque
             int cantidadDanio = e.CantidadDanio;
+            double vida = 100;
+            
+            switch (nombrePokemon2)
+            {
+                case "Charmander":
+                    ((ucCharmander_namespace)Pokemon2).recibirDaño(cantidadDanio);
+                    vida = ((ucCharmander_namespace)Pokemon2).Vida;
+                    break;
+                case "Aron":
+                    ((AronCU_NoViewBox)Pokemon2).recibirDaño(cantidadDanio);
+                    vida = ((AronCU_NoViewBox)Pokemon2).Vida;
+                    break;
+                case "Gengar":
+                    ((gengarUC_namespace)Pokemon2).recibirDaño(cantidadDanio);
+                    vida = ((gengarUC_namespace)Pokemon2).Vida;
+                    break;
+            }
+            if (vida <= 0)
+            {
+                mostrarGanador("JUGADOR 1", nombrePokemon1);
+            }
             cambiarTurno();
         }
 
-
-        private void enfadoRealizado(object sender, EventArgs e)
+        private void mostrarGanador(string jugadorGanador, string nombrePokemon)
         {
+            string tituloVictoria = "ENHORABUENA " + jugadorGanador;
+            string textoVictoria = "Tu pokemon " + nombrePokemon + " ha ganado el combate";
+            if (jugadorGanador == "JUGADOR 2" && numJugadores == 1)
+            {
+                tituloVictoria = "LO SENTIMOS, JUGADOR 1";
+                textoVictoria = "Has perdido el combate contra la CPU";
+            }
+                
+            string nombreFoto = nombrePokemon.ToLower() + "Victoria.png";
+            //CÓDIGO PARA FINALIZAR LA PARTIDA
+            this.Frame.Navigate(typeof(Combate));
+            new ToastContentBuilder()
+            .AddArgument("action", "Favoritos")
+            .AddArgument("conversationId", 9813)
+            .AddText(tituloVictoria)
+            .AddText(textoVictoria)
+            .AddInlineImage(new Uri("ms-appx:///Assets/"+nombreFoto))
+            .Show();
+        }
+
+        private void pokemon2AtaqueRealizado(object sender, AtaqueEventArgs e)
+        {
+            // Obtener la cantidad de daño del ataque
+            int cantidadDanio = e.CantidadDanio;
+            double vida = 100;
+            switch (nombrePokemon1)
+            {
+                case "Charmander":
+                    ((ucCharmander_namespace)Pokemon1).recibirDaño(cantidadDanio);
+                    vida = ((ucCharmander_namespace)Pokemon1).Vida;
+                    break;
+                case "Aron":
+                    ((AronCU_NoViewBox)Pokemon1).recibirDaño(cantidadDanio);
+                    vida = ((AronCU_NoViewBox)Pokemon1).Vida;
+                    break;
+                case "Gengar":
+                    ((gengarUC_namespace)Pokemon1).recibirDaño(cantidadDanio);
+                    vida = ((gengarUC_namespace)Pokemon1).Vida;
+                    break;
+            }
+            if (vida <= 0)
+            {
+                
+                mostrarGanador("JUGADOR 2", nombrePokemon2);
+            }
             cambiarTurno();
         }
-        
-        private void curacionRealizada(object sender, EventArgs e)
+
+
+        private void accionRealizada(object sender, EventArgs e)
         {
             cambiarTurno();
         }
 
         private void cambiarTurno()
         {
-            if(tokenTurno == 0)
+            // Si tokenTurno = 0 -> Turno del jugador 1
+            // Si tokenTurno = 1 -> Turno del jugador 2
+            if (tokenTurno == 0)
             {
                 ContenedorBotones1.Visibility = Visibility.Visible;
+                ContenedorBotones1.IsEnabled = true;
+                ContenedorBotones2.IsEnabled = false;
                 ContenedorBotones2.Visibility = Visibility.Collapsed;
                 txtbEsperaJ1.Visibility = Visibility.Visible;
                 txtbEsperaJ2.Visibility = Visibility.Collapsed;
@@ -68,40 +156,81 @@ namespace IpoKemon_viewbox
             }
             else
             {
-                ContenedorBotones2.Visibility = Visibility.Visible;
-                ContenedorBotones1.Visibility = Visibility.Collapsed;
-                txtbEsperaJ2.Visibility = Visibility.Visible;
-                txtbEsperaJ1.Visibility = Visibility.Collapsed;
-                tokenTurno = 0;
-            }
-            // Si tokenTurno = 0 -> Turno del jugador 1
-            // Si tokenTurno = 1 -> Turno del jugador 2
-        }
+                if (numJugadores == 2)
+                {
+                    ContenedorBotones2.Visibility = Visibility.Visible;
+                    ContenedorBotones1.Visibility = Visibility.Collapsed;
+                    ContenedorBotones2.IsEnabled = true;
+                    ContenedorBotones1.IsEnabled = false;
+                    txtbEsperaJ2.Visibility = Visibility.Visible;
+                    txtbEsperaJ1.Visibility = Visibility.Collapsed;
+                    tokenTurno = 0;
+                }
+                else //IA
+                {
+                    double vida;
+                    
+                    switch (nombrePokemon2)
+                    {
+                        case "Charmander":
+                            //(("cuadroBotones"+nombrePokemon2)CBotones2).accionAleatoria();
+                            vida = ((ucCharmander_namespace)Pokemon2).Vida;
+                            if (vida <= VIDA_CRITICA)
+                                ((cuadroBotonesCharmander)CBotones2).curar();
+                            else
+                                ((cuadroBotonesCharmander)CBotones2).accionAleatoria();
+                            break;
+                        case "Aron":
+                            vida = ((AronCU_NoViewBox)Pokemon2).Vida;
+                            if (vida <= VIDA_CRITICA)
+                                ((cuadroBotonesAron)CBotones2).curar();
+                            else
+                                ((cuadroBotonesAron)CBotones2).accionAleatoria();
+                            break;
+                        case "Gengar":
+                            vida = ((gengarUC_namespace)Pokemon2).Vida;
+                            if (vida <= VIDA_CRITICA)
+                                ((cuadroBotonesGengar)CBotones2).curar();
+                            else
+                                ((cuadroBotonesGengar)CBotones2).accionAleatoria();
+                            break;
+                            
+                    }
+                    //ContenedorBotones2.Visibility = Visibility.Visible;
+                    ContenedorBotones1.Visibility = Visibility.Collapsed;
+                    //ContenedorBotones2.IsEnabled = true;
+                    ContenedorBotones1.IsEnabled = false;
+                    txtbEsperaJ2.Visibility = Visibility.Visible;
+                    txtbEsperaJ1.Visibility = Visibility.Collapsed;
+                    tokenTurno = 0;
+                }
 
+            }
+
+        }
         private void cargarControlUsuario1(String pokemon1)
         {
-
-            if (pokemon1 == "Aron")
-            {
-                Pokemon1 = new AronCU_NoViewBox();
-                CBotones1 = new cuadroBotonesAron(Pokemon1 as AronCU_NoViewBox);
-                ContenedorPokemon1.Content = Pokemon1;
-                ContenedorBotones1.Content = CBotones1;
-                ((AronCU_NoViewBox)Pokemon1).invertirPokemon();
-                ((AronCU_NoViewBox)Pokemon1).AtaqueRealizado += pokemon1AtaqueRealizado;
-               // ((AronCU_NoViewBox)Pokemon1).EnfadoRealizado += enfadoRealizado;
-                ((AronCU_NoViewBox)Pokemon1).CuracionRealizada += curacionRealizada;
-            }
-            else if (pokemon1 == "Charmander")
+            if (pokemon1 == "Charmander")
             {
                 Pokemon1 = new ucCharmander_namespace();
                 CBotones1 = new cuadroBotonesCharmander(Pokemon1 as ucCharmander_namespace);
                 ContenedorPokemon1.Content = Pokemon1;
                 ContenedorBotones1.Content = CBotones1;
                 ((ucCharmander_namespace)Pokemon1).invertirPokemon();
-                ((ucCharmander_namespace)Pokemon1).EnfadoRealizado += enfadoRealizado;
+                ((ucCharmander_namespace)Pokemon1).ocultarDatosCombate();
                 ((ucCharmander_namespace)Pokemon1).AtaqueRealizado += pokemon1AtaqueRealizado;
-                ((ucCharmander_namespace)Pokemon1).CuracionRealizada += curacionRealizada;
+                ((ucCharmander_namespace)Pokemon1).AccionRealizada += accionRealizada;
+            }
+            else if (pokemon1 == "Aron")
+            {
+                Pokemon1 = new AronCU_NoViewBox();
+                CBotones1 = new cuadroBotonesAron(Pokemon1 as AronCU_NoViewBox);
+                ContenedorPokemon1.Content = Pokemon1;
+                ContenedorBotones1.Content = CBotones1;
+                ((AronCU_NoViewBox)Pokemon1).invertirPokemon();
+                ((AronCU_NoViewBox)Pokemon1).ocultarDatosCombate();
+                ((AronCU_NoViewBox)Pokemon1).AtaqueRealizado += pokemon1AtaqueRealizado;
+                ((AronCU_NoViewBox)Pokemon1).AccionRealizada += accionRealizada;
             }
             else if (pokemon1 == "Gengar")
             {
@@ -109,9 +238,10 @@ namespace IpoKemon_viewbox
                 CBotones1 = new cuadroBotonesGengar(Pokemon1 as gengarUC_namespace);
                 ContenedorPokemon1.Content = Pokemon1;
                 ContenedorBotones1.Content = CBotones1;
-               // ((gengarUC)Pokemon1).invertirPokemon();
+                ((gengarUC_namespace)Pokemon1).ocultarDatosCombate();
                 ((gengarUC_namespace)Pokemon1).AtaqueRealizado += pokemon1AtaqueRealizado;
-              //  ((gengarUC)Pokemon1).CuracionRealizada += curacionRealizada;
+                ((gengarUC_namespace)Pokemon1).AccionRealizada += accionRealizada;
+                ((gengarUC_namespace)Pokemon1).RendicionRealizada += rendirse1;
             }
         }
 
@@ -123,7 +253,9 @@ namespace IpoKemon_viewbox
                 CBotones2 = new cuadroBotonesCharmander(Pokemon2 as ucCharmander_namespace);
                 ContenedorPokemon2.Content = Pokemon2;
                 ContenedorBotones2.Content = CBotones2;
-               // ((ucCharmander)Pokemon2).AtaqueRealizado += pokemon1AtaqueRealizado;
+                ((ucCharmander_namespace)Pokemon2).ocultarDatosCombate();
+                ((ucCharmander_namespace)Pokemon2).AtaqueRealizado += pokemon2AtaqueRealizado;
+                ((ucCharmander_namespace)Pokemon2).AccionRealizada += accionRealizada;
             }
             else if (pokemon2 == "Aron")
             {
@@ -131,27 +263,50 @@ namespace IpoKemon_viewbox
                 ContenedorPokemon2.Content = Pokemon2;
                 CBotones2 = new cuadroBotonesAron(Pokemon2 as AronCU_NoViewBox);
                 ContenedorBotones2.Content = CBotones2;
-                ((AronCU_NoViewBox)Pokemon2).AtaqueRealizado += pokemon1AtaqueRealizado;
+                ((AronCU_NoViewBox)Pokemon2).ocultarDatosCombate();
+                ((AronCU_NoViewBox)Pokemon2).AtaqueRealizado += pokemon2AtaqueRealizado;
+                ((AronCU_NoViewBox)Pokemon2).AccionRealizada += accionRealizada;
             }
             else if (pokemon2 == "Gengar")
             {
                 Pokemon2 = new gengarUC_namespace();
-                ContenedorPokemon2.Content = new gengarUC_namespace();
+                ContenedorPokemon2.Content = Pokemon2;
                 CBotones2 = new cuadroBotonesGengar(Pokemon2 as gengarUC_namespace);
                 ContenedorBotones2.Content = CBotones2;
+                ((gengarUC_namespace)Pokemon2).ocultarDatosCombate();
+                ((gengarUC_namespace)Pokemon2).AtaqueRealizado += pokemon2AtaqueRealizado;
+                ((gengarUC_namespace)Pokemon2).AccionRealizada += accionRealizada;
+                ((gengarUC_namespace)Pokemon2).RendicionRealizada += rendirse2;
             }
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
-                if (e.Parameter is String[] parametros)
+            if (e.Parameter is Tuple<int, string, string> data)
             {
-                nombrePokemon1 = parametros[0];
-                nombrePokemon2 = parametros[1];
+                // Desempaquetar los datos
+                numJugadores = data.Item1;
+                nombrePokemon1 = data.Item2;
+                nombrePokemon2 = data.Item3;
                 cargarControlUsuario1(nombrePokemon1);
                 cargarControlUsuario2(nombrePokemon2);
+
+                // Ahora puedes usar estas variables en tu código
+                // ...
             }
+
+            personalizarTextos(numJugadores);
+        }
+
+        private void personalizarTextos(int nJugadores)
+        {
+            if (nJugadores == 1)
+            {
+                txtbEsperaJ1.Text = "Turno del Jugador 1";
+                txtbEsperaJ2.Text = "Turno de la CPU";
+            }
+
         }
     }
 }

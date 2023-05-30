@@ -22,6 +22,8 @@ namespace IpoKemon_viewbox
     /// </summary>
     public sealed partial class Combate : Page
     {
+
+        int numJugadores;
         
         public Combate()
         {
@@ -31,17 +33,20 @@ namespace IpoKemon_viewbox
 
         private void BtnUnJugador_Click(object sender, RoutedEventArgs e)
         {
+            numJugadores = 1;
             Frame aux = (Frame)this.Parent;
-            aux.Navigate(typeof(SelectorPokemon));
+            aux.Navigate(typeof(SelectorPokemon), numJugadores);
         }
 
         private void BtnDosJugadores_Click(object sender, RoutedEventArgs e)
         {
+            numJugadores = 2;
             Frame aux = (Frame)this.Parent;
-            String[] pokemons = new String[2];
-            pokemons[0] = "Charmander";
-            pokemons[1] = "Charmander";
-            aux.Navigate(typeof(PaginaPrueba), pokemons);
+            aux.Navigate(typeof(SelectorPokemon), numJugadores);
+           /* String[] pokemons = new String[2];
+            pokemons[0] = "Gengar";
+            pokemons[1] = "Gengar";
+            aux.Navigate(typeof(PaginaPrueba), pokemons);*/
         }
     }
 }

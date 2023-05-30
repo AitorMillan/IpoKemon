@@ -216,34 +216,6 @@ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                 <EasingColorKeyFrame KeyTime="00:00:00.8000000" Value="#FF6E5D94"/>
                 <EasingColorKeyFrame KeyTime="00:00:01" Value="#FF080314"/>
             </ColorAnimationUsingKeyFrames>
-            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Oreja_izq" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
-                <EasingColorKeyFrame KeyTime="00:00:00.8000000" Value="#FFFC250B"/>
-                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FF6E5D94"/>
-            </ColorAnimationUsingKeyFrames>
-            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Oreja_drch" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
-                <EasingColorKeyFrame KeyTime="00:00:00.8000000" Value="#FFFC250B"/>
-                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FF6E5D94"/>
-            </ColorAnimationUsingKeyFrames>
-            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Brazo_izq" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
-                <EasingColorKeyFrame KeyTime="00:00:00.8000000" Value="#FFFC250B"/>
-                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FF6E5D94"/>
-            </ColorAnimationUsingKeyFrames>
-            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Brazo_drch" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
-                <EasingColorKeyFrame KeyTime="00:00:00.8000000" Value="#FFFC250B"/>
-                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FF6E5D94"/>
-            </ColorAnimationUsingKeyFrames>
-            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Cuerpo_pt" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
-                <EasingColorKeyFrame KeyTime="00:00:00.8000000" Value="#FFFC250B"/>
-                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FF6E5D94"/>
-            </ColorAnimationUsingKeyFrames>
-            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Pierna_izq" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
-                <EasingColorKeyFrame KeyTime="00:00:00.8000000" Value="#FFFC250B"/>
-                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FF6E5D94"/>
-            </ColorAnimationUsingKeyFrames>
-            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Pierna_drch" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
-                <EasingColorKeyFrame KeyTime="00:00:00.8000000" Value="#FFFC250B"/>
-                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FF6E5D94"/>
-            </ColorAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Name="BolaSombra">
             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Animation_BolaSombra_gr" Storyboard.TargetProperty="(UIElement.Visibility)">
@@ -291,7 +263,7 @@ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         </Storyboard>
     </UserControl.Resources>
 
-    <Grid x:Name="Base_gr">
+    <Grid x:Name="Base_gr" RenderTransformOrigin="0.5,0.5">
         <Grid.RowDefinitions>
             <RowDefinition Height="80*"/>
             <RowDefinition Height="80*"/>
@@ -461,11 +433,11 @@ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                 </Image.RenderTransform>
             </Image>
         </Grid>
-        <Grid x:Name="Animation_Zarpa_gr" Grid.Column="1" Margin="820,118,296,404" Grid.Row="2" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
+        <Grid x:Name="Animation_Zarpa_gr" Grid.Column="1" Margin="178,130,179,95" Grid.Row="2" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
             <Grid.RenderTransform>
                 <CompositeTransform/>
             </Grid.RenderTransform>
-            <Image x:Name="Zarpa_img" Source="/Images/Zarpa.png"/>
+            <Image x:Name="Zarpa_img" Source="/Assets/Zarpa.png"/>
         </Grid>
         <Grid x:Name="Animation_BolaSombra_gr" Grid.Column="2" Margin="10,216,10,84" Grid.Row="2" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
             <Grid.RenderTransform>
