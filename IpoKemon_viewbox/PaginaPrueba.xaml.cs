@@ -16,6 +16,8 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.Media.Playback;
+using Windows.Storage;
 using Windows.UI.Xaml.Navigation;
 
 
@@ -30,8 +32,8 @@ namespace IpoKemon_viewbox
     {
 
         const int VIDA_CRITICA = 8;
+        private MediaPlayer mediaPlayer;
 
-        // Constructor sin parámetros requerido para la navegación
         private int numJugadores;
         private int tokenTurno;
         private UserControl Pokemon1;
@@ -43,6 +45,8 @@ namespace IpoKemon_viewbox
         public PaginaPrueba()
         {
             InitializeComponent();
+            
+            
             tokenTurno = 1;
         }
 
@@ -56,12 +60,30 @@ namespace IpoKemon_viewbox
             mostrarGanador("JUGADOR 1", nombrePokemon1);
         }
 
+        private async void iniciarMusica()
+        {
+            // Obtenemos la canción, ajustamos su sonido, la ponemos en bucle y la reproducimos
+            mediaPlayer = new MediaPlayer();
+            StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync("Assets");
+            StorageFile file = await folder.GetFileAsync("cancionCombate.mp3");
+            mediaPlayer.SetFileSource(file);
+            mediaPlayer.Volume = 0.05;
+            mediaPlayer.IsLoopingEnabled = true;
+            mediaPlayer.Play();
+        }
+
+        private void MyFrame_NavigatedFrom(object sender, NavigationEventArgs e)
+        {
+            mediaPlayer.Pause();
+        }
+
         private void pokemon1AtaqueRealizado(object sender, AtaqueEventArgs e)
         {
             // Obtener la cantidad de daño del ataque
             int cantidadDanio = e.CantidadDanio;
             double vida = 100;
             
+            //Le quitamos vida al pokemon 2
             switch (nombrePokemon2)
             {
                 case "Charmander":
@@ -77,6 +99,7 @@ namespace IpoKemon_viewbox
                     vida = ((gengarUC_namespace)Pokemon2).Vida;
                     break;
             }
+            // Si la vida es menor o igual a 0, mostramos el ganador
             if (vida <= 0)
             {
                 mostrarGanador("JUGADOR 1", nombrePokemon1);
@@ -93,7 +116,7 @@ namespace IpoKemon_viewbox
                 tituloVictoria = "LO SENTIMOS, JUGADOR 1";
                 textoVictoria = "Has perdido el combate contra la CPU";
             }
-                
+            mediaPlayer.Pause();
             string nombreFoto = nombrePokemon.ToLower() + "Victoria.png";
             //CÓDIGO PARA FINALIZAR LA PARTIDA
             this.Frame.Navigate(typeof(Combate));
@@ -111,6 +134,8 @@ namespace IpoKemon_viewbox
             // Obtener la cantidad de daño del ataque
             int cantidadDanio = e.CantidadDanio;
             double vida = 100;
+
+            //Le quitamos vida al pokemon 1
             switch (nombrePokemon1)
             {
                 case "Charmander":
@@ -173,7 +198,6 @@ namespace IpoKemon_viewbox
                     switch (nombrePokemon2)
                     {
                         case "Charmander":
-                            //(("cuadroBotones"+nombrePokemon2)CBotones2).accionAleatoria();
                             vida = ((ucCharmander_namespace)Pokemon2).Vida;
                             if (vida <= VIDA_CRITICA)
                                 ((cuadroBotonesCharmander)CBotones2).curar();
@@ -196,9 +220,7 @@ namespace IpoKemon_viewbox
                             break;
                             
                     }
-                    //ContenedorBotones2.Visibility = Visibility.Visible;
                     ContenedorBotones1.Visibility = Visibility.Collapsed;
-                    //ContenedorBotones2.IsEnabled = true;
                     ContenedorBotones1.IsEnabled = false;
                     txtbEsperaJ2.Visibility = Visibility.Visible;
                     txtbEsperaJ1.Visibility = Visibility.Collapsed;
@@ -210,6 +232,8 @@ namespace IpoKemon_viewbox
         }
         private void cargarControlUsuario1(String pokemon1)
         {
+
+            // En función del pokemon elegido, cargamos el control de usuario correspondiente
             if (pokemon1 == "Charmander")
             {
                 Pokemon1 = new ucCharmander_namespace();
@@ -286,14 +310,15 @@ namespace IpoKemon_viewbox
             if (e.Parameter is Tuple<int, string, string> data)
             {
                 // Desempaquetar los datos
+                iniciarMusica();
                 numJugadores = data.Item1;
                 nombrePokemon1 = data.Item2;
                 nombrePokemon2 = data.Item3;
                 cargarControlUsuario1(nombrePokemon1);
                 cargarControlUsuario2(nombrePokemon2);
 
-                // Ahora puedes usar estas variables en tu código
-                // ...
+                //Controlamos que cuando se cambie de pagina se pare la musica
+                this.Frame.Navigated += MyFrame_NavigatedFrom;
             }
 
             personalizarTextos(numJugadores);

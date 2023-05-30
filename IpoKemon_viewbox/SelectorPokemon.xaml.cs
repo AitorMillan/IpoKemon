@@ -168,7 +168,7 @@ namespace IpoKemon_viewbox
             // Comprobar que los dos jugadores han seleccionado un Pokémon
             if (lastSelectedPokemonP1 == null || (numJugadores == 2 && lastSelectedPokemonP2 == null))
             {
-                // Mostrar un mensaje de error (puedes cambiarlo por lo que prefieras)
+                // Mostrar un mensaje de error
                 var dialog = new Windows.UI.Popups.MessageDialog("Ambos jugadores deben seleccionar un Pokemon antes de comenzar la batalla.");
                 await dialog.ShowAsync();
             }
@@ -179,8 +179,7 @@ namespace IpoKemon_viewbox
 
                 string pokemonP2 = lastSelectedPokemonP2.Name.Replace("border", "").Replace("P2", "");
 
-                // Aquí va tu código para cambiar al siguiente frame, pasando los datos como parámetros
-                // Por ejemplo:
+                // Cambiamos al siguiente frame pasando los datos como parámetros
                 Frame.Navigate(typeof(PaginaPrueba), new Tuple<int, string, string>(numJugadores, pokemonP1, pokemonP2));
             }
         }

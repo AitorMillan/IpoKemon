@@ -154,11 +154,9 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-
     <Compile Include="PokeData.xaml.cs">
       <DependentUpon>PokeData.xaml</DependentUpon>
     </Compile>
-
     <Compile Include="PaginaPrueba.xaml.cs">
       <DependentUpon>PaginaPrueba.xaml</DependentUpon>
     </Compile>
@@ -190,6 +188,7 @@
   <ItemGroup>
     <Content Include="Assets\Aron_Pkdx.png" />
     <Content Include="Assets\Bola_sombra.png" />
+    <Content Include="Assets\cancionCombate.mp3" />
     <Content Include="Assets\Charmander_Pkdx.png" />
     <Content Include="Assets\Energia.png" />
     <Content Include="Assets\FondoPokeballs.jpg" />
