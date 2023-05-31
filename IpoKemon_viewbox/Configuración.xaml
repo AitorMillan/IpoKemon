@@ -18,7 +18,9 @@
             <RowDefinition Height="103*"/>
         </Grid.RowDefinitions>
         <TextBlock x:Uid="TransTituloConfiguracion"  TextWrapping="Wrap" Text="CONFIGURACIÓN" FontSize="48" TextAlignment="Center" Grid.ColumnSpan="2"/>
-        <StackPanel Grid.Row="1" Margin="30,0,0,0" Orientation="Vertical">
+
+        <Viewbox Grid.Row="1" VerticalAlignment="Top">
+            <StackPanel Grid.Row="1" Orientation="Vertical">
             <TextBlock x:Uid="TransIdioma" TextWrapping="Wrap" Text="IDIOMA:" Height="72" FontSize="24"/>
             <StackPanel Orientation="Horizontal">
                 <Image Width="54" Source="/Assets/iconoEspaña.png"/>
@@ -29,6 +31,7 @@
                 <HyperlinkButton x:Name="hplIngles" x:Uid="TransIdiomaInglés" Content="Inglés" VerticalAlignment="Stretch" Click="hplIngles_Click"/>
             </StackPanel>
         </StackPanel>
+        </Viewbox>
 
     </Grid>
 </Page>

@@ -120,6 +120,21 @@
   <data name="TransAjustes.Content" xml:space="preserve">
     <value>Ajustes</value>
   </data>
+  <data name="TransAyuda.Content" xml:space="preserve">
+    <value>Ayuda</value>
+  </data>
+  <data name="TransAyudaAron.Text" xml:space="preserve">
+    <value>Aron es un pokemon muy poderoso. Posee dos ataques: golpe cuerpo y ataque cabeza. 
+Al jugar con Aron tendremos que tener en cuenta su energía, pues cada ataque le va restando energía, cuando la barra de energía esté por debajo del 50% se cansará y sus ataques pegarán menos.
+Si queremos evitar que esto ocurra deberemos de restaurar nuestra energía, esto, además de hacer que no estemos cansados, activará el modo enérgico de Aron (lo podremos ver gracias a su ojo, que se tornará de color amarillo), haciendo que su próximo ataque haga el doble de daño.</value>
+  </data>
+  <data name="TransAyudaCharmander.Text" xml:space="preserve">
+    <value>Charmander es un Pokemon muy versátil, su ataque, bola de fuego, tiene un buen daño. Además, puede enfadarse, lo que doblará su daño en el siguiente turno, pero cuidado, si no atacas en el siguiente turno Charmander perderá su estado de enfadado.
+Por otro lado, Charmander tiene un escudo que bloqueará cualquier ataque enemigo. Este escudo solo estará activo hasta el próximo turno, por lo que si no nos atacan y realizamos cualquier otra acción, lo perderemos.</value>
+  </data>
+  <data name="TransAyudaGengar.Text" xml:space="preserve">
+    <value>Su ataque garra umbría hace un daño considerable. Por otro lado, si ves que la batalla se está complicando, siempre puedes optar por retirarte del combate. (Una retirada a tiempo es una victoria)</value>
+  </data>
   <data name="TransBotonAtaqueCabezaAron.Content" xml:space="preserve">
     <value>Ataque cabeza</value>
   </data>
@@ -168,8 +183,15 @@
   <data name="TransInicio.Content" xml:space="preserve">
     <value>Inicio</value>
   </data>
+  <data name="TransIntroduccion.Text" xml:space="preserve">
+    <value>IpoKemon puede resultar confuso para los jugadores nuevos. Es por ello que la guía PokeHelp te enseñará lo básico de cada Pokemon. 
+Haz click en cualquiera de ellos y podrás ver las características de cada uno.</value>
+  </data>
   <data name="TransJugador1.Text" xml:space="preserve">
     <value>Jugador 1</value>
+  </data>
+  <data name="TransPokeAyuda.Source" xml:space="preserve">
+    <value>/Assets/PokeAyuda.png</value>
   </data>
   <data name="TransTituloCombate.Source" xml:space="preserve">
     <value>/Assets/CombatePokemonStyle.png</value>

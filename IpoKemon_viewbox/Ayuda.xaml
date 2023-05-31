@@ -1,0 +1,56 @@
+﻿<Page
+    x:Class="IpoKemon_viewbox.Ayuda"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:IpoKemon_viewbox"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="159*"/>
+            <RowDefinition Height="194*"/>
+            <RowDefinition Height="323*"/>
+            <RowDefinition Height="122*"/>
+            <RowDefinition Height="202*"/>
+        </Grid.RowDefinitions>
+        <Image x:Uid="TransPokeAyuda" Source="/Assets/PokeAyuda.png" Margin="29,0,0,0" Grid.ColumnSpan="3"/>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1" Grid.ColumnSpan="3">
+            <TextBlock x:Uid="TransIntroduccion" Grid.Row="1" TextWrapping="Wrap" FontSize="25" Margin="10,10,10,10" Grid.ColumnSpan="3" Foreground="Black"><Run Text="IpoKemon puede resultar confuso para los jugadores nuevos. Es por ello que la guía PokeHelp te enseñará lo básico de cada Pokemon. "/><LineBreak/><Run Text="Haz click en cualquiera de ellos y podrás ver las características de cada un"/><Run Text="o."/></TextBlock>
+        </ScrollViewer>
+
+        <Button x:Name="btnAron" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="2" Margin="0,0,0,121" Grid.RowSpan="2" Click="btnAron_Click">
+            <Viewbox>
+                <Image Source="/Assets/aronVictoria.png"/>
+            </Viewbox>
+        </Button>
+
+        <Button x:Name="btnCharmander" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="2" Grid.Column="1" Margin="0,0,0,121" Grid.RowSpan="2" Click="btnCharmander_Click">
+            <Image Source="/Assets/charmanderVictoria.png"/>
+        </Button>
+
+        <Button x:Name="btnGengar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="2" Grid.Column="2" Margin="0,0,0,121" Grid.RowSpan="2" Click="btnGengar_Click">
+            <Image Source="/Assets/gengarVictoria.png"/>
+        </Button>
+
+        <Viewbox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center">
+            <TextBlock Grid.Column="1" HorizontalAlignment="Center" Grid.Row="3" TextWrapping="Wrap" Text="Charmander" VerticalAlignment="Top" FontSize="22"/>
+        </Viewbox>
+
+        <Viewbox Grid.Row="3" VerticalAlignment="Top">
+            <TextBlock HorizontalAlignment="Center" Grid.Row="3" TextWrapping="Wrap" Text="Aron" VerticalAlignment="Top" FontSize="48"/>
+        </Viewbox>
+
+        <Viewbox Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <TextBlock Grid.Column="2" HorizontalAlignment="Center" Grid.Row="3" TextWrapping="Wrap" Text="Gengar" VerticalAlignment="Top" FontSize="48"/>
+        </Viewbox>
+    </Grid>
+</Page>

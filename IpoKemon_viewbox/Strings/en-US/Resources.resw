@@ -120,6 +120,21 @@
   <data name="TransAjustes.Content" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="TransAyuda.Content" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="TransAyudaAron.Text" xml:space="preserve">
+    <value>Aron is a very powerful pokemon. It has two attacks: body slam and head attack.
+When playing with Aron we will have to take into account its energy, because each attack will subtract energy, when the energy bar is below 50% it will get tired and its attacks will hit less.
+If we want to avoid this from happening, we must restore our energy, this, in addition to making us not tired, will activate Aron's energetic mode (we will be able to see it thanks to its eye, which will turn yellow), making its next attack do double damage.</value>
+  </data>
+  <data name="TransAyudaCharmander.Text" xml:space="preserve">
+    <value>Charmander is a versatile Pokemon, his attack, fireball, does a good damage. In addition, he can get angry, which will double his damage in the next turn, but be careful, if you do not attack in the next turn Charmander will lose his angry state.
+On the other hand, Charmander has a shield that will block any enemy attack. This shield will only be active until the next turn, so if we are not attacked and we perform any other action, we will lose it.</value>
+  </data>
+  <data name="TransAyudaGengat.Text" xml:space="preserve">
+    <value>Its shadow claw attack does considerable damage. On the other hand, if you see that the battle is getting complicated, you can always choose to withdraw from the fight. (A timely withdrawal is a victory)</value>
+  </data>
   <data name="TransBotonAtaqueCabezaAron.Content" xml:space="preserve">
     <value>Head attack</value>
   </data>
@@ -168,8 +183,15 @@
   <data name="TransInicio.Content" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="TransIntroduccion.Text" xml:space="preserve">
+    <value>IpoKemon can be confusing for new players. That's why the PokeHelp guide will teach you the basics of each Pokemon.
+Click on any of them so you can see the characteristics of each one.</value>
+  </data>
   <data name="TransJugador1.Text" xml:space="preserve">
     <value>Player 1</value>
+  </data>
+  <data name="TransPokeAyuda.Source" xml:space="preserve">
+    <value>/Assets/PokeHelp.png</value>
   </data>
   <data name="TransTituloCombate.Source" xml:space="preserve">
     <value>/Assets/FightPokemonStyle.png</value>

@@ -68,6 +68,8 @@ namespace IpoKemon_viewbox
                 btnInicio.Background = null;
             else if (pestana == "Configuración")
                 btnAjustes.Background = null;
+            else if (pestana == "Ayuda")
+                btnAyuda.Background = null;
         }
 
         private void btnPokedex_Click(object sender, RoutedEventArgs e)
@@ -106,6 +108,14 @@ namespace IpoKemon_viewbox
             Color_Pestana_Anterior(pestanaAnterior);
             btnAjustes.Background = botonPulsado;
             pestanaAnterior = "Configuración";
+        }
+
+        private void btnAyuda_Click(object sender, RoutedEventArgs e)
+        {
+            fmMain.Navigate(typeof(Ayuda));
+            Color_Pestana_Anterior(pestanaAnterior);
+            btnAyuda.Background = botonPulsado;
+            pestanaAnterior = "Ayuda";
         }
     }
 }

@@ -33,6 +33,7 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="30"/>
@@ -42,7 +43,8 @@
                     <SymbolIcon Grid.Row="0" Margin="4" Symbol="Home"/>
                     <SymbolIcon Grid.Row="1" Margin="4" Symbol="Pictures"/>
                     <SymbolIcon Grid.Row="2" Margin="4" Symbol="People"/>
-                    <SymbolIcon Grid.Row="3" Margin="4" Symbol="Camera"/>
+                    <SymbolIcon Grid.Row="3" Margin="4" Symbol="Setting"/>
+                    <SymbolIcon Grid.Row="4" Margin="4" Symbol="Help"/>
 
                     <Button x:Uid="TransInicio" x:Name="btnInicio" Content="Inicio" Height="50"
                     Background="{x:Null}" FontSize="20" FontWeight="Bold"
@@ -57,7 +59,9 @@
                     <Button x:Name="btnAjustes" x:Uid="TransAjustes" Grid.Row="3" Grid.Column="1" Content="Ajustes" Height="50" Background="{x:Null}"
                     FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" BorderBrush="{x:Null}" Width="269" Click="btnAjustes_Click"/>
 
-
+                    <Button x:Name="btnAyuda" x:Uid="TransAyuda" Grid.Row="4" Grid.Column="1" Content="Ayuda" Height="50" Background="{x:Null}"
+                    FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" BorderBrush="{x:Null}" Width="269" Click="btnAyuda_Click"/>
+                
                 </Grid>
             </SplitView.Pane>
         </SplitView>

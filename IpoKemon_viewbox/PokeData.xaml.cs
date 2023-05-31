@@ -66,15 +66,15 @@ namespace IpoKemon_viewbox
             {
                 case 1:
                     pokeNombre = "Aron";
-                    this.Pokemon_img.Source = new BitmapImage(new Uri("ms-appx:///Assets/Aron_Pkdx.png"));
+                    this.Pokemon_img.Source = new BitmapImage(new Uri("ms-appx:///Assets/aronVictoria.png"));
                     break;
                 case 2:
                     pokeNombre = "Charmander";
-                    this.Pokemon_img.Source = new BitmapImage(new Uri("ms-appx:///Assets/Charmander_Pkdx.png"));
+                    this.Pokemon_img.Source = new BitmapImage(new Uri("ms-appx:///Assets/charmanderVictoria.png"));
                     break;
                 case 3:
                     pokeNombre = "Gengar";
-                    this.Pokemon_img.Source = new BitmapImage(new Uri("ms-appx:///Assets/Gengar_Pkdx.png"));
+                    this.Pokemon_img.Source = new BitmapImage(new Uri("ms-appx:///Assets/gengarVictoria.png"));
                     break;
             }
             PokeInfo pokemonElegido = null;

@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="IpoKemon_viewbox.AyudaAron"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:IpoKemon_viewbox"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="71*"/>
+            <ColumnDefinition Width="429*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="91*"/>
+            <RowDefinition Height="409*"/>
+        </Grid.RowDefinitions>
+
+        <Image x:Uid="TransPokeAyuda" Source="/Assets/PokeAyuda.png" Grid.Column="1"/>
+
+        <Button x:Name="btnAtras" VerticalAlignment="Stretch" Background="#FF0E3E50" BorderThickness="0" HorizontalAlignment="Stretch" Margin="5,5,0,0" Click="btnAtras_Click">
+            <Image Source="/Assets/flecha-atras.png"/>
+        </Button>
+
+        <ScrollViewer  Grid.Column="1" Grid.Row="1">
+            <TextBlock x:Uid="TransAyudaAron" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" FontSize="25"><Run Text="Aron es un pokemons muy poderoso. Posee dos ataques: golpe cuerpo y ataque cabeza. "/><LineBreak/><Run Text="Al jugar con Aron tendremos que tener en cuenta su energía, pues cada ataque le va restando energía, cuando la barra de energía esté por debajo del 50% se cansará y sus ataques pegarán menos."/><LineBreak/><Run Text="Si queremos evitar que esto ocurra deberemos de restaurar nuestra energía, esto, además de hacer que no estemos cansados, activará el modo enérgico de Aron (lo podremos ver gracias a su ojo, que se tornará de color amarillo), haciendo que su próximo ataque haga el doble de daño."/></TextBlock>
+        </ScrollViewer>
+     
+
+    </Grid>
+</Page>

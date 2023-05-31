@@ -126,6 +126,18 @@
       <DependentUpon>AronCU_ViewBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="AtaqueEventArgs.cs" />
+    <Compile Include="Ayuda.xaml.cs">
+      <DependentUpon>Ayuda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AyudaAron.xaml.cs">
+      <DependentUpon>AyudaAron.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AyudaCharmander.xaml.cs">
+      <DependentUpon>AyudaCharmander.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AyudaGengar.xaml.cs">
+      <DependentUpon>AyudaGengar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Combate.xaml.cs">
       <DependentUpon>Combate.xaml</DependentUpon>
     </Compile>
@@ -197,6 +209,7 @@
     <Content Include="Assets\combateIA.mp3" />
     <Content Include="Assets\Energia.png" />
     <Content Include="Assets\FightPokemonStyle.png" />
+    <Content Include="Assets\fondoAyuda.png" />
     <Content Include="Assets\FondoPokeballs.jpg" />
     <Content Include="Assets\Fondo_Pokeball.jpg" />
     <Content Include="Assets\Gengar_Pkdx.png" />
@@ -233,13 +246,18 @@
     <Content Include="Assets\llama-03.gif" />
     <Content Include="Assets\PocionEnergia.png" />
     <Content Include="Assets\PocionVida.png" />
+    <Content Include="Assets\PokeAyuda.png" />
     <Content Include="Assets\Pokedex.png" />
     <Content Include="Assets\Pokedex_logo.png" />
+    <Content Include="Assets\PokeHelp.png" />
     <Content Include="Assets\SmallTile.scale-100.png" />
     <Content Include="Assets\SmallTile.scale-125.png" />
     <Content Include="Assets\SmallTile.scale-150.png" />
     <Content Include="Assets\SmallTile.scale-200.png" />
     <Content Include="Assets\SmallTile.scale-400.png" />
+    <Content Include="Assets\sonidoAron.ogg" />
+    <Content Include="Assets\sonidoCharmander.ogg" />
+    <Content Include="Assets\sonidoGengar.ogg" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-125.png" />
     <Content Include="Assets\SplashScreen.scale-150.png" />
@@ -300,6 +318,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AronCU_ViewBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ayuda.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AyudaAron.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AyudaCharmander.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AyudaGengar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

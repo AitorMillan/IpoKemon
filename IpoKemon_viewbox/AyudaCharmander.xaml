@@ -1,0 +1,31 @@
+﻿<Page
+    x:Class="IpoKemon_viewbox.AyudaCharmander"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:IpoKemon_viewbox"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="71*"/>
+            <ColumnDefinition Width="429*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="91*"/>
+            <RowDefinition Height="409*"/>
+        </Grid.RowDefinitions>
+
+        <Image x:Uid="TransPokeAyuda" Source="/Assets/PokeAyuda.png" Grid.Column="1"/>
+
+        <Button x:Name="btnAtras" VerticalAlignment="Stretch" Background="#FF0E3E50" BorderThickness="0" HorizontalAlignment="Stretch" Margin="5,5,0,0" Click="btnAtras_Click">
+            <Image Source="/Assets/flecha-atras.png"/>
+        </Button>
+
+        <ScrollViewer  Grid.Column="1" Grid.Row="1">
+            <TextBlock x:Uid="TransAyudaCharmander" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" FontSize="25"><Run Text="Charmander es un Pokemon muy versátil, su ataque, bola de fuego, tiene un buen daño. Además, puede enfadarse, lo que doblará su daño en el siguiente turno, pero cuidado, si no atacas en el siguiente turno Charmander perderá su estado de enfadado."/><LineBreak/><Run Text="Por otro lado, Charmander tiene un escudo que bloqueará cualquier ataque enemigo. Este escudo solo estará activo hasta el próximo turno, por lo que si no nos atacan y realizamos cualquier otra acción, lo perderemos."/></TextBlock>
+        </ScrollViewer>
+    </Grid>
+</Page>

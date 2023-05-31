@@ -1,0 +1,31 @@
+﻿<Page
+    x:Class="IpoKemon_viewbox.AyudaGengar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:IpoKemon_viewbox"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="71*"/>
+            <ColumnDefinition Width="429*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="91*"/>
+            <RowDefinition Height="409*"/>
+        </Grid.RowDefinitions>
+
+        <Image x:Uid="TransPokeAyuda" Source="/Assets/PokeAyuda.png" Grid.Column="1"/>
+
+        <Button x:Name="btnAtras" VerticalAlignment="Stretch" Background="#FF0E3E50" BorderThickness="0" HorizontalAlignment="Stretch" Margin="5,5,0,0" Click="btnAtras_Click">
+            <Image Source="/Assets/flecha-atras.png"/>
+        </Button>
+
+        <ScrollViewer  Grid.Column="1" Grid.Row="1">
+            <TextBlock x:Uid="TransAyudaGengar" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" FontSize="25"><Run Text="Su ataque garra umbría hace un daño considerable. Por otro lado, si ves que la batalla se está complicando, siempre puedes optar por retirarte del combate."/><Run Text=" (Una retirada a tiempo es una victoria)"/></TextBlock>
+        </ScrollViewer>
+    </Grid>
+</Page>
